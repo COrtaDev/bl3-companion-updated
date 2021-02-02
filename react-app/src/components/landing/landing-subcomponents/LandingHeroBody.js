@@ -10,7 +10,7 @@ const LandingHeroBody = () => {
   return (
     <div className={"container"}>
       <div className={"columns is-flex-direction-row-reverse"}>
-        <div className={"column is-half"}>
+        <div className={"column is-two-fifths"}>
           <LoginSignUpCard />
         </div>
         <div className={"column"}>

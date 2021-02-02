@@ -1,6 +1,7 @@
 import React from 'react';
 //TODO:
 //need to import the TABS & MEDIA subcomponents here
+import LoginSignUpCardTabs from './loginsignupcard-subcomponents/LoginSignUpCardTabs';
 
 const LoginSignUpCard = () => {
   //TODO:
@@ -9,8 +10,7 @@ const LoginSignUpCard = () => {
   return (
     <div className={"card"}>
       <div className={"card-header"}>
-        Tabs incoming...
-        {/* Render the header tabs here... */}
+        <LoginSignUpCardTabs />
       </div>
       <div className={"card-content"}>
         Render the forms here...
@@ -18,7 +18,7 @@ const LoginSignUpCard = () => {
       </div>
 
     </div>
-  )
+  );
 }
 
 export default LoginSignUpCard;

@@ -5,5 +5,10 @@
   background-attachment: fixed;
   background-size:  cover;
   background-color: #999;
-
+}
+.fulltabs {
+  width: 100%;
+}
+.fulltabs li{
+  width: 50%;
 }
