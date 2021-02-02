@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginSignUpCard from './loginsignupcard/LoginSignUpCard';
 //TODO:
 //need to import LoginSignUpCard component
 
@@ -8,7 +9,7 @@ const LandingHeroBody = () => {
   //need to render the LoginSignUpCard component here
   return (
     <div className={"container"}>
-      <div className={"columns"}>
+      <div className={"columns is-flex-direction-row-reverse"}>
         <div className={"column is-half"}>
           <LoginSignUpCard />
         </div>
