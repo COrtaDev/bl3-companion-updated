@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons'
+import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
 const LoginSignUpCardTabs = () => {
   //TODO:
