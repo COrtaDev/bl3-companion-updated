@@ -1,3 +1,8 @@
+/* TODO */
+/* We need to add 2 other classes, one for each of the incomimg backgrounds */
+/* After adding the other 2 backgrounds we need to use javascript to cycle the colors */
+/* The codepen changes color based on mouse position left or right of the center viewport */
+/* We would like to just cycle the values on an interval once the component is mounted into the DOM with useEffect */
 .bg-img {
   background-image: url(https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_StandardEdition_G1-1920x1080-4187bb7d0fa3f472c97bfe855096e06093af815f.jpg) ;
   background-position: center center;
@@ -11,4 +16,10 @@
 }
 .fulltabs li{
   width: 50%;
+}
+.disabledTab {
+  pointer-events: none;
+}
+.enabledTab {
+  pointer-events: all;
 }

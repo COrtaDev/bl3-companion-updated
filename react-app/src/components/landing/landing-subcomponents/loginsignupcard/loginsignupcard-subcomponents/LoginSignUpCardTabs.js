@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 
-const LoginSignUpCardTabs = () => {
-  //TODO:
-  //need to define the TABS for the card so we can toggle between forms...
-  //need to figure out how to control the toggle forms in order to render the correct selection...
+const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
+  const [loginState, setLoginState] = useState('');
+  const [signupState, setSignupState] = useState('');
+  console.log(activeTab)
+  useEffect(() => {
+    if (activeTab === 'login') {
+      setLoginState('is-active disabledTab');
+      setSignupState('');
+    } else if (activeTab === 'signup') {
+      setSignupState('is-active disabledTab');
+      setLoginState('');
+    }
+  }, [loginState, signupState, activeTab]);
+
   return (
     <div className={"tabs fulltabs is-boxed is-medium"}>
       <ul>
-        <li className={"is-active"}>
-          <a>
+        <li className={loginState}>
+          <a onClick={() => makeActive()} href="#">
             <span className={"icon is-small"}><i aria-hidden={true}><FontAwesomeIcon icon={faSignInAlt} /></i></span>
             <span>Login</span>
           </a>
         </li>
-        <li>
-          <a>
+        <li className={signupState}>
+          <a onClick={() => makeActive()} href="#">
             <span className={"icon is-small"}><i aria-hidden={true}><FontAwesomeIcon icon={faUserPlus} /></i></span>
             <span>Sign Up</span>
           </a>

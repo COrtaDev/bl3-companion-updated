@@ -7,7 +7,7 @@ const LandingHeroHead = () => {
     <header className={"navbar"}>
       <div className={"container"}>
         <div className={"navbar-brand"}>
-          <a className={"navbar-item"}>
+          <a className={"navbar-item"} >
             {/* import my logo here if you decide to at some point in the future... */}
             {/* <img></img> */}
           </a>
