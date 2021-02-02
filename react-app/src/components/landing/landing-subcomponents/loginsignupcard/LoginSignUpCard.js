@@ -1,21 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 //TODO:
 //need to import the TABS & MEDIA subcomponents here
 import LoginSignUpCardTabs from './loginsignupcard-subcomponents/LoginSignUpCardTabs';
 import LoginSignUpCardMedia from './loginsignupcard-subcomponents/LoginSignUpCardMedia';
 
 const LoginSignUpCard = () => {
-  //TODO:
-  //need to define a card component here so it can hold the login/signin form
-  //need to render the TABS & MEDIA as subcomponents of the CARD
-  //need to create a function to select which form to display in the following page.
+  const [activeTab, setActiveTab] = useState('login');
+  function toggleCard() {
+    if (activeTab === 'login') {
+      setActiveTab('signup');
+    } else if (activeTab === 'signup') {
+      setActiveTab('login');
+    }
+  }
   return (
     <div className={"card"}>
       <div className={"card-header"}>
-        <LoginSignUpCardTabs />
+        <LoginSignUpCardTabs activeTab={activeTab} makeActive={toggleCard} />
       </div>
       <div className={"card-content"}>
-        <LoginSignUpCardMedia />
+        <LoginSignUpCardMedia activeTab={activeTab} makeActive={toggleCard} />
       </div>
     </div>
   );

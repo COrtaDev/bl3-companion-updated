@@ -1,24 +1,35 @@
 import React from 'react';
-//TODO:
-//need to import the LOGIN & SIGNUP forms
 import CardLoginForm from './CardLoginForm';
 import CardSignUpForm from './CardSignUpForm';
 
-const LoginSignUpCardMedia = () => {
-  //TODO:
-  //need define the MEDIA component here...
-  //needs to render the LOGIN or SIGNUP form depending on the TAB selected...
-  return (
-    <article className={"media"}>
-      <div className={"media-content"}>
-        <div className={"content"}>
-          {/* Welcome back traveler! Please login to see your loot! */}
+const LoginSignUpCardMedia = ({ activeTab }) => {
+  if (activeTab === 'login') {
+    return (
+      <article className={"media"}>
+        <div className={"media-content"}>
+          <div className={"content has-text-centered"}>
+            <h6>Welcome back traveler!</h6>
+            Please login to see your loot drops!<br></br>
+            <strong>OR</strong><br></br>
+            You can just use the Demo User to check things out first...
+          </div>
+          <CardLoginForm />
         </div>
-        <CardLoginForm />
-        {/* <CardSignUpForm /> */}
-      </div>
-    </article>
-  );
+      </article>
+    );
+  } else if (activeTab === 'signup') {
+    return (
+      <article className={"media"}>
+        <div className={"media-content"}>
+          <div className={"content has-text-centered"}>
+            <h6>Sign up to track you loot drops in the app!</h6>
+          </div>
+          <CardSignUpForm />
+        </div>
+      </article>
+    );
+  }
+
 }
 
 export default LoginSignUpCardMedia;
