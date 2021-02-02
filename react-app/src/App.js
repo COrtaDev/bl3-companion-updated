@@ -8,6 +8,7 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./services/auth";
 import '../src/styles/css/mystyles.css';
+import LandingHeroBanner from "./components/landing/LandingHeroBanner";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -29,9 +30,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar setAuthenticated={setAuthenticated} />
+      {/* <NavBar setAuthenticated={setAuthenticated} /> */}
       <Switch>
-        <Route path="/login" exact={true}>
+        <Route path={"/login"} exact={true}>
+          <LandingHeroBanner
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
+        </Route>
+        {/* <Route path="/login" exact={true}>
           <LoginForm
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
@@ -39,7 +46,7 @@ function App() {
         </Route>
         <Route path="/sign-up" exact={true}>
           <SignUpForm authenticated={authenticated} setAuthenticated={setAuthenticated} />
-        </Route>
+        </Route> */}
         <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
           <UsersList />
         </ProtectedRoute>
