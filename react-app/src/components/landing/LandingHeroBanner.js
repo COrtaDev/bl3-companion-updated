@@ -1,20 +1,9 @@
-import React, { useEffect } from 'react';
-// import { LandingHeroHead, LandingHeroBody, LandingHeroFoot } from './landing-subcomponents/';
+import React from 'react';
 import LandingHeroHead from './landing-subcomponents/LandingHeroHead';
 import LandingHeroBody from './landing-subcomponents/LandingHeroBody';
 import LandingHeroFoot from './landing-subcomponents/LandingHeroFoot';
-// import '../../styles/css/landingcss.css';
-//TODO
-//import LandingHeroHead, LandingHeroBody, & LandingHeroFoot components
 
 const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
-  // useEffect(() => {
-
-  // });
-  //TODO
-  // figure out how to get the codepen BL3 wallpaper as backgroun img for Hero Banner
-  // needs to be full height and include a header & footer
-  // render the LandingHeroHead, LandingHeroBody, & LandingHeroFoot components
   return (
     <>
       <img id="imgCenter" src="https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_StandardEdition_G1-1920x1080-4187bb7d0fa3f472c97bfe855096e06093af815f.jpg" />
@@ -25,7 +14,10 @@ const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
           <LandingHeroHead />
         </div>
         <div className={"hero-body"}>
-          <LandingHeroBody />
+          <LandingHeroBody
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
         </div>
         <div className={"hero-foot"}>
           <LandingHeroFoot />
