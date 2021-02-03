@@ -2,7 +2,7 @@ import React from 'react';
 import CardLoginForm from './CardLoginForm';
 import CardSignUpForm from './CardSignUpForm';
 
-const LoginSignUpCardMedia = ({ activeTab }) => {
+const LoginSignUpCardMedia = ({ activeTab, authenticated, setAuthenticated }) => {
   if (activeTab === 'login') {
     return (
       <article className={"media"}>
@@ -13,7 +13,10 @@ const LoginSignUpCardMedia = ({ activeTab }) => {
             <strong>OR</strong><br></br>
             You can just use the Demo User to check things out first...
           </div>
-          <CardLoginForm />
+          <CardLoginForm
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
         </div>
       </article>
     );

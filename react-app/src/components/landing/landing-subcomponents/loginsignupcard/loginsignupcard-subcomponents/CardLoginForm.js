@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
+import { login } from '../../../../../services/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
 
-const CardLoginForm = () => {
+const CardLoginForm = ({ authenticated, setAuthenticated }) => {
+  const [errors, setErrors] = useState([]);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   //TODO:
   //need to define the Login Form here, use the LoginForm in 'auth/' as reference
+  const onLogin = async (e) => {
+    e.preventDefault();
+    const user = await login(email, password);
+    if (!user.errors) {
+      setAuthenticated(true);
+    } else {
+      setErrors(user.errors);
+    }
+  };
+
+  const updateEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const updatePassword = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const setDemoUser = () => {
+    setEmail('demo@aa.io');
+    setPassword('password');
+  };
+
+  if (authenticated) {
+    return <Redirect to="/" />;
+  };
   return (
-    <form>
+    <form onSubmit={onLogin}>
       <div className={"field"}>
+        <p className={"help is-danger"}>
+          {errors.map((error) => (
+            <div>{error}</div>
+          ))}
+        </p>
         <p className={"control has-icons-left"}>
-          <input className={"input"} type={"email"} placeholder={"Email"} />
+          <input
+            className={"input"}
+            type={"email"}
+            placeholder={"Email"}
+            value={email}
+            onChange={updateEmail}
+          />
           <span className={"icon is-small is-left"}>
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
@@ -17,7 +59,13 @@ const CardLoginForm = () => {
       </div>
       <div className={"field"}>
         <p className={"control has-icons-left"}>
-          <input className={"input"} type={"password"} placeholder={"Password"} />
+          <input
+            className={"input"}
+            type={"password"}
+            placeholder={"Password"}
+            value={password}
+            onChange={updatePassword}
+          />
           <span className={"icon is-small is-left"}>
             <FontAwesomeIcon icon={faLock} />
           </span>
@@ -25,10 +73,14 @@ const CardLoginForm = () => {
       </div>
       <div className={"field is-grouped"}>
         <div className={"control"}>
-          <button className={"button is-primary"}>Login With Demo User</button>
+          <button
+            className={"button is-primary"}
+            // type={"submit"}
+            onClick={setDemoUser}
+          >Login With Demo User</button>
         </div>
         <div className={"control"}>
-          <button className={"button is-link"}>Login</button>
+          <button className={"button is-link"} type={"submit"}>Login</button>
         </div>
       </div>
     </form>
