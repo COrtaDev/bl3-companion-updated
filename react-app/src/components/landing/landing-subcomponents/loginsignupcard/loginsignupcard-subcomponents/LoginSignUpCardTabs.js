@@ -5,7 +5,7 @@ import { faSignInAlt, faUserPlus } from '@fortawesome/free-solid-svg-icons';
 const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
   const [loginState, setLoginState] = useState('');
   const [signupState, setSignupState] = useState('');
-  console.log(activeTab)
+
   useEffect(() => {
     if (activeTab === 'login') {
       setLoginState('is-active disabledTab');

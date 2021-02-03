@@ -4,13 +4,11 @@ import LoginSignUpCardMedia from './loginsignupcard-subcomponents/LoginSignUpCar
 
 const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
   const [activeTab, setActiveTab] = useState('login');
+
   function toggleCard() {
-    if (activeTab === 'login') {
-      setActiveTab('signup');
-    } else if (activeTab === 'signup') {
-      setActiveTab('login');
-    }
-  }
+    activeTab === 'login' ? setActiveTab('signup') : setActiveTab('login');
+  };
+
   return (
     <div className={"card"}>
       <div className={"card-header"}>
@@ -19,7 +17,7 @@ const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
           makeActive={toggleCard}
         />
       </div>
-      <div className={"card-content"}>
+      <div className={"card-content is-mobile"}>
         <LoginSignUpCardMedia
           activeTab={activeTab}
           // makeActive={toggleCard}

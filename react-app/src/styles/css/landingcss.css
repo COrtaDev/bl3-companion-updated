@@ -1,53 +1,20 @@
-/* TODO */
-/* We need to add 2 other classes, one for each of the incomimg backgrounds */
-/* After adding the other 2 backgrounds we need to use javascript to cycle the colors */
-/* The codepen changes color based on mouse position left or right of the center viewport */
-/* We would like to just cycle the values on an interval once the component is mounted into the DOM with useEffect */
-/* .bg-img1 {
-  background-image: url(https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_StandardEdition_G1-1920x1080-4187bb7d0fa3f472c97bfe855096e06093af815f.jpg) ;
-  background-position: center center;
-  background-repeat:  no-repeat;
-  background-attachment: fixed;
-  background-size:  cover; */
-  /* opacity: 0.5; */
-  /* background-color: #999; */
-  /* z-index: 1;
+/**These styles are for the login/signup card*/
+.fulltabs {
+  width: 100%;
 }
-.bg-img2 {
-  background-image: url(https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_DeluxeEdition_G1-1920x1080-7689add5f0c19784dc6429bd386b7ce813067b0f.jpg) ;
-  background-position: center center;
-  background-repeat:  no-repeat;
-  background-attachment: fixed;
-  background-size:  cover; */
-  /* background-color: transparent; */
-  /* visibility: hidden; */
-  /* opacity: 0.5; */
-  /* z-index: -2; */
-/* } */
-@keyframes slidein {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: .35;
-  }
+.fulltabs li{
+  width: 50%;
 }
-@keyframes hideYellow {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: .4;
-  }
+.disabledTab {
+  pointer-events: none;
 }
-@keyframes hideRed {
-  from {
-    opacity: .25;
-  }
-  to {
-    opacity: 1;
-  }
+.enabledTab {
+  pointer-events: all;
 }
+.navBarBgColor {
+  background-color: #d0d1cd85;
+}
+/* *These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
   margin: 0;
   height: 100%;
@@ -80,15 +47,28 @@ img#imgRed {
   /* animation: 10s ease-in-out infinite alternate hideRight; */
   /* visibility: hidden; */
 }
-.fulltabs {
-  width: 100%;
+
+@keyframes slidein {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .35;
+  }
 }
-.fulltabs li{
-  width: 50%;
+@keyframes hideYellow {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: .4;
+  }
 }
-.disabledTab {
-  pointer-events: none;
-}
-.enabledTab {
-  pointer-events: all;
+@keyframes hideRed {
+  from {
+    opacity: .25;
+  }
+  to {
+    opacity: 1;
+  }
 }
