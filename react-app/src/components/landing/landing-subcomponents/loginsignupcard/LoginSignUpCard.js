@@ -10,7 +10,7 @@ const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
   };
 
   return (
-    <div className={"card"}>
+    <div className={"card "}>
       <div className={"card-header"}>
         <LoginSignUpCardTabs
           activeTab={activeTab}
