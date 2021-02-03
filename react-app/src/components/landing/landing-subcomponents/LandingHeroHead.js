@@ -9,18 +9,23 @@ const LandingHeroHead = () => {
   //need to define the hero head here
   return (
     <header className={"navbar"}>
-      <div className={"container is-fullhd"}>
+      <div className={"container is-fullhd is-fluid"}>
         <div className={"navbar-brand"}>
-          <a className={"navbar-item"} >
-            <img src={""} alt={"Logo"} />
-            {/* import my logo here if you decide to at some point in the future... */}
-            {/* <img></img> */}
-          </a>
+          <span className={"navbar-item"} >
+            <div className={"box p-2"}>
+              <nav className={"level"}>
+                <img className={"mx-1"} src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"} alt={"Logo"} />
+                <p>Boderlands 3 Companion App</p>
+              </nav>
+            </div>
+          </span>
           <span className={"navbar-burger"} data-target={"navbarMenuHero"}>
+            {/* We need this for mobile... */}
             <span></span>
-            {/* You have the option to add more <spans> elements here */}
-            {/* depending on whether or not you want more navbar items in the header... */}
-            {/* add another <span></span> for each item you wish to add... */}
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
           </span>
         </div>
         <div id={"navbarMenuHero"} className={"navbar-menu"}>
