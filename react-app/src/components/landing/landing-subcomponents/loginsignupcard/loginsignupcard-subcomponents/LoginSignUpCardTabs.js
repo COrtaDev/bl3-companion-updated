@@ -20,14 +20,18 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
     <div className={"tabs fulltabs is-boxed is-medium"}>
       <ul>
         <li className={loginState}>
-          <a onClick={() => makeActive()} href="#">
-            <span className={"icon is-small"}><i aria-hidden={true}><FontAwesomeIcon icon={faSignInAlt} /></i></span>
+          <a onClick={() => makeActive()} href={"#/"}>
+            <span className={"icon is-small"}>
+              <i aria-hidden={true}>
+                <FontAwesomeIcon icon={faSignInAlt} /></i></span>
             <span>Login</span>
           </a>
         </li>
         <li className={signupState}>
-          <a onClick={() => makeActive()} href="#">
-            <span className={"icon is-small"}><i aria-hidden={true}><FontAwesomeIcon icon={faUserPlus} /></i></span>
+          <a onClick={() => makeActive()} href={"#/"}>
+            <span className={"icon is-small"}>
+              <i aria-hidden={true}>
+                <FontAwesomeIcon icon={faUserPlus} /></i></span>
             <span>Sign Up</span>
           </a>
         </li>

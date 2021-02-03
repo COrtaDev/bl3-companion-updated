@@ -11,10 +11,17 @@
 .enabledTab {
   pointer-events: all;
 }
-.navBarBgColor {
-  background-color: #d0d1cd85;
+
+/**Additional stylings for footer of landing hero navbar*/
+.heroNavbar {
+  background-color: #d0d1cd52;
 }
-/* *These styles are for the custom BL3 wallpaper which cycles colors */
+/**Additional stylings for footer of landing hero footer*/
+.heroFooter {
+  background-color: #d0d1cd52;
+}
+
+/**These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
   margin: 0;
   height: 100%;
@@ -22,9 +29,7 @@ img#imgCenter {
   object-fit: cover;
   position: absolute;
   z-index: -2;
-  /* visibility: hidden; */
   animation: 3s ease-in-out 3s infinite alternate slidein;
-  /* opacity: 0.25; */
 }
 img#imgYellow {
   margin: 0;
@@ -33,7 +38,6 @@ img#imgYellow {
   object-fit: cover;
   position: absolute;
   z-index: -3;
-  /* visibility: hidden; */
   animation: 16s ease-in-out infinite alternate hideYellow;
 }
 img#imgRed {
@@ -44,8 +48,6 @@ img#imgRed {
   position: absolute;
   z-index: -3;
   animation: 16s ease-in-out infinite alternate hideRed;
-  /* animation: 10s ease-in-out infinite alternate hideRight; */
-  /* visibility: hidden; */
 }
 
 @keyframes slidein {

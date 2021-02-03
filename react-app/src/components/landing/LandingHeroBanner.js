@@ -2,13 +2,28 @@ import React from 'react';
 import LandingHeroHead from './landing-subcomponents/LandingHeroHead';
 import LandingHeroBody from './landing-subcomponents/LandingHeroBody';
 import LandingHeroFoot from './landing-subcomponents/LandingHeroFoot';
+import imgUrls from './landing-resouce-paths/landing-resources';
 
 const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
+  const [imgCenterUrl, imageYellowUrl, imgRedUrl] = imgUrls;
+  // console.log(imgCenterUrl, imageYellowUrl, imgRedUrl)
   return (
     <>
-      <img id="imgCenter" src="https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_StandardEdition_G1-1920x1080-4187bb7d0fa3f472c97bfe855096e06093af815f.jpg" />
-      <img id="imgYellow" src="https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_DeluxeEdition_G1-1920x1080-7689add5f0c19784dc6429bd386b7ce813067b0f.jpg" />
-      <img id="imgRed" src="https://cdn2.unrealengine.com/Diesel%2Fproduct%2Fcatnip%2FOak_SuperDeluxeEdition_G1-1920x1080-4b5f1447fe534a79cb13c5064541772b203de525.jpg" />
+      <img
+        id={"imgCenter"}
+        src={imgCenterUrl}
+        alt={"Borderlands 3 Background Assest"}
+      />
+      <img
+        id={"imgYellow"}
+        src={imageYellowUrl}
+        alt={"Borderlands 3 Background Assest"}
+      />
+      <img
+        id={"imgRed"}
+        src={imgRedUrl}
+        alt={"Borderlands 3 Background Assest"}
+      />
       <section className={"hero is-fullheight"}>
         <div className={"hero-head"}>
           <LandingHeroHead />
