@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-//TODO:
-//need to import the TABS & MEDIA subcomponents here
 import LoginSignUpCardTabs from './loginsignupcard-subcomponents/LoginSignUpCardTabs';
 import LoginSignUpCardMedia from './loginsignupcard-subcomponents/LoginSignUpCardMedia';
 

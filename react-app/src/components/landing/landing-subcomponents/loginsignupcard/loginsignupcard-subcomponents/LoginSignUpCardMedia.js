@@ -27,7 +27,10 @@ const LoginSignUpCardMedia = ({ activeTab, authenticated, setAuthenticated }) =>
           <div className={"content has-text-centered"}>
             <h6>Sign up to track you loot drops in the app!</h6>
           </div>
-          <CardSignUpForm />
+          <CardSignUpForm
+            authenticated={authenticated}
+            setAuthenticated={setAuthenticated}
+          />
         </div>
       </article>
     );

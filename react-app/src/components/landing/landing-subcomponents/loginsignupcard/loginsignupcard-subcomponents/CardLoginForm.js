@@ -8,8 +8,7 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  //TODO:
-  //need to define the Login Form here, use the LoginForm in 'auth/' as reference
+
   const onLogin = async (e) => {
     e.preventDefault();
     const user = await login(email, password);
