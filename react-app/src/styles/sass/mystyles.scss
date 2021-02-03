@@ -10,22 +10,17 @@
 $Teko: "Teko", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 $Coda: "Coda", cursive;
-// $purple: #8A4D76;
-// $pink: #FA7C91;
-// $brown: #757763;
-// $beige-light: #D0D1CD;
-// $beige-lighter: #EFF0EB;
+//!I would be into defining my own color scheme...
+//!BUT it will take hella time and I want to do other things now...
+// $white-ter:    hsl(0, 5%, 44%);
+// $white-bis:    hsl(0, 47%, 81%);
+// $white:        hsl(230, 38%, 68%);
 
 // Update Bulma's global variables
 $family-sans-serif: $Coda;
-// $body-size: 16px !default;
 $body-font-size: 1.2rem !default;
-// $grey-dark: $brown;
-// $grey-light: $beige-light;
-// $primary: $purple;
-// $link: $pink;
-// $widescreen-enabled: false;
-// $fullhd-enabled: false;
+$tablet: 850px;
+// $scheme-main: rbga(#12222c);
 
 // Update some of Bulma's component variables
 // $body-background-color: $beige-lighter;

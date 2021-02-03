@@ -4,15 +4,15 @@ import LoginSignUpCard from './loginsignupcard/LoginSignUpCard';
 const LandingHeroBody = ({ authenticated, setAuthenticated }) => {
   return (
     <div className={"container"}>
-      <div className={"columns is-flex-direction-row-reverse"}>
-        <div className={"column is-two-fifths"}>
+      <div className={"columns is-mobile is-flex-direction-row-reverse"}>
+        <div className={"column is-two-fifths-desktop is-four-fifths-mobile"}>
           <LoginSignUpCard
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
           />
         </div>
-        <div className={"column"}>
           {/* This is AUTO and should grow/shrink accordingly... */}
+        <div className={"column is-narrow-mobile"}>
         </div>
       </div>
     </div>
