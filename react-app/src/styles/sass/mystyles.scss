@@ -3,8 +3,13 @@
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 
 // Set your brand colors
+$Teko: "Teko", sans-serif;
+$Montserrat: "Montserrat", sans-serif;
+$Coda: "Coda", cursive;
 // $purple: #8A4D76;
 // $pink: #FA7C91;
 // $brown: #757763;
@@ -12,7 +17,9 @@
 // $beige-lighter: #EFF0EB;
 
 // Update Bulma's global variables
-$family-sans-serif: "Teko", sans-serif;
+$family-sans-serif: $Coda;
+// $body-size: 16px !default;
+$body-font-size: 1.2rem !default;
 // $grey-dark: $brown;
 // $grey-light: $beige-light;
 // $primary: $purple;

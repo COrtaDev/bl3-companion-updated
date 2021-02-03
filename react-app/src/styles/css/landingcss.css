@@ -20,7 +20,10 @@
 .heroFooter {
   background-color: #d0d1cd52;
 }
-
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+strong {
+  font-family: "Teko", sans-serif;
+} */
 /**These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
   margin: 0;
