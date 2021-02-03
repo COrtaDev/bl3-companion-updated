@@ -13,12 +13,16 @@ const LandingHeroHead = () => {
 
   return (
     <header className={"navbar"}>
-      <div className={"container is-fullhd is-fluid navBarBgColor"}>
+      <div className={"container is-fullhd is-fluid heroNavbar"}>
         <div className={"navbar-brand"}>
           <span className={"navbar-item"} >
             <div className={"box p-2"}>
               <nav className={"level"}>
-                <img className={"mx-1"} src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"} alt={"Logo"} />
+                <img
+                  className={"mx-1"}
+                  src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"}
+                  alt={"Logo"}
+                />
                 <p>Borderlands 3 Companion App</p>
               </nav>
             </div>
@@ -40,6 +44,7 @@ const LandingHeroHead = () => {
                 className={"button is-link is-inverted"}
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 <span className={"icon"}>
                   <FontAwesomeIcon icon={faFolderOpen} />
@@ -52,6 +57,7 @@ const LandingHeroHead = () => {
                 className={"button is-link is-inverted"}
                 href={"https://github.com/COrtaDev"}
                 target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 <span className={"icon"}>
                   <FontAwesomeIcon icon={faGithubAlt} />
@@ -64,6 +70,7 @@ const LandingHeroHead = () => {
                 className={"button is-link is-inverted"}
                 href={"https://www.linkedin.com/in/conrad-orta-16598014/"}
                 target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 <span className={"icon"}>
                   <FontAwesomeIcon icon={faLinkedin} />
@@ -76,6 +83,7 @@ const LandingHeroHead = () => {
                 className={"button is-link is-inverted"}
                 href={"https://twitter.com/CortaDev"}
                 target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 <span className={"icon"}>
                   <FontAwesomeIcon icon={faTwitter} />
@@ -88,6 +96,7 @@ const LandingHeroHead = () => {
                 className={"button is-link is-inverted"}
                 href={"https://angel.co/u/conrad-orta"}
                 target={"_blank"}
+                rel={"noopener noreferrer"}
               >
                 <span className={"icon"}>
                   <FontAwesomeIcon icon={faAngellist} />
