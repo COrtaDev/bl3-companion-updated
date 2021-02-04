@@ -1,6 +1,7 @@
 from .db import db
 from .loot_drop import Loot_Drop
 from .user import User
+from sqlalchemy.sql import func
 
 
 class Comment(db.Model):
@@ -8,14 +9,14 @@ class Comment(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     comment = db.Column(db.String(144), nullable=False)
-    loot_drop_id = db.Column(
-        db.Integer, db.ForeignKey('loot_drops.id'), nullable=False)
+    loot_drop_id = db.Column(db.Integer, db.ForeignKey(
+        'loot_drops.id'), nullable=False)
     commentor_id = db.Column(
         db.Integer, db.ForeignKey('users.id'), nullable=False)
-    created_at = db.Column(
-        db.DateTime(timezone=True), server_default=func.now())
-    update_at = db.Column(
-        db.DateTime(timezone=True), server_onupdate=func.now())
+    created_at = db.Column(db.DateTime(timezone=True),
+                           server_default=func.now())
+    update_at = db.Column(db.DateTime(timezone=True),
+                          server_onupdate=func.now())
 
     # *Joins comments.commenter_id to users.id:
     # Allows us look at the user that the comment was made by...
