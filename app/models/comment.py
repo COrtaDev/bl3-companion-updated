@@ -1,6 +1,6 @@
 from .db import db
-from .loot_drop import Loot_Drop
-from .user import User
+# from .user import User
+# from .loot_drop import Loot_Drop
 from sqlalchemy.sql import func
 
 
