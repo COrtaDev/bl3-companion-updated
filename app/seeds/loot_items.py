@@ -1,13 +1,17 @@
 import json
 from app.models import db, Loot_Item
 
+path = '/home/conrad/Documents/bl3Rework/bl3-companion-updated/app/seeds/loot_data/loot.txt'
+
 
 def seed_loot_items():
-    f = open("./loot_data/loot.txt", "r")
+    f = open(path, "r")
     loot_data = f.read()
     loot_list = json.loads(loot_data)
-    loot_seeds = [Loot(item_name=loot['name'], type=loot['type'],
-                       elemental_types=loot['possibleElements'],)
+    loot_seeds = [Loot_Item(item_name=loot['name'],
+                            type=loot['type'],
+                            elemental_types=loot['possibleElements'],
+                            manufacturers=loot['possibleManufacturers'])
                   for loot in loot_list]
     db.session.add_all(loot_seeds)
     db.session.commit()

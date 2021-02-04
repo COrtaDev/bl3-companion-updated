@@ -1,7 +1,7 @@
 from .db import db
-from .loot_item import Loot_Item
-from .user import User
-from .comment import Comment
+# from .loot_item import Loot_Item
+# from .user import User
+# from .comment import Comment
 from sqlalchemy.sql import func
 
 

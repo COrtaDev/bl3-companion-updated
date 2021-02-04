@@ -1,5 +1,5 @@
 from .db import db
-from .user import User
+# from .user import User
 from sqlalchemy.sql import func
 
 

@@ -11,7 +11,7 @@ seed_commands = AppGroup('seed')
 
 @seed_commands.command('all')
 def seed():
-    seed_users()
+    # seed_users()
     seed_loot_items()
     # Add other seed functions here
 
