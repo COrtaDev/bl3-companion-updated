@@ -1,10 +1,12 @@
 import json
 from app.models import db, Loot_Item
 
-path = '/home/conrad/Documents/bl3Rework/bl3-companion-updated/app/seeds/loot_data/loot.txt'
+path = '/home/conrad/Documents/bl3Rework/bl3-companion-updated/app/seeds/'\
+    'loot_data/loot.txt'
 
 
 def seed_loot_items():
+    # This will need to be changed when we deploy.
     f = open(path, "r")
     loot_data = f.read()
     loot_list = json.loads(loot_data)
