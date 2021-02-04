@@ -24,7 +24,7 @@ class Comment(db.Model):
 
     # *Joins comments.loot_drop_id to loot_drops.id:
     # Allows us to look at the loot_drop that was commented on...
-    commented_loot = db.relationship('Loot_Drop' foreign_keys=[loot_drop_id])
+    commented_loot = db.relationship('Loot_Drop', foreign_keys=[loot_drop_id])
 
     def to_dict(self):
         return {
