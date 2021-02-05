@@ -1,3 +1,8 @@
+/*TODO:
+/*?For the sake of encapsulation and creating proper cascading,
+/*?I think we should break these section out into their own
+/*?files so they can be imported where they are needed...
+*/
 /**These styles are for the login/signup card*/
 .fulltabs {
   width: 100%;
@@ -11,7 +16,6 @@
 .enabledTab {
   pointer-events: all;
 }
-
 /**Additional stylings for footer of landing hero navbar*/
 .heroNavbar {
   background-color: #d0d1cd52;
@@ -20,10 +24,6 @@
 .heroFooter {
   background-color: #d0d1cd52;
 }
-/* @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-strong {
-  font-family: "Teko", sans-serif;
-} */
 /**These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
   margin: 0;
