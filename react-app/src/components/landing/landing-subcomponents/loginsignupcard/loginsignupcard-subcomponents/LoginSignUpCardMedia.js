@@ -8,9 +8,9 @@ const LoginSignUpCardMedia = ({ activeTab, authenticated, setAuthenticated }) =>
       <article className={"media"}>
         <div className={"media-content"}>
           <div className={"content has-text-centered"}>
-            <h6>Welcome back traveler!</h6>
+            <h6 >Welcome back traveler!</h6>
             Please login to see your loot drops!<br></br>
-            <strong>OR</strong><br></br>
+            <strong >OR</strong><br></br>
             You can just use the Demo User to check things out first...
           </div>
           <CardLoginForm
@@ -25,7 +25,7 @@ const LoginSignUpCardMedia = ({ activeTab, authenticated, setAuthenticated }) =>
       <article className={"media"}>
         <div className={"media-content"}>
           <div className={"content has-text-centered"}>
-            <h6>Sign up to track you loot drops in the app!</h6>
+            <h6 >Sign up to track you loot drops in the app!</h6>
           </div>
           <CardSignUpForm
             authenticated={authenticated}

@@ -41,7 +41,7 @@ const LandingHeroHead = () => {
           <div className={"navbar-end"}>
             <span className={"navbar-item"}>
               <a
-                className={"button is-link is-inverted"}
+                className={"button "}
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -54,7 +54,7 @@ const LandingHeroHead = () => {
             </span>
             <span className={"navbar-item"}>
               <a
-                className={"button is-link is-inverted"}
+                className={"button "}
                 href={"https://github.com/COrtaDev"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -67,7 +67,7 @@ const LandingHeroHead = () => {
             </span>
             <span className={"navbar-item"}>
               <a
-                className={"button is-link is-inverted"}
+                className={"button "}
                 href={"https://www.linkedin.com/in/conrad-orta-16598014/"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -80,7 +80,7 @@ const LandingHeroHead = () => {
             </span>
             <span className={"navbar-item"}>
               <a
-                className={"button is-link is-inverted"}
+                className={"button "}
                 href={"https://twitter.com/CortaDev"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -93,7 +93,7 @@ const LandingHeroHead = () => {
             </span>
             <span className={"navbar-item"}>
               <a
-                className={"button is-link is-inverted"}
+                className={"button "}
                 href={"https://angel.co/u/conrad-orta"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}

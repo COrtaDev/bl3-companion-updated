@@ -79,7 +79,7 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
           >Login With Demo User</button>
         </div>
         <div className={"control"}>
-          <button className={"button is-link"} type={"submit"}>Login</button>
+          <button className={"button is-link has-text-black"} type={"submit"}>Login</button>
         </div>
       </div>
     </form>
