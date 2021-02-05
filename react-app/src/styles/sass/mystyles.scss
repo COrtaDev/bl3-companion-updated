@@ -39,11 +39,38 @@
 }
 
 @function findColorInvert($color){
+  // @debug colorLuminance($color);
   @if (colorLuminance($color) > 0.55){
     @return rgba(#000, 0.7);
   }@else{
     @return #fff;
   }
+}
+
+@function findLightColor($color){
+  @if type-of($color) == 'color'{
+    $l: 96%;
+    @if lightness($color) > 96%{
+      $l: lightness($color);
+    }
+    @return change-color($color, $lightness: $l);
+  }
+  @return $background;
+}
+
+@function findDarkColor($color){
+  @debug $color;
+  @if type-of($color) == 'color'{
+    $base-l: 50%;
+    $luminance: colorLuminance($color);
+    @debug $luminance;
+    $luminance-delta: (0.53 - $luminance);
+    @debug $luminance-delta;
+    $target-l: round($base-l + ($luminance-delta * 53));
+    @debug $target-l;
+    @return change-color($color, $lightness: max($base-l, $target-l));
+  }
+  @return $text-strong;
 }
 // Set your brand colors
 $Teko: "Teko", sans-serif;
@@ -64,7 +91,7 @@ $grey-lightest: hsl(0, 0%, 93%);
 $Gold: rgb(246, 238, 20 );
 $Burgundy: rgb(102, 2, 0 );
 $Merlot:rgb(86, 4, 94);
-$TheJuice: rgb(238, 150, 40 );
+$TheJuice: rgb(238, 150, 40);
 $Smoke: whitesmoke;
 $Smoke-dark: rgb(160, 160, 160);
 $white: $Smoke;
@@ -93,19 +120,22 @@ $border-light-hover: $grey;
 
 // Text colors
 $text: $Smoke;
+// $text-invert: findColorInvert($text);
 $text-invert: findColorInvert($text);
+// @debug findColorInvert($text);
 $text-light: $Smoke;
 $text-strong: $Smoke;
 
 // Link colors
 $link: $TheJuice;
-// $link-invert: invert($link);
-$link-invert: findColorInvert($link);
+$link-invert: rgb( 17, 105, 215 );
+// @debug findColorInvert($link);
 $link-light: findLightColor($link);
 $link-dark: findDarkColor($link);
 $link-visited: $Merlot;
 
-$link-hover: $TheJuice;
+$link-hover: change-color($link, $lightness: 50%);
+@debug change-color($link, $lightness: 50%);
 $link-hover-border: $Gold;
 
 $link-focus: $Smoke;
@@ -116,6 +146,7 @@ $link-focus-border: $Gold;
 
 // Update some of Bulma's component variables
 $body-font-size: 1.2rem !default;
+// $button-hover-color: findDarkColor($color);
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
 // $input-border-color: transparent;
