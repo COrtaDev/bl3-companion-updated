@@ -12,20 +12,16 @@ const LandingHeroHead = () => {
   };
 
   return (
-    <header className={"navbar"}>
+    <header className={"navbar has-background-black"}>
       <div className={"container is-fullhd is-fluid heroNavbar"}>
         <div className={"navbar-brand"}>
-          <span className={"navbar-item"} >
-            <div className={"box p-2"}>
-              <nav className={"level"}>
-                <img
-                  className={"mx-1"}
-                  src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"}
-                  alt={"Logo"}
-                />
-                <p>Borderlands 3 Companion App</p>
-              </nav>
-            </div>
+          <span style={{ height: "80px", borderRadius: ".3rem" }} className={"navbar-item has-background-info"} >
+            <img
+              className={"mx-1 "}
+              src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"}
+              alt={"Logo"}
+              style={{ minWidth: '230px', minHeight: '80px', }}
+            />
           </span>
           <span
             className={`navbar-burger ${menuState}`}
@@ -37,11 +33,11 @@ const LandingHeroHead = () => {
             <span aria-hidden={true}></span>
           </span>
         </div>
-        <div id={"navbarMenuHero"} className={`navbar-menu ${menuState}`}>
+        <div style={{ height: '80px' }} id={"navbarMenuHero"} className={`navbar-menu ${menuState}`}>
           <div className={"navbar-end"}>
-            <span className={"navbar-item"}>
+            <span className={"navbar-item has-backgroun-black "}>
               <a
-                className={"button "}
+                className={"is-boxed"}
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -52,9 +48,8 @@ const LandingHeroHead = () => {
                 <span>My Portfolio</span>
               </a>
             </span>
-            <span className={"navbar-item"}>
+            <span className={"navbar-item has-backgroun-black "}>
               <a
-                className={"button "}
                 href={"https://github.com/COrtaDev"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -65,9 +60,8 @@ const LandingHeroHead = () => {
                 <span>GitHub</span>
               </a>
             </span>
-            <span className={"navbar-item"}>
+            <span className={"navbar-item has-backgroun-black "}>
               <a
-                className={"button "}
                 href={"https://www.linkedin.com/in/conrad-orta-16598014/"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -78,9 +72,8 @@ const LandingHeroHead = () => {
                 <span>LinkedIn</span>
               </a>
             </span>
-            <span className={"navbar-item"}>
+            <span className={"navbar-item has-backgroun-black "}>
               <a
-                className={"button "}
                 href={"https://twitter.com/CortaDev"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}
@@ -91,9 +84,8 @@ const LandingHeroHead = () => {
                 <span>Twitter</span>
               </a>
             </span>
-            <span className={"navbar-item"}>
+            <span className={"navbar-item has-backgroun-black "}>
               <a
-                className={"button "}
                 href={"https://angel.co/u/conrad-orta"}
                 target={"_blank"}
                 rel={"noopener noreferrer"}

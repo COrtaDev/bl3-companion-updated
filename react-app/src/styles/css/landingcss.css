@@ -17,12 +17,25 @@
   pointer-events: all;
 }
 /**Additional stylings for footer of landing hero navbar*/
-.heroNavbar {
-  background-color: #d0d1cd52;
+.heroNavbar span.navbar-item {
+  padding: 0, 0.5rem;
+  align-content: center;
+}
+#navbarMenuHero span.navbar-item {
+  background-color: black;
+}
+#navBarMenuHero div.navbar-end {
+  background-color: black;
+}
+#navbarMenuHero span.navbar-item:hover {
+  background-color: rgb(27, 27, 27);
+}
+.heroNavbar span.navbar-item:hover {
+  background-color: rgba(245, 245, 245, 0.11);
 }
 /**Additional stylings for footer of landing hero footer*/
 .heroFooter {
-  background-color: #d0d1cd52;
+  /* background-color: #d0d1cd52; */
 }
 /**These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
