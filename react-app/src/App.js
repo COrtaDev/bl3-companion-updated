@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { authenticate } from "./services/auth";
 import LogoutButton from './components/auth/LogoutButton';
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
-import { authenticate } from "./services/auth";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
+import Home from './components/home/Home';
 import '../src/styles/css/mystyles.css';
 
 function App() {
@@ -44,6 +45,10 @@ function App() {
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <LogoutButton setAuthenticated={setAuthenticated} />
           <h1>My Home Page</h1>
+          {/* <Redirect to={"/home"} /> */}
+        </ProtectedRoute>
+        <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
+          <Home />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

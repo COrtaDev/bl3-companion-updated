@@ -59,15 +59,15 @@
 }
 
 @function findDarkColor($color){
-  @debug $color;
+  // @debug $color;
   @if type-of($color) == 'color'{
     $base-l: 50%;
     $luminance: colorLuminance($color);
-    @debug $luminance;
+    // @debug $luminance;
     $luminance-delta: (0.53 - $luminance);
-    @debug $luminance-delta;
+    // @debug $luminance-delta;
     $target-l: round($base-l + ($luminance-delta * 53));
-    @debug $target-l;
+    // @debug $target-l;
     @return change-color($color, $lightness: max($base-l, $target-l));
   }
   @return $text-strong;
@@ -135,7 +135,7 @@ $link-dark: findDarkColor($link);
 $link-visited: $Merlot;
 
 $link-hover: change-color($link, $lightness: 50%);
-@debug change-color($link, $lightness: 50%);
+// @debug change-color($link, $lightness: 50%);
 $link-hover-border: $Gold;
 
 $link-focus: $Smoke;
