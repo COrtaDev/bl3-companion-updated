@@ -12,7 +12,7 @@ const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
         <div className={"hero-head"}>
           <LandingHeroHead />
         </div>
-        <div className={"hero-body"}>
+        <div className={"hero-body is-justify-content-flex-end"}>
           <LandingHeroBody
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}

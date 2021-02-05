@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import LoginSignUpCardTabs from './loginsignupcard-subcomponents/LoginSignUpCardTabs';
 import LoginSignUpCardMedia from './loginsignupcard-subcomponents/LoginSignUpCardMedia';
+import '../../../../styles/css/logincard.css';
 
 const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
   const [activeTab, setActiveTab] = useState('login');
@@ -10,17 +11,16 @@ const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
   };
 
   return (
-    <div className={"card "}>
+    <div className={"car cardBG"}>
       <div className={"card-header"}>
         <LoginSignUpCardTabs
           activeTab={activeTab}
           makeActive={toggleCard}
         />
       </div>
-      <div className={"card-content is-mobile"}>
+      <div className={"card-content"}>
         <LoginSignUpCardMedia
           activeTab={activeTab}
-          // makeActive={toggleCard}
           authenticated={authenticated}
           setAuthenticated={setAuthenticated}
         />
