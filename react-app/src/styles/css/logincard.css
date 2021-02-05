@@ -1,3 +1,10 @@
-.cardBG{
+#cardCUSTOM,
+.cardCUSTOM {
   background-color: black;
+  color: whitesmoke;
+}
+li#cardCUSTOM,
+li.is-active {
+  background-color: black;
+  color: whitesmoke;
 }

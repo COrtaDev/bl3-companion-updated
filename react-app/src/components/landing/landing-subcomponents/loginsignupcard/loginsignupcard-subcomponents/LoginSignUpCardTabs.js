@@ -24,7 +24,7 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
             <span className={"icon is-small"}>
               <i aria-hidden={true}>
                 <FontAwesomeIcon icon={faSignInAlt} /></i></span>
-            <span>Login</span>
+            <span >Login</span>
           </a>
         </li>
         <li className={signupState}>

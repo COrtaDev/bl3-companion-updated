@@ -1,31 +1,131 @@
 @charset "utf-8";
-
 // Import a Google Font
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
 @import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
 
+@function powerNumber($number, $exp){
+  $value: 1;
+  @if $exp > 0{
+    @for $i from 1 through $exp{
+      $value: $value * $number;
+    }
+  } @else if $exp < 0{
+    @for $i from 1 through -$exp{
+      $value: $value / $number;
+    }
+  }
+  @return $value;
+}
+
+@function colorLuminance($color){
+  @if type-of($color) != 'color'{
+    @return 0.55;
+  }
+  $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color));
+  @each $name, $value in $color-rgb{
+    $adjusted: 0;
+    $value: $value / 255;
+    @if $value < 0.03928{
+      $value: $value / 12.92;
+    }@else{
+      $value: ($value + .055) / 1.055;
+      $value: powerNumber($value, 2);
+    }
+    $color-rgb: map-merge($color-rgb, ($name: $value));
+  }
+  @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722);
+}
+
+@function findColorInvert($color){
+  @if (colorLuminance($color) > 0.55){
+    @return rgba(#000, 0.7);
+  }@else{
+    @return #fff;
+  }
+}
 // Set your brand colors
 $Teko: "Teko", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 $Coda: "Coda", cursive;
-//!I would be into defining my own color scheme...
-//!BUT it will take hella time and I want to do other things now...
-// $white-ter:    hsl(0, 5%, 44%);
-// $white-bis:    hsl(0, 47%, 81%);
-// $white:        hsl(230, 38%, 68%);
+$black:        hsl(0, 0%, 4%);
+$black-bis:    hsl(0, 0%, 7%);
+$black-ter:    hsl(0, 0%, 14%);
+$white-ter:    hsl(0, 0%, 96%);
+$white-bis:    hsl(0, 0%, 98%);
+$white:        hsl(0, 0%, 100%);
+$grey-darker:  hsl(0, 0%, 21%);
+$grey-dark:    hsl(0, 0%, 29%);
+$grey:         hsl(0, 0%, 48%);
+$grey-light:   hsl(0, 0%, 71%);
+$grey-lighter: hsl(0, 0%, 86%);
+$grey-lightest: hsl(0, 0%, 93%);
+$Gold: rgb(246, 238, 20 );
+$Burgundy: rgb(102, 2, 0 );
+$Merlot:rgb(86, 4, 94);
+$TheJuice: rgb(238, 150, 40 );
+$Smoke: whitesmoke;
+$Smoke-dark: rgb(160, 160, 160);
+$white: $Smoke;
 
 // Update Bulma's global variables
 $family-sans-serif: $Coda;
-$body-font-size: 1.2rem !default;
-// $tablet: 850px;
-// $scheme-main: rbga(#12222c);
+$primary: $Gold;
+$info: $Smoke;
+$link: $TheJuice;
+$success: $Burgundy;
+
+// General colors
+$scheme-main: $black;
+$scheme-main-bis: $black-bis;
+$scheme-main-ter: $black-ter;
+$scheme-invert: $white;
+$scheme-invert-bis: $white-bis;
+$scheme-invert-ter: $white-ter;
+
+$background: $grey-darker;
+
+$border: $grey-dark;
+$border-hover: $grey;
+$border-light: $grey-light;
+$border-light-hover: $grey;
+
+// Text colors
+$text: $Smoke;
+$text-invert: findColorInvert($text);
+$text-light: $Smoke;
+$text-strong: $Smoke;
+
+// Link colors
+$link: $TheJuice;
+// $link-invert: invert($link);
+$link-invert: findColorInvert($link);
+$link-light: findLightColor($link);
+$link-dark: findDarkColor($link);
+$link-visited: $Merlot;
+
+$link-hover: $TheJuice;
+$link-hover-border: $Gold;
+
+$link-focus: $Smoke;
+$link-focus-border: $Gold;
+
+// $link-active: $Smoke-dark;
+// $link-active-border: $Gold;
 
 // Update some of Bulma's component variables
+$body-font-size: 1.2rem !default;
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
 // $input-border-color: transparent;
 // $input-shadow: none;
 
 @import "../../../node_modules/bulma/bulma.sass";
+// @import "../../../node_modules/bulma/sass/base/_all.sass";
+// @import "../../../node_modules/bulma/sass/elements/_all.sass";
+// @import "../../../node_modules/bulma/sass/form/_all.sass";
+// @import "../../../node_modules/bulma/sass/grid/_all.sass";
+// @import "../../../node_modules/bulma/sass/helpers/_all.sass";
+// @import "../../../node_modules/bulma/sass/layout/_all.sass";
+// @import "../../../node_modules/bulma/sass/utilities/_all.sass";

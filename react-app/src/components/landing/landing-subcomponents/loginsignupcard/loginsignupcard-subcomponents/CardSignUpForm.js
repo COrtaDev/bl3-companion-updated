@@ -117,13 +117,13 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field is-grouped"}>
         <div className={"control"}>
           <button
-            className={"button is-link"}
+            className={"button is-primary"}
             type={"submit"}
           >Sign Up</button>
         </div>
         <div className={"control"}>
           <button
-            className={"button is-link is-light"}
+            className={"button is-link has-text-black"}
             onClick={resetForm}
           >Reset</button>
         </div>
