@@ -11,7 +11,13 @@ const LandingHeroBody = ({ authenticated, setAuthenticated }) => {
             setAuthenticated={setAuthenticated}
           />
         </div>
-          {/* This is AUTO and should grow/shrink accordingly... */}
+        {/*//!We need to re-evaluate this!!!!!!!!!
+            //?Since there is another column, it is mucking up the responsivness
+            //?of the landing hero....Why not instead just align the LoginSignUpCard
+            //?to the right of the container??? That way it is always reflexive and
+            //?we no longer need the columns! Might solve the issue of not displaying
+            //?properly on mobile... just a thought. Proceed when ready....
+          */}
         <div className={"column is-narrow-mobile"}>
         </div>
       </div>
