@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
-import Home from './components/home/Home';
+import Home from './components/home/Main';
 import '../src/styles/css/mystyles.css';
 
 function App() {
@@ -44,6 +44,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <LogoutButton setAuthenticated={setAuthenticated} />
+          {/* I think we want to render a tutorial here someday... */}
           <h1>My Home Page</h1>
           {/* <Redirect to={"/home"} /> */}
         </ProtectedRoute>

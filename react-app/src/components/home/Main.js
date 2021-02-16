@@ -4,7 +4,7 @@ import RightSidebarMenu from './home-subcomponents/RightSidebarMenu';
 import Header from './home-subcomponents/Header';
 import Feed from './home-subcomponents/Feed';
 
-const Home = () => {
+const Main = () => {
   return (
     <>
       <LeftSidebarMenu />
@@ -19,4 +19,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Main;
