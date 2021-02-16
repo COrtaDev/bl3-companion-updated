@@ -11,6 +11,7 @@ import Likes from "./components/likes/Likes";
 import Follows from "./components/follows/Follows";
 import Following from "./components/follows/Following";
 import Followers from "./components/follows/Followers";
+import Comments from "./components/comments/Comments";
 
 const routes = [
   {
@@ -38,6 +39,10 @@ const routes = [
         component: Followers,
       },
     ],
+  },
+  {
+    path: "/comments",
+    component: Comments,
   },
 ];
 
