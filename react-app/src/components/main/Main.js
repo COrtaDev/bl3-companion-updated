@@ -1,8 +1,8 @@
 import React from 'react';
-import LeftSidebarMenu from './home-subcomponents/LeftSidebarMenu';
-import RightSidebarMenu from './home-subcomponents/RightSidebarMenu';
-import Header from './home-subcomponents/Header';
-import Feed from './home-subcomponents/Feed';
+import LeftSidebarMenu from './main-subcomponents/LeftSidebarMenu';
+import RightSidebarMenu from './main-subcomponents/RightSidebarMenu';
+import Header from './main-subcomponents/Header';
+import Feed from './main-subcomponents/Feed';
 
 const Main = () => {
   return (

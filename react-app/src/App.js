@@ -6,7 +6,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
-import Home from './components/home/Main';
+import Home from './components/main/Main';
 import '../src/styles/css/mystyles.css';
 
 function App() {
