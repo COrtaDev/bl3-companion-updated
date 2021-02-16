@@ -8,6 +8,7 @@ import User from "./components/User";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
 import Main from "./components/main/Main";
 import "../src/styles/css/mystyles.css";
+import Tutorial from "./components/tutorial/Tutorial";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -51,13 +52,14 @@ function App() {
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <LogoutButton setAuthenticated={setAuthenticated} />
+          <Tutorial />
           {/* I think we want to render a tutorial here someday... */}
           {/* This is but a placeholder */}
           {/* <h1>My Home Page</h1> */}
           {/* <Redirect to={"/home"} /> */}
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
+          <LogoutButton setAuthenticated={setAuthenticated} />
           <Main />
         </ProtectedRoute>
       </Switch>

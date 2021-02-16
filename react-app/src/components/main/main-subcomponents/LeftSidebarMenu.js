@@ -31,7 +31,7 @@ import React from "react";
 
 const LeftSidebarMenu = () => {
   return (
-    <aside className={"menu"}>
+    <aside className={"menu is-flex-direction-row-reverse is-justify-content-flex-end"}>
       <ul className={"menu-list"}>
         <li>
           <a href={"/home"}>Home</a>

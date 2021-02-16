@@ -7,14 +7,18 @@ import Feed from "./main-subcomponents/Feed";
 const Main = () => {
   return (
     <>
-      <LeftSidebarMenu />
-      <div className={"columns"}>
-        <div className={"column is-three-fifths"}>
-          <Header />
-          <Feed />
+      <nav className={"level is-align-items-start"}>
+        <LeftSidebarMenu />
+
+        <div className={"column is-half"}>
+          <div className={"container"}>
+            <Header />
+            <Feed />
+          </div>
         </div>
-      </div>
-      <RightSidebarMenu />
+
+        <RightSidebarMenu />
+      </nav>
     </>
   );
 };

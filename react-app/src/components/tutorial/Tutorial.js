@@ -13,7 +13,7 @@ const Tutorial = () => {
   //an additional feature. This has the potential to greatly expand the scope
   //of our current update, so it is shelved and recorded here.
   const skipTutorial = true;
-  if (skipTutorial) return;
+  if (skipTutorial) return <Redirect to="/home" />;
   return <h1>This is the tutorial</h1>;
 };
 
