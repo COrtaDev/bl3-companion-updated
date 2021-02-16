@@ -3,6 +3,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from sqlalchemy.sql import func
 
+"""
+Tutorial: the idea is to track whether or not the user has ever been through
+the tutorial. We will set up a boolean and update that so the user doesn't
+necessarily see it every time.
+"""
+
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'

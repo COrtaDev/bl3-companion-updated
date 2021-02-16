@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { authenticate } from "./services/auth";
-import LogoutButton from './components/auth/LogoutButton';
+import LogoutButton from "./components/auth/LogoutButton";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import UsersList from "./components/UsersList";
 import User from "./components/User";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
-import Home from './components/main/Main';
-import '../src/styles/css/mystyles.css';
+import Main from "./components/main/Main";
+import "../src/styles/css/mystyles.css";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -36,20 +36,29 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        <ProtectedRoute path="/users" exact={true} authenticated={authenticated}>
+        <ProtectedRoute
+          path="/users"
+          exact={true}
+          authenticated={authenticated}
+        >
           <UsersList />
         </ProtectedRoute>
-        <ProtectedRoute path="/users/:userId" exact={true} authenticated={authenticated}>
+        <ProtectedRoute
+          path="/users/:userId"
+          exact={true}
+          authenticated={authenticated}
+        >
           <User />
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <LogoutButton setAuthenticated={setAuthenticated} />
           {/* I think we want to render a tutorial here someday... */}
-          <h1>My Home Page</h1>
+          {/* This is but a placeholder */}
+          {/* <h1>My Home Page</h1> */}
           {/* <Redirect to={"/home"} /> */}
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
-          <Home />
+          <Main />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
