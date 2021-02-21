@@ -1,8 +1,8 @@
-import React from 'react';
-import LandingHeroHead from './landing-subcomponents/LandingHeroHead';
-import LandingHeroBody from './landing-subcomponents/LandingHeroBody';
-import LandingHeroFoot from './landing-subcomponents/LandingHeroFoot';
-import LandingHeroBackground from './LandingHeroBackground';
+import React from "react";
+import LandingHeroHead from "./landing-subcomponents/LandingHeroHead";
+import LandingHeroBody from "./landing-subcomponents/LandingHeroBody";
+import LandingHeroFoot from "./landing-subcomponents/LandingHeroFoot";
+import LandingHeroBackground from "./LandingHeroBackground";
 
 const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
   return (
@@ -24,6 +24,6 @@ const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
       </section>
     </>
   );
-}
+};
 
 export default LandingHeroBanner;

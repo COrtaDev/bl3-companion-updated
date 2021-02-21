@@ -34,9 +34,9 @@
   background-color: rgba(245, 245, 245, 0.11);
 }
 /**Additional stylings for footer of landing hero footer*/
-.heroFooter {
-  /* background-color: #d0d1cd52; */
-}
+/* .heroFooter {
+  background-color: #d0d1cd52;
+} */
 /**These styles are for the custom BL3 wallpaper which cycles colors */
 img#imgCenter {
   margin: 0;

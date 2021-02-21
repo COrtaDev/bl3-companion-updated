@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const LandingHeroFoot = () => {
   //TODO:
@@ -9,13 +9,10 @@ const LandingHeroFoot = () => {
   //*depending on the subject of the tab. That's all I know so far.
   return (
     // <nav>Use this to wrap the container if you want to make it like the example</nav>
-    <div className={"container is-fullhd is-fluid heroFooter"}>
-      {/* <footer className={"footer"}>
-        <div className={"content has-text-centered"}>
-        </div>
-      </footer> */}
+    <div className={"container"}>
+      <section className={"section"}></section>
     </div>
   );
-}
+};
 
 export default LandingHeroFoot;
