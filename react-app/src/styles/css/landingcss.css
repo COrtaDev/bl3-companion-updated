@@ -7,7 +7,7 @@
 .fulltabs {
   width: 100%;
 }
-.fulltabs li{
+.fulltabs li {
   width: 50%;
 }
 .disabledTab {
@@ -71,7 +71,7 @@ img#imgRed {
     opacity: 1;
   }
   to {
-    opacity: .35;
+    opacity: 0.35;
   }
 }
 @keyframes hideYellow {
@@ -79,12 +79,12 @@ img#imgRed {
     opacity: 1;
   }
   to {
-    opacity: .4;
+    opacity: 0.4;
   }
 }
 @keyframes hideRed {
   from {
-    opacity: .25;
+    opacity: 0.25;
   }
   to {
     opacity: 1;
