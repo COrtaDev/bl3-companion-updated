@@ -8,21 +8,16 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 const LandingHeroFoot = () => {
-  //TODO:
-  //*need to define the footer component here
-  //!Rather than make any old thing here I would like to pause
-  //!and give the actual design some thought...
-  //*Basically, I would like to have tabs that render different footers
-  //*depending on the subject of the tab. That's all I know so far.
   return (
-    // <nav>Use this to wrap the container if you want to make it like the example</nav>
     <footer className={"footer"}>
       <div className={"container is-justify-content-center"}>
         <section className={"section pb-3"}>
           <nav className={"level "}>
             <span className={"level-item is-justify-content-space-around "}>
               <div className={"column is-2"}></div>
-              <p className={"is-size-5"}>Checkout some of the other projects in my portfolio!</p>
+              <p className={"is-size-5"}>
+                Checkout some of the other projects in my portfolio!
+              </p>
               <a
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
