@@ -1,4 +1,11 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithubAlt,
+  faLinkedinIn,
+  faTwitter,
+  faAngellist,
+} from "@fortawesome/free-brands-svg-icons";
 
 const LandingHeroFoot = () => {
   //TODO:
@@ -9,9 +16,64 @@ const LandingHeroFoot = () => {
   //*depending on the subject of the tab. That's all I know so far.
   return (
     // <nav>Use this to wrap the container if you want to make it like the example</nav>
-    <div className={"container"}>
-      <section className={"section"}></section>
-    </div>
+    <footer className={"footer"}>
+      <div className={"container is-justify-content-center"}>
+        <section className={"section pb-3"}>
+          <nav className={"level "}>
+            <span className={"level-item is-justify-content-space-around "}>
+              <div className={"column is-2"}></div>
+              <p>Checkout some of the other projects in my portfolio!</p>
+              <a
+                href={"https://cortadev.github.io/"}
+                target={"_blank"}
+                referrerPolicy={"no-referrer"}
+              >
+                <img
+                  src={
+                    "https://github.com/COrtaDev/COrtaDev.github.io/blob/master/images/COrtaDev-Logo-outlined.png"
+                  }
+                  alt={"logo"}
+                  crossorigin
+                />
+              </a>
+              <div className={"column is-2"}></div>
+            </span>
+          </nav>
+        </section>
+        <section className={"section pt-2"}>
+          <div className={"container"}>
+            <span className={"level-item is-size-3"}>Contact Me:</span>
+            <nav className={"level"}>
+              <div className={"column is-3"}></div>
+              <span className={"level-item"}>
+                <a href={"https://github.com/COrtaDev"} className={"icon"}>
+                  <FontAwesomeIcon icon={faGithubAlt} size={"2x"} />
+                </a>
+              </span>
+              <span className={"level-item"}>
+                <a
+                  href={"https://www.linkedin.com/in/conrad-orta-16598014/"}
+                  className={"icon"}
+                >
+                  <FontAwesomeIcon icon={faLinkedinIn} size={"2x"} />
+                </a>
+              </span>
+              <span className={"level-item"}>
+                <a href={"https://twitter.com/CortaDev"} className={"icon"}>
+                  <FontAwesomeIcon icon={faTwitter} size={"2x"} />
+                </a>
+              </span>
+              <span className={"level-item"}>
+                <a href={"https://angel.co/u/conrad-orta"} className={"icon"}>
+                  <FontAwesomeIcon icon={faAngellist} size={"2x"} />
+                </a>
+              </span>
+              <div className={"column is-3"}></div>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </footer>
   );
 };
 

@@ -1,39 +1,54 @@
-import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFolderOpen } from '@fortawesome/free-solid-svg-icons'
-import { faGithubAlt, faLinkedin, faTwitter, faAngellist } from '@fortawesome/free-brands-svg-icons';
+import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFolderOpen } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGithubAlt,
+  faLinkedin,
+  faTwitter,
+  faAngellist,
+} from "@fortawesome/free-brands-svg-icons";
 
 const LandingHeroHead = () => {
-  const [menuState, setMenuState] = useState('');
+  const [menuState, setMenuState] = useState("");
 
   function toggleMenu(e) {
     e.preventDefault();
-    !menuState ? setMenuState('is-active') : setMenuState('');
-  };
+    !menuState ? setMenuState("is-active") : setMenuState("");
+  }
 
   return (
     <header className={"navbar has-background-black"}>
       <div className={"container is-fullhd is-fluid heroNavbar"}>
         <div className={"navbar-brand"}>
-          <span style={{ height: "80px", borderRadius: ".3rem" }} className={"navbar-item has-background-info"} >
+          <span
+            style={{ height: "80px", borderRadius: ".3rem" }}
+            className={"navbar-item has-background-info"}
+          >
             <img
               className={"mx-1 "}
-              src={"https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"}
+              src={
+                "https://github.com/COrtaDev/bl3-companion-updated/raw/main/react-app/public/brandlogoBL3.png"
+              }
               alt={"Logo"}
-              style={{ minWidth: '230px', minHeight: '80px', }}
+              style={{ minWidth: "230px", minHeight: "80px" }}
             />
           </span>
           <span
             className={`navbar-burger ${menuState}`}
             data-target={"navbarMenuHero"}
-            onClick={toggleMenu}>
+            onClick={toggleMenu}
+          >
             {/* We need this for mobile... */}
             <span aria-hidden={true}></span>
             <span aria-hidden={true}></span>
             <span aria-hidden={true}></span>
           </span>
         </div>
-        <div style={{ height: '80px' }} id={"navbarMenuHero"} className={`navbar-menu ${menuState}`}>
+        <div
+          style={{ height: "80px" }}
+          id={"navbarMenuHero"}
+          className={`navbar-menu ${menuState}`}
+        >
           <div className={"navbar-end"}>
             <span className={"navbar-item has-backgroun-black "}>
               <a
@@ -101,7 +116,6 @@ const LandingHeroHead = () => {
       </div>
     </header>
   );
-
-}
+};
 
 export default LandingHeroHead;

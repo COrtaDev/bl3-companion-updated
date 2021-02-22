@@ -9,19 +9,16 @@ const LandingHeroBanner = ({ authenticated, setAuthenticated }) => {
     <>
       <LandingHeroBackground />
       <section className={"hero is-fullheight"}>
-        {/* <div className={"hero-head"}>
-          <LandingHeroHead />
-        </div> */}
+        <div className={"hero-head"}>{/* <LandingHeroHead /> */}</div>
         <div className={"hero-body is-justify-content-flex-end"}>
           <LandingHeroBody
             authenticated={authenticated}
             setAuthenticated={setAuthenticated}
           />
         </div>
-        <div className={"hero-foot"}>
-          <LandingHeroFoot />
-        </div>
+        <div className={"hero-foot"}></div>
       </section>
+      <LandingHeroFoot />
     </>
   );
 };

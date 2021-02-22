@@ -1,56 +1,67 @@
 @charset "utf-8";
 // Import a Google Font
-@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
-@import url('https://fonts.googleapis.com/css2?family=Teko&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Coda&display=swap');
+// @import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+// @import url("https://fonts.googleapis.com/css2?family=Teko&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Coda&display=swap");
 
-@function powerNumber($number, $exp){
+@function powerNumber($number, $exp) {
   $value: 1;
-  @if $exp > 0{
-    @for $i from 1 through $exp{
+  @if $exp > 0 {
+    @for $i from 1 through $exp {
       $value: $value * $number;
     }
-  } @else if $exp < 0{
-    @for $i from 1 through -$exp{
+  } @else if $exp < 0 {
+    @for $i from 1 through -$exp {
       $value: $value / $number;
     }
   }
   @return $value;
 }
 
-@function colorLuminance($color){
-  @if type-of($color) != 'color'{
+@function colorLuminance($color) {
+  @if type-of($color) != "color" {
     @return 0.55;
   }
-  $color-rgb: ('red': red($color),'green': green($color),'blue': blue($color));
-  @each $name, $value in $color-rgb{
+  $color-rgb: (
+    "red": red($color),
+    "green": green($color),
+    "blue": blue($color),
+  );
+  @each $name, $value in $color-rgb {
     $adjusted: 0;
     $value: $value / 255;
-    @if $value < 0.03928{
+    @if $value < 0.03928 {
       $value: $value / 12.92;
-    }@else{
-      $value: ($value + .055) / 1.055;
+    } @else {
+      $value: ($value + 0.055) / 1.055;
       $value: powerNumber($value, 2);
     }
-    $color-rgb: map-merge($color-rgb, ($name: $value));
+    $color-rgb: map-merge(
+      $color-rgb,
+      (
+        $name: $value,
+      )
+    );
   }
-  @return (map-get($color-rgb, 'red') * .2126) + (map-get($color-rgb, 'green') * .7152) + (map-get($color-rgb, 'blue') * .0722);
+  @return (map-get($color-rgb, "red") * 0.2126) +
+    (map-get($color-rgb, "green") * 0.7152) +
+    (map-get($color-rgb, "blue") * 0.0722);
 }
 
-@function findColorInvert($color){
+@function findColorInvert($color) {
   // @debug colorLuminance($color);
-  @if (colorLuminance($color) > 0.55){
+  @if (colorLuminance($color) > 0.55) {
     @return rgba(#000, 0.7);
-  }@else{
+  } @else {
     @return #fff;
   }
 }
 
-@function findLightColor($color){
-  @if type-of($color) == 'color'{
+@function findLightColor($color) {
+  @if type-of($color) == "color" {
     $l: 96%;
-    @if lightness($color) > 96%{
+    @if lightness($color) > 96% {
       $l: lightness($color);
     }
     @return change-color($color, $lightness: $l);
@@ -58,9 +69,9 @@
   @return $background;
 }
 
-@function findDarkColor($color){
+@function findDarkColor($color) {
   // @debug $color;
-  @if type-of($color) == 'color'{
+  @if type-of($color) == "color" {
     $base-l: 50%;
     $luminance: colorLuminance($color);
     // @debug $luminance;
@@ -76,21 +87,21 @@
 $Teko: "Teko", sans-serif;
 $Montserrat: "Montserrat", sans-serif;
 $Coda: "Coda", cursive;
-$black:        hsl(0, 0%, 4%);
-$black-bis:    hsl(0, 0%, 7%);
-$black-ter:    hsl(0, 0%, 14%);
-$white-ter:    hsl(0, 0%, 96%);
-$white-bis:    hsl(0, 0%, 98%);
-$white:        hsl(0, 0%, 100%);
-$grey-darker:  hsl(0, 0%, 21%);
-$grey-dark:    hsl(0, 0%, 29%);
-$grey:         hsl(0, 0%, 48%);
-$grey-light:   hsl(0, 0%, 71%);
+$black: hsl(0, 0%, 4%);
+$black-bis: hsl(0, 0%, 7%);
+$black-ter: hsl(0, 0%, 14%);
+$white-ter: hsl(0, 0%, 96%);
+$white-bis: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+$grey-darker: hsl(0, 0%, 21%);
+$grey-dark: hsl(0, 0%, 29%);
+$grey: hsl(0, 0%, 48%);
+$grey-light: hsl(0, 0%, 71%);
 $grey-lighter: hsl(0, 0%, 86%);
 $grey-lightest: hsl(0, 0%, 93%);
-$Gold: rgb(246, 238, 20 );
-$Burgundy: rgb(102, 2, 0 );
-$Merlot:rgb(86, 4, 94);
+$Gold: rgb(246, 238, 20);
+$Burgundy: rgb(102, 2, 0);
+$Merlot: rgb(86, 4, 94);
 $TheJuice: rgb(238, 150, 40);
 $Smoke: whitesmoke;
 $Smoke-dark: rgb(160, 160, 160);
@@ -128,7 +139,7 @@ $text-strong: $Smoke;
 
 // Link colors
 $link: $TheJuice;
-$link-invert: rgb( 17, 105, 215 );
+$link-invert: rgb(17, 105, 215);
 // @debug findColorInvert($link);
 $link-light: findLightColor($link);
 $link-dark: findDarkColor($link);
