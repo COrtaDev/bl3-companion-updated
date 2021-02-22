@@ -22,7 +22,7 @@ const LandingHeroFoot = () => {
           <nav className={"level "}>
             <span className={"level-item is-justify-content-space-around "}>
               <div className={"column is-2"}></div>
-              <p>Checkout some of the other projects in my portfolio!</p>
+              <p className={"is-size-5"}>Checkout some of the other projects in my portfolio!</p>
               <a
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
@@ -30,7 +30,7 @@ const LandingHeroFoot = () => {
               >
                 <img
                   src={
-                    "https://github.com/COrtaDev/COrtaDev.github.io/blob/master/images/COrtaDev-Logo-outlined.png"
+                    "https://raw.githubusercontent.com/COrtaDev/COrtaDev.github.io/master/images/COrtaDev-Logo-outlined.png"
                   }
                   alt={"logo"}
                   crossorigin
@@ -46,7 +46,12 @@ const LandingHeroFoot = () => {
             <nav className={"level"}>
               <div className={"column is-3"}></div>
               <span className={"level-item"}>
-                <a href={"https://github.com/COrtaDev"} className={"icon"}>
+                <a
+                  href={"https://github.com/COrtaDev"}
+                  className={"icon"}
+                  target={"_blank"}
+                  referrerPolicy={"no-referrer"}
+                >
                   <FontAwesomeIcon icon={faGithubAlt} size={"2x"} />
                 </a>
               </span>
@@ -54,17 +59,29 @@ const LandingHeroFoot = () => {
                 <a
                   href={"https://www.linkedin.com/in/conrad-orta-16598014/"}
                   className={"icon"}
+                  target={"_blank"}
+                  referrerPolicy={"no-referrer"}
                 >
                   <FontAwesomeIcon icon={faLinkedinIn} size={"2x"} />
                 </a>
               </span>
               <span className={"level-item"}>
-                <a href={"https://twitter.com/CortaDev"} className={"icon"}>
+                <a
+                  href={"https://twitter.com/CortaDev"}
+                  className={"icon"}
+                  target={"_blank"}
+                  referrerPolicy={"no-referrer"}
+                >
                   <FontAwesomeIcon icon={faTwitter} size={"2x"} />
                 </a>
               </span>
               <span className={"level-item"}>
-                <a href={"https://angel.co/u/conrad-orta"} className={"icon"}>
+                <a
+                  href={"https://angel.co/u/conrad-orta"}
+                  className={"icon"}
+                  target={"_blank"}
+                  referrerPolicy={"no-referrer"}
+                >
                   <FontAwesomeIcon icon={faAngellist} size={"2x"} />
                 </a>
               </span>
