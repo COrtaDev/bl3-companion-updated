@@ -31,22 +31,33 @@ import React from "react";
 
 const LeftSidebarMenu = () => {
   return (
-    <aside className={"menu "}>
-      <ul className={"menu-list"}>
-        <li>
-          <a href={"/home"}>Home</a>
-        </li>
-        <li>
-          <a>Likes</a>
-        </li>
-        <li>
-          <a>Follows</a>
-        </li>
-        <li>
-          <a>Tutorial</a>
-        </li>
-      </ul>
-    </aside>
+    <>
+      <div
+        className={"is-flex is-flex-direction-column is-align-items-flex-start pl-4"}
+      >
+        <div className={"menu pl-4"}>
+          <ul className={"menu-list is-size-4"}>
+            <li>
+              <a className={""}>Logo</a>
+            </li>
+          </ul>
+          <ul className={"menu-list is-size-4 pr-2"}>
+            <li>
+              <a href={"/home"}>Home</a>
+            </li>
+            <li>
+              <a>Likes</a>
+            </li>
+            <li>
+              <a>Follows</a>
+            </li>
+            <li>
+              <a>Tutorial</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
   );
 };
 
