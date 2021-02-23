@@ -11,7 +11,9 @@ const Main = () => {
   //as described in the documentation on the React Router site...
   return (
     <>
-      <div className={"is-flex is-flex-direction-row"}>
+      <div
+        className={"is-flex is-flex-direction-row"}
+      >
         <section
           style={{ borderRight: "1px solid" }}
           className={"hero is-fullheight is-justify-content-flex-start pl-4"}
