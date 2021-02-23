@@ -1,0 +1,26 @@
+div.iframe-container {
+  width: 350px;
+  height: 700px;
+}
+@media screen and (max-width: 1141px) {
+  div.iframe-container {
+    width: 350px;
+  }
+}
+@media screen and (max-width: 1140px) {
+  div.iframe-container {
+    width: 290px;
+  }
+}
+@media screen and (max-width: 1025px) {
+  iframe#discord-iframe,
+  div#iframe-container {
+    display: inherit;
+  }
+}
+@media screen and (max-width: 1024px) {
+  iframe#discord-iframe,
+  div#iframe-container {
+    display: none;
+  }
+}

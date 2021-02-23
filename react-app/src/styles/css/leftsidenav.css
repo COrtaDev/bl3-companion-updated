@@ -1,0 +1,11 @@
+a.button.is-rounded {
+  border: unset !important;
+}
+a.button.is-rounded.is-active {
+  color: #363636 !important;
+}
+@media screen and (max-width: 1260px) {
+  p#sidenav {
+    display: none;
+  }
+}
