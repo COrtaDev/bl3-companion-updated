@@ -5,20 +5,19 @@ import { sidebarRoutes } from "../../browserconfig";
 
 import Content from "./Content";
 
-const Main = () => {
+const Main = ({ logout }) => {
   //TODO: We need to render a sibling component that encapsulates everything nested
   //*inside of the main tags... This is done to allow sidenav route config to function
   //as described in the documentation on the React Router site...
   return (
     <>
-      <div
-        className={"is-flex is-flex-direction-row"}
-      >
+      <div className={"is-flex is-flex-direction-row"}>
         <section
           style={{ borderRight: "1px solid" }}
-          className={"hero is-fullheight is-justify-content-flex-start pl-4"}
+          className={"hero is-fullheight is-justify-content-space-between pl-4"}
         >
-          <LeftSidebarMenu />
+          <LeftSidebarMenu logout={logout} />
+          {/* <div className={"is-flex is-align-self-auto"}>{logout}</div> */}
         </section>
         <Content />
       </div>
