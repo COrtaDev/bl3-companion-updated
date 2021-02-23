@@ -13,7 +13,7 @@ const RightSidebarMenu = () => {
    */
   return (
     <>
-      <aside className={"menu "}>
+      <aside id={"right-sidenavbar"} className={"menu "}>
         <ul className={"menu-list"}>
           <li>
             {/* <figure className={"image pt-0"}> */}

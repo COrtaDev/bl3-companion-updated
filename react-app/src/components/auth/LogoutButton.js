@@ -7,7 +7,7 @@ const LogoutButton = ({setAuthenticated}) => {
     setAuthenticated(false);
   };
 
-  return <button className={"button is-primary is-fullwidth"} onClick={onLogout}>Logout</button>;
+  return <button className={"button is-success has-text-primary is-fullwidth"} onClick={onLogout}>Logout</button>;
 };
 
 export default LogoutButton;

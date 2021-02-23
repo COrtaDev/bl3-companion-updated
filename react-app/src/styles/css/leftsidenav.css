@@ -1,0 +1,9 @@
+a.button.is-rounded {
+  border: unset !important;
+}
+a.button.is-rounded.is-active {
+  color: #363636 !important;
+}
+p#sidenav.is-hidden {
+  display: none;
+}
