@@ -1,40 +1,17 @@
-import React, { useEffect, useState } from "react";
-/* //TODO: We will need to render an iframe for the discord on the right side
- *of the site. This was originally concevied as a way to take up dead space on
- *the site, and continues to do so up til today. Eventually, we will develop
- *more features for this site here, perhaps a feed of new articles from reddit
- *or FANDOM who knows...
- */
+import React, { useEffect } from "react";
+import { resizeIframe } from "../../../services/main";
+/*
+TODO: On twitter, they render top news. we could fetch top articles from wikia and
+*post them below the discord widget thingy... just a though for later
+*/
 import "../../../styles/css/rightsidebar.css";
 const RightSidebarMenu = () => {
-  window.addEventListener("resize", (event) => {
-    if (window.innerWidth > 1260) return;
-    else if (window.innerWidth < 1260) {
-      const iframeContainer = document.getElementById("iframe-container");
-      setIframe(
-        `${iframeContainer.clientWidth}px`,
-        `${iframeContainer.clientHeight}px`
-      );
-    }
-  });
-  /*
-  TODO:We need to render the iframe so it conforms with Bulma Styling...
-  ?after that, we will want to develop this further, but given current time
-  ?constraints that may not be possible...
-  */
   useEffect(() => {
-    const iframeContainer = document.getElementById("iframe-container");
-    setIframe(
-      `${iframeContainer.clientWidth}px`,
-      `${iframeContainer.clientHeight}px`
-    );
+    window.addEventListener("resize", (event) => {
+      resizeIframe();
+    });
   });
-  function setIframe(width, height) {
-    const iframe = document.getElementById("discord-iframe");
-    iframe.style.height = height;
-    iframe.style.width = width;
 
-  }
   return (
     <>
       <aside id={"right-sidenavbar"} className={"menu "}>
@@ -43,18 +20,10 @@ const RightSidebarMenu = () => {
             id={"discord-iframe"}
             className={"full-iframe"}
             src="https://discord.com/widget?id=454684422390808577&amp;theme=dark&amp;username=Corta.dev"
-            // width="350px"
-            // height="700px"
             allowtransparency="true"
             frameBorder="0"
           />
         </div>
-        <ul className={"menu-list"}>
-          <li>
-            {/* <figure className={"image pt-0"}> */}
-            {/* </figure> */}
-          </li>
-        </ul>
       </aside>
     </>
   );

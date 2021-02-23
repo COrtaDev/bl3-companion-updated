@@ -1,11 +1,10 @@
-import React from "react";
 
-export default function handleResize(
+export const handleResize = (
   justifyContent,
   setJustifyContent,
   paddingLeft,
   setPaddingLeft
-) {
+) => {
   if (
     window.innerWidth >= 1065 &&
     paddingLeft !== "pl-4" &&
@@ -24,14 +23,30 @@ export default function handleResize(
     return;
   } else if (
     window.innerWidth < 1024 &&
-    window.innerWidth >= 830 &&
+    window.innerWidth >= 840 &&
     justifyContent !== "is-justify-content-center"
   ) {
     return setJustifyContent("is-justify-content-center");
   } else if (
-    window.innerWidth < 830 &&
+    window.innerWidth < 840 &&
     justifyContent !== "is-justify-flex-start"
   ) {
     return setJustifyContent("is-justify-flex-start");
   }
+};
+
+export const resizeIframe=()=>{
+  if (window.innerWidth > 1260) return;
+    else if (window.innerWidth < 1260) {
+      const iframeContainer = document.getElementById("iframe-container");
+      setIframe(
+        `${iframeContainer.clientWidth}px`,
+        `${iframeContainer.clientHeight}px`
+      );
+    }
+}
+function setIframe(width, height) {
+  const iframe = document.getElementById("discord-iframe");
+  iframe.style.height = height;
+  iframe.style.width = width;
 }

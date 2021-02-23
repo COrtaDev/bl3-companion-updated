@@ -2,10 +2,6 @@ div.iframe-container {
   width: 350px;
   height: 700px;
 }
-/* iframe.full-frame {
-  width: 100%;
-  height: 100%;
-} */
 @media screen and (max-width: 1141px) {
   div.iframe-container {
     width: 350px;

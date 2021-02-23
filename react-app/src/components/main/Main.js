@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
-import Content from "./Content";
-import handleResize from "./main-services/main";
+import Content from "./main-subcomponents/Content";
+import { handleResize } from "../../services/main";
 import { sidebarRoutes } from "../../browserconfig";
 import "../../styles/css/main.css";
 
@@ -24,7 +24,7 @@ const Main = ({ logout }) => {
       );
     });
   }, [justifyContent, paddingLeft]);
-  console.log(justifyContent, paddingLeft);
+  
   return (
     <>
       <div
