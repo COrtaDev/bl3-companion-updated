@@ -1,4 +1,5 @@
 import React from "react";
+import LogoutButton from "../../auth/LogoutButton";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // Each logical "route" has two components, one for
@@ -29,11 +30,12 @@ import React from "react";
 //   }
 // ];
 
-const LeftSidebarMenu = () => {
+const LeftSidebarMenu = ({ logout }) => {
   return (
     <>
       <div
-        className={"is-flex is-flex-direction-column is-align-items-flex-start pl-4"}
+        style={{ height: "100%" }}
+        className={"is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between pl-4"}
       >
         <div className={"menu pl-4"}>
           <ul className={"menu-list is-size-4"}>
@@ -56,6 +58,7 @@ const LeftSidebarMenu = () => {
             </li>
           </ul>
         </div>
+        <div className={"is-flex pb-4 pr-2"}>{logout}</div>
       </div>
     </>
   );

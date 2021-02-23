@@ -60,7 +60,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
           {/* <LogoutButton setAuthenticated={setAuthenticated} /> */}
-          <Main />
+          <Main logout={<LogoutButton setAuthenticated={setAuthenticated}/>} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
