@@ -1,16 +1,20 @@
-import React, { useEffect } from "react";
-import { resizeIframe } from "../../../services/main";
+import React, { useEffect, useState } from "react";
+import { initializeIframe, resizeIframe } from "../../../services/main";
 /*
 TODO: On twitter, they render top news. we could fetch top articles from wikia and
 *post them below the discord widget thingy... just a though for later
 */
 import "../../../styles/css/rightsidebar.css";
 const RightSidebarMenu = () => {
+  const [width, setWidth] = useState(null);
   useEffect(() => {
+    if (!width) {
+      setWidth(initializeIframe());
+    }
     window.addEventListener("resize", (event) => {
       resizeIframe();
     });
-  });
+  }, [width]);
 
   return (
     <>

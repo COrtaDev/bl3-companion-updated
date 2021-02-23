@@ -1,4 +1,3 @@
-
 export const handleResize = (
   justifyContent,
   setJustifyContent,
@@ -35,18 +34,26 @@ export const handleResize = (
   }
 };
 
-export const resizeIframe=()=>{
+export const resizeIframe = () => {
   if (window.innerWidth > 1260) return;
-    else if (window.innerWidth < 1260) {
-      const iframeContainer = document.getElementById("iframe-container");
-      setIframe(
-        `${iframeContainer.clientWidth}px`,
-        `${iframeContainer.clientHeight}px`
-      );
-    }
-}
-function setIframe(width, height) {
+  else if (window.innerWidth < 1260) {
+    const iframeContainer = document.getElementById("iframe-container");
+    setIframe(
+      `${iframeContainer.clientWidth}px`,
+      `${iframeContainer.clientHeight}px`
+    );
+  }
+};
+export const initializeIframe = () => {
+  const iframeContainer = document.getElementById("iframe-container");
+  setIframe(
+    `${iframeContainer.clientWidth}px`,
+    `${iframeContainer.clientHeight}px`
+  );
+  return `${iframeContainer.clientWidth}px`;
+};
+const setIframe = (width, height) => {
   const iframe = document.getElementById("discord-iframe");
   iframe.style.height = height;
   iframe.style.width = width;
-}
+};
