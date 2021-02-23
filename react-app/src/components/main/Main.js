@@ -1,39 +1,28 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import RightSidebarMenu from "./main-subcomponents/RightSidebarMenu";
 import Header from "./main-subcomponents/Header";
 import Feed from "./main-subcomponents/Feed";
+import { sidebarRoutes } from "../../browserconfig";
 
 const Main = () => {
   return (
     <>
-      <div className={"columns is-vcentered is-align-items-flex-start"}>
-        <div className={"column is-one-fifth"}>
-          <div className={"level-right"}>
-            <LeftSidebarMenu />
-          </div>
-        </div>
-
-        <div className={"column is-two-thirds"}>
-          <div className={"columns"}>
-            <div
-              className={
-                "column is-two-thirds-fullhd is-two-thirds-widescreen is-two-thirds-desktop is-two-thirds-tablet is-two-thirds-mobile"
-              }
-            >
-              <div className={"level is-flex-direction-column"}>
-                <Header />
-                <Feed />
-              </div>
-            </div>
-
-            <div className={"column"}>
-              <div className={"level-left"}>
-                <RightSidebarMenu />
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className={"is-flex is-flex-direction-row"}>
+        <section style={{borderRight:"1px solid"}} className={"hero is-fullheight is-justify-content-flex-start pl-4"}>
+          <LeftSidebarMenu />
+        </section>
+        <section
+          style={{ minWidth: "600px" }}
+          className={"is-flex is-flex-direction-column is-align-items-center"}
+        >
+          <Header />
+          <Feed />
+        </section>
+        <section style={{borderLeft:"1px solid"}}className={"is-flex"}>
+          <RightSidebarMenu />
+        </section>
       </div>
     </>
   );
