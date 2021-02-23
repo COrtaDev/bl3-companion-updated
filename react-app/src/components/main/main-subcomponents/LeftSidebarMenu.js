@@ -40,14 +40,12 @@ import "../../../styles/css/leftsidenav.css";
 //   }
 // ];
 
-const LeftSidebarMenu = ({ logout }) => {
+const LeftSidebarMenu = ({ logout, paddingLeft }) => {
   return (
     <>
       <div
         style={{ height: "100%" }}
-        className={
-          "is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between pl-4"
-        }
+        className={`is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between ${paddingLeft}`}
       >
         <div className={"menu pl-4"}>
           <ul className={"menu-list is-size-4"}>
@@ -135,7 +133,7 @@ const LeftSidebarMenu = ({ logout }) => {
           </ul>
         </div>
         {/* TODO: at some point, I will want avatar apear next to this as it does on twitter */}
-        <div className={"is-flex pb-4 pr-2"}>{logout}</div>
+        <div className={"is-flex pb-4 px-1"}>{logout}</div>
       </div>
     </>
   );
