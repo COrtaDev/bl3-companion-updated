@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import Content from "./Content";
+import handleResize from "./main-services/main";
 import { sidebarRoutes } from "../../browserconfig";
 import "../../styles/css/main.css";
 
@@ -15,31 +16,12 @@ const Main = ({ logout }) => {
   //as described in the documentation on the React Router site...
   useEffect(() => {
     window.addEventListener("resize", (event) => {
-      if (
-        window.innerWidth >= 1065 &&
-        justifyContent !== "is-justify-content-center"
-      ) {
-        return setJustifyContent("is-justify-content-center");
-      } else if (
-        window.innerWidth < 1065 &&
-        window.innerWidth >= 1024 &&
-        justifyContent !== "is-justify-flex-start"
-      ) {
-        setJustifyContent("is-justify-flex-start");
-        setPaddingLeft("");
-        return;
-      } else if (
-        window.innerWidth < 1024 &&
-        window.innerWidth >= 830 &&
-        justifyContent !== "is-justify-content-center"
-      ) {
-        return setJustifyContent("is-justify-content-center");
-      } else if (
-        window.innerWidth < 830 &&
-        justifyContent !== "is-justify-flex-start"
-      ) {
-        return setJustifyContent("is-justify-flex-start");
-      }
+      handleResize(
+        justifyContent,
+        setJustifyContent,
+        paddingLeft,
+        setPaddingLeft
+      );
     });
   }, [justifyContent, paddingLeft]);
   console.log(justifyContent, paddingLeft);
