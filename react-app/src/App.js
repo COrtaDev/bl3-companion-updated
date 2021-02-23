@@ -55,12 +55,9 @@ function App() {
           <Tutorial />
           {/* I think we want to render a tutorial here someday... */}
           {/* This is but a placeholder */}
-          {/* <h1>My Home Page</h1> */}
-          {/* <Redirect to={"/home"} /> */}
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
-          {/* <LogoutButton setAuthenticated={setAuthenticated} /> */}
-          <Main logout={<LogoutButton setAuthenticated={setAuthenticated}/>} />
+          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
