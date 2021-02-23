@@ -24,7 +24,7 @@ const Main = ({ logout }) => {
       );
     });
   }, [justifyContent, paddingLeft]);
-  
+
   return (
     <>
       <div
