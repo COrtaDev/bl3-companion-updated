@@ -59,7 +59,7 @@ function App() {
           {/* <Redirect to={"/home"} /> */}
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
-          <LogoutButton setAuthenticated={setAuthenticated} />
+          {/* <LogoutButton setAuthenticated={setAuthenticated} /> */}
           <Main />
         </ProtectedRoute>
       </Switch>
