@@ -11,6 +11,7 @@ const RightSidebarMenu = () => {
     if (!width) {
       setWidth(initializeIframe());
     }
+    //! I would love it if it didn't rerender everytime we clicked the sidenav
     window.addEventListener("resize", (event) => {
       resizeIframe();
     });

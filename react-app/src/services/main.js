@@ -57,3 +57,11 @@ const setIframe = (width, height) => {
   iframe.style.height = height;
   iframe.style.width = width;
 };
+// function makeActive(isActive) {
+//   switch (isActive) {
+//     case "home":
+//       return setHomeActive("is-active");
+//     case "likes":
+//       return setLikesActive("is-active");
+//   }
+// }

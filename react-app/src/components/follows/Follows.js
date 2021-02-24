@@ -1,5 +1,7 @@
 import React from "react";
 
-const Follows = () => {};
+const Follows = () => {
+  
+};
 
 export default Follows;

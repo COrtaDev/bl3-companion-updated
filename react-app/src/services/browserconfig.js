@@ -14,40 +14,68 @@ import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Comments from "../components/comments/Comments";
 import Content from "../components/main/main-subcomponents/Content";
+import LeftSidebarMenu from "../components/main/main-subcomponents/LeftSidebarMenu";
 
 export const sidebarRoutes = [
   {
     path: "/home",
     exact: true,
-    sidebar: () => <div>home</div>,
-    main: () => <Content headerTitle={"Home"} subheader={"Home Subheader Here!!!"} feed={"getLootDrops"}/>,
+    active: "home",
+    main: () => (
+      <Content
+        headerTitle={"Home"}
+        subheader={"Home Subheader Here!!!"}
+        feed={"getLootDrops"}
+      />
+    ),
   },
   {
     path: "/likes",
     exact: true,
-    component: Likes,
-  },
-  {
-    path: "/follows",
-    exact: true,
-    component: Follows,
-    routes: [
-      {
-        path: "/follows/following",
-        exact: true,
-        component: Following,
-      },
-      {
-        path: "/follows/follwers",
-        exact: true,
-        component: Followers,
-      },
-    ],
+    active: "likes",
+    main: () => (
+      <Content
+        headerTitle={"Likes"}
+        subheader={"SOOO many LIKES!!!"}
+        feed={"getLikes"}
+      />
+    ),
   },
   {
     path: "/comments",
     exact: true,
-    component: Comments,
+    active: "comments",
+    main: () => (
+      <Content
+        headerTitle={"Commets"}
+        subheader={"Look at all these COMMENTS!!!"}
+        feed={"getComments"}
+      />
+    ),
+  },
+  {
+    path: "/follows",
+    exact: true,
+    active: "follows",
+    main: () => (
+      <Content
+        headerTitle={"Follows"}
+        subheader={"lets see who's following who???"}
+        feed={"getFollowsOrFollowing"}
+      />
+    ),
+    routes: [
+      {
+        path: "/following",
+        exact: true,
+        component: Following,
+      },
+      {
+        path: "/follwers",
+        exact: true,
+        component: Followers,
+      },
+    ],
   },
 ];
 

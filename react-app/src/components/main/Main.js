@@ -36,7 +36,19 @@ const Main = ({ logout }) => {
             style={{ borderRight: "1px solid" }}
             className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
           >
-            <LeftSidebarMenu logout={logout} paddingLeft={paddingLeft} />
+            <Switch>
+              {sidebarRoutes.map((route, index) => (
+                <Route key={index} path={route.path} exact={route.exact}>
+                  <LeftSidebarMenu
+                    logout={logout}
+                    paddingLeft={paddingLeft}
+                    active={route.active}
+
+                    // path={route.path}
+                  />
+                </Route>
+              ))}
+            </Switch>
           </section>
           <Switch>
             {sidebarRoutes.map((route, index) => (
@@ -45,6 +57,7 @@ const Main = ({ logout }) => {
                 path={route.path}
                 exact={route.exact}
                 children={route.main}
+                subroutes={route.routes}
               />
             ))}
             {/* <Content /> */}
