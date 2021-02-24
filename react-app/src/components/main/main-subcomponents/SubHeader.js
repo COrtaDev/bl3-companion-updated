@@ -1,22 +1,38 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import FollowTabs from "../../follows/follows-subcomponents/FollowTabs";
 import Follows from "../../follows/Follows";
 
 const SubHeader = ({ subheaderType, subroutes }) => {
-  const [activeTab, setActiveTab] = useState("login");
+  const [activeTab, setActiveTab] = useState(null);
+  console.log(activeTab);
+  useEffect(() => {
+    if (!activeTab) {
+      return setActiveTab("following");
+    }
+    if (activeTab === "following") {
+      console.log("Following for fucks sake!");
+    } else {
+      console.log("Followers for fuck sake!!!");
+    }
+  }, [activeTab]);
 
   function toggleFeed() {
+    console.log("making active " + activeTab);
     activeTab === "following"
       ? setActiveTab("following")
-      : setActiveTab("folowers");
+      : setActiveTab("followers");
   }
 
   if (subheaderType === "makeTabs") {
     return (
       <>
         <section style={{ minWidth: "600px" }} className={"section p-0"}>
-          {/* <h1>We gotta {subheaderType}!!!</h1> */}
-          <Follows
+          {/* <Follows
+            subroutes={subroutes}
+            activeTab={activeTab}
+            makeActive={toggleFeed}
+          /> */}
+          <FollowTabs
             subroutes={subroutes}
             activeTab={activeTab}
             makeActive={toggleFeed}

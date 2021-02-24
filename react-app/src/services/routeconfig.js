@@ -86,22 +86,46 @@ export const sidebarRoutes = [
         headerTitle={"Follows"}
         subheader={"makeTabs"}
         feed={"getFollowsOrFollowing"}
+        subfeeds={subFeeds}
+        subroutes={followsRoutes}
       />
     ),
-    // need to handle the sub routes alternatively
     routes: [
       {
-        path: "/follows/following",
-        // exact: true,
+        path: "/following",
+        exact: true,
         component: Following,
       },
       {
-        path: "/follows/follwers",
-        // exact: true,
+        path: "//follwers",
+        exact: true,
         component: Followers,
       },
     ],
   },
 ];
-
+const followsRoutes = [
+  {
+    path: "/follows/following",
+    exact: true,
+    component: Following,
+  },
+  {
+    path: "/follows/follwers",
+    exact: true,
+    component: Followers,
+  },
+];
+const subFeeds = [
+  {
+    path: "/following",
+    exact: true,
+    component: Following,
+  },
+  {
+    path: "/follwers",
+    exact: true,
+    component: Followers,
+  },
+];
 export default sidebarRoutes;

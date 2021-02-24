@@ -6,26 +6,31 @@ import Feed from "./Feed";
 import RightSidebarMenu from "./RightSidebarMenu";
 import Follows from "../../follows/Follows";
 
-const Content = ({ headerTitle, subheader, feed, subroutes }) => {
-  let location = useLocation();
-  const [currentLocation, setCurrentLocation] = useState(location);
-  console.log(location);
-  console.log(currentLocation);
-  useEffect(() => {
-    if (!currentLocation) {
-      return console.log("no location!!!");
-    }
-    console.log(currentLocation);
-  }, [currentLocation]);
+const Content = ({
+  headerTitle,
+  subheader,
+  feed,
+  subroutes,
+  subfeeds,
+  setAuthenticated,
+}) => {
+  // console.log(subroutes);
   return (
     <main className={"is-flex is-flex-direction-row is-justify-content-center"}>
       <section
         className={"is-flex is-flex-direction-column is-align-items-center"}
       >
         <Header title={headerTitle} subheaderType={subheader} />
-        <SubHeader subheaderType={subheader} subroutes={subroutes} />
-        {/* {followTabs} */}
-        <Feed feed={feed} />
+        <SubHeader
+          subheaderType={subheader}
+          subroutes={subroutes}
+          setAuthenticated={setAuthenticated}
+        />
+        <Feed
+          feed={feed}
+          subfeeds={subfeeds}
+          setAuthenticated={setAuthenticated}
+        />
       </section>
       <section style={{ borderLeft: "1px solid" }} className={"is-flex"}>
         <RightSidebarMenu />

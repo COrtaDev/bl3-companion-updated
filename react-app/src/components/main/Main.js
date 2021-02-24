@@ -6,7 +6,7 @@ import { handleResize } from "../../services/main";
 import { sidebarRoutes } from "../../services/routeconfig";
 import "../../styles/css/main.css";
 
-const Main = ({ logout }) => {
+const Main = ({ logout, setAuthenticated }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -24,7 +24,7 @@ const Main = ({ logout }) => {
       );
     });
   }, [justifyContent, paddingLeft]);
-  
+
   return (
     <>
       <Router>
@@ -51,11 +51,12 @@ const Main = ({ logout }) => {
           <Switch>
             {sidebarRoutes.map((route, index) => (
               <Route
+                {...route.routes}
                 key={index}
                 path={route.path}
                 exact={route.exact}
                 children={route.main}
-                subroutes={route.routes}
+                setAuthenticated={setAuthenticated}
               />
             ))}
           </Switch>

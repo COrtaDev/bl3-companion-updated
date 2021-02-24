@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
+const FollowTabs = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
   // const [active, setActive] = useState(null);
   const [followingState, setFollowingState] = useState("");
   const [followersState, setFollowersState] = useState("");
@@ -34,4 +34,4 @@ const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
   );
 };
 
-export default Follows;
+export default FollowTabs;

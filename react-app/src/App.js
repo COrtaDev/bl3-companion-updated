@@ -36,7 +36,7 @@ function App() {
         render={(props) => (
           <route.component
             {...props}
-            logout={<LogoutButton />}
+            logout={<LogoutButton setAuthenticated={setAuthenticated} />}
             setAuthenticated={setAuthenticated}
           />
         )}

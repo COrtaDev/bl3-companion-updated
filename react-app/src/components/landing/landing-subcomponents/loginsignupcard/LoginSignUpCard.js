@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import LoginSignUpCardTabs from "./loginsignupcard-subcomponents/LoginSignUpCardTabs";
 import LoginSignUpCardMedia from "./loginsignupcard-subcomponents/LoginSignUpCardMedia";
-// import '../../../../styles/css/mycardstyles.css';
 
 const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
   const [activeTab, setActiveTab] = useState("login");
