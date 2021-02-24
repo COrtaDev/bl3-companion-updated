@@ -1,22 +1,19 @@
-import React, { useState } from 'react';
-import LoginSignUpCardTabs from './loginsignupcard-subcomponents/LoginSignUpCardTabs';
-import LoginSignUpCardMedia from './loginsignupcard-subcomponents/LoginSignUpCardMedia';
+import React, { useState } from "react";
+import LoginSignUpCardTabs from "./loginsignupcard-subcomponents/LoginSignUpCardTabs";
+import LoginSignUpCardMedia from "./loginsignupcard-subcomponents/LoginSignUpCardMedia";
 // import '../../../../styles/css/mycardstyles.css';
 
 const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
-  const [activeTab, setActiveTab] = useState('login');
+  const [activeTab, setActiveTab] = useState("login");
 
   function toggleCard() {
-    activeTab === 'login' ? setActiveTab('signup') : setActiveTab('login');
-  };
+    activeTab === "login" ? setActiveTab("signup") : setActiveTab("login");
+  }
 
   return (
     <div className={"card"}>
       <div className={"card-header"}>
-        <LoginSignUpCardTabs
-          activeTab={activeTab}
-          makeActive={toggleCard}
-        />
+        <LoginSignUpCardTabs activeTab={activeTab} makeActive={toggleCard} />
       </div>
       <div className={"card-content"}>
         <LoginSignUpCardMedia
@@ -27,6 +24,6 @@ const LoginSignUpCard = ({ authenticated, setAuthenticated }) => {
       </div>
     </div>
   );
-}
+};
 
 export default LoginSignUpCard;

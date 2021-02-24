@@ -31,7 +31,7 @@ export const sidebarRoutes = [
   },
   {
     path: "/likes",
-    exact: true,
+    // exact: true,
     active: "likes",
     main: () => (
       <Content
@@ -43,7 +43,7 @@ export const sidebarRoutes = [
   },
   {
     path: "/comments",
-    exact: true,
+    // exact: true,
     active: "comments",
     main: () => (
       <Content
@@ -55,23 +55,23 @@ export const sidebarRoutes = [
   },
   {
     path: "/follows",
-    exact: true,
+    // exact: true,
     active: "follows",
     main: () => (
       <Content
         headerTitle={"Follows"}
-        subheader={"lets see who's following who???"}
+        subheader={"makeTabs"}
         feed={"getFollowsOrFollowing"}
       />
     ),
     routes: [
       {
-        path: "/following",
+        path: "/follows/following",
         exact: true,
         component: Following,
       },
       {
-        path: "/follwers",
+        path: "/follows/follwers",
         exact: true,
         component: Followers,
       },

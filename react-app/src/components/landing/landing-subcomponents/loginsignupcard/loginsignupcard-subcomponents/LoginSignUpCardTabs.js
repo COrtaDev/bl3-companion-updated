@@ -22,9 +22,9 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
         <li className={loginState}>
           <a onClick={() => makeActive()} href={"#/"}>
             <span className={"icon is-small"}>
-              <i aria-hidden={true}>
-                <FontAwesomeIcon icon={faSignInAlt} />
-              </i>
+              {/* <i aria-hidden={true}> */}
+              <FontAwesomeIcon aria-hidden={true} icon={faSignInAlt} />
+              {/* </i> */}
             </span>
             <span>Login</span>
           </a>
@@ -32,9 +32,9 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
         <li className={signupState}>
           <a onClick={() => makeActive()} href={"#/"}>
             <span className={"icon is-small"}>
-              <i aria-hidden={true}>
-                <FontAwesomeIcon icon={faUserPlus} />
-              </i>
+              {/* <i aria-hidden={true}> */}
+              <FontAwesomeIcon aria-hidden={true} icon={faUserPlus} />
+              {/* </i> */}
             </span>
             <span>Sign Up</span>
           </a>
