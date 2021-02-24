@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import {
+  BrowserRouter,
+  Route,
+  Switch,
+} from "react-router-dom";
 import { authenticate } from "./services/auth";
 import LogoutButton from "./components/auth/LogoutButton";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
@@ -22,7 +26,7 @@ function App() {
       }
       setLoaded(true);
     })();
-  }, []);
+  }, [loaded]);
 
   if (!loaded) {
     return null;
@@ -53,10 +57,22 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
           <Tutorial />
-          {/* I think we want to render a tutorial here someday... */}
-          {/* This is but a placeholder */}
         </ProtectedRoute>
         <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
+          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
+        </ProtectedRoute>
+        <ProtectedRoute
+          path="/comments"
+          exact={true}
+          authenticated={authenticated}
+        >
+          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
+        </ProtectedRoute>
+        <ProtectedRoute
+          path="/likes"
+          exact={true}
+          authenticated={authenticated}
+        >
           <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
         </ProtectedRoute>
       </Switch>

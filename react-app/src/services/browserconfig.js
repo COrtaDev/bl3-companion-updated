@@ -6,15 +6,10 @@ import React from "react";
 // with `path` and `component` props, ordered the same
 // way you'd do inside a `<Switch>`.
 
-import Tutorial from "../components/tutorial/Tutorial";
-import Home from "../components/main/main-subcomponents/Home";
-import Likes from "../components/likes/Likes";
-import Follows from "../components/follows/Follows";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
-import Comments from "../components/comments/Comments";
 import Content from "../components/main/main-subcomponents/Content";
-import LeftSidebarMenu from "../components/main/main-subcomponents/LeftSidebarMenu";
+
 
 export const sidebarRoutes = [
   {
@@ -43,7 +38,7 @@ export const sidebarRoutes = [
   },
   {
     path: "/comments",
-    // exact: true,
+    exact: true,
     active: "comments",
     main: () => (
       <Content
@@ -67,12 +62,12 @@ export const sidebarRoutes = [
     routes: [
       {
         path: "/follows/following",
-        exact: true,
+        // exact: true,
         component: Following,
       },
       {
         path: "/follows/follwers",
-        exact: true,
+        // exact: true,
         component: Followers,
       },
     ],

@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import Content from "./main-subcomponents/Content";
 import { handleResize } from "../../services/main";
@@ -43,7 +47,6 @@ const Main = ({ logout }) => {
                     logout={logout}
                     paddingLeft={paddingLeft}
                     active={route.active}
-
                     // path={route.path}
                   />
                 </Route>
