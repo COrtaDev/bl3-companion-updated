@@ -5,11 +5,40 @@ import React from "react";
 // Our route config is just an array of logical "routes"
 // with `path` and `component` props, ordered the same
 // way you'd do inside a `<Switch>`.
-
+import ProtectedRoute from "../components/auth/ProtectedRoute";
+import LogoutButton from "../components/auth/LogoutButton";
+import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Content from "../components/main/main-subcomponents/Content";
+import Tutorial from "../components/tutorial/Tutorial";
 
+export const mainRoutes = [
+  {
+    path: "/",
+    exact: true,
+    component: Tutorial,
+  },
+  {
+    path: "/home",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/comments",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/likes",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/follows",
+    component: Main,
+  },
+];
 
 export const sidebarRoutes = [
   {
@@ -59,6 +88,7 @@ export const sidebarRoutes = [
         feed={"getFollowsOrFollowing"}
       />
     ),
+    // need to handle the sub routes alternatively
     routes: [
       {
         path: "/follows/following",

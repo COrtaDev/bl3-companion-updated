@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import Content from "./main-subcomponents/Content";
 import { handleResize } from "../../services/main";
-import { sidebarRoutes } from "../../services/browserconfig";
+import { sidebarRoutes } from "../../services/routeconfig";
 import "../../styles/css/main.css";
 
 const Main = ({ logout }) => {
@@ -28,7 +24,7 @@ const Main = ({ logout }) => {
       );
     });
   }, [justifyContent, paddingLeft]);
-
+  
   return (
     <>
       <Router>
@@ -47,7 +43,6 @@ const Main = ({ logout }) => {
                     logout={logout}
                     paddingLeft={paddingLeft}
                     active={route.active}
-                    // path={route.path}
                   />
                 </Route>
               ))}
@@ -63,7 +58,6 @@ const Main = ({ logout }) => {
                 subroutes={route.routes}
               />
             ))}
-            {/* <Content /> */}
           </Switch>
         </div>
       </Router>

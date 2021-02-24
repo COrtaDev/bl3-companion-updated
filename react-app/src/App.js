@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { authenticate } from "./services/auth";
+import { mainRoutes } from "./services/routeconfig";
 import LogoutButton from "./components/auth/LogoutButton";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import UsersList from "./components/UsersList";
-import User from "./components/User";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
-import Main from "./components/main/Main";
+// import Main from "./components/main/Main";
 import "../src/styles/css/mystyles.css";
-import Tutorial from "./components/tutorial/Tutorial";
+// import Tutorial from "./components/tutorial/Tutorial";
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -32,6 +27,23 @@ function App() {
     return null;
   }
 
+  const ProtectedRoutes = (route) => {
+    return (
+      <ProtectedRoute
+        path={route.path}
+        exact={route.exact}
+        authenticated={authenticated}
+        render={(props) => (
+          <route.component
+            {...props}
+            logout={<LogoutButton />}
+            setAuthenticated={setAuthenticated}
+          />
+        )}
+      />
+    );
+  };
+
   return (
     <BrowserRouter>
       <Switch>
@@ -41,40 +53,9 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        <ProtectedRoute
-          path="/users"
-          exact={true}
-          authenticated={authenticated}
-        >
-          <UsersList />
-        </ProtectedRoute>
-        <ProtectedRoute
-          path="/users/:userId"
-          exact={true}
-          authenticated={authenticated}
-        >
-          <User />
-        </ProtectedRoute>
-        <ProtectedRoute path="/" exact={true} authenticated={authenticated}>
-          <Tutorial />
-        </ProtectedRoute>
-        <ProtectedRoute path="/home" exact={true} authenticated={authenticated}>
-          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
-        </ProtectedRoute>
-        <ProtectedRoute
-          path="/comments"
-          exact={true}
-          authenticated={authenticated}
-        >
-          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
-        </ProtectedRoute>
-        <ProtectedRoute
-          path="/likes"
-          exact={true}
-          authenticated={authenticated}
-        >
-          <Main logout={<LogoutButton setAuthenticated={setAuthenticated} />} />
-        </ProtectedRoute>
+        {mainRoutes.map((route, index) => (
+          <ProtectedRoutes key={index} {...route} />
+        ))}
       </Switch>
     </BrowserRouter>
   );
