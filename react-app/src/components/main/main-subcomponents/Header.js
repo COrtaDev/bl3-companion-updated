@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ title }) => {
   return (
     <>
       <section
@@ -10,7 +10,8 @@ const Header = () => {
         <nav style={{ minHeight: "53px" }} className={"level"}>
           <div className={"level-left"}>
             {/* Todo: this will show the name of the current path we are on */}
-            <h1>This current header name!</h1>
+            {/* <h1>This current header name!</h1> */}
+            <h1>{title}</h1>
           </div>
           <div className={"level-right"}>
             {/* on twitter, this is for showing "top tweets..." */}
