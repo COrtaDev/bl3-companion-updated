@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import Content from "./main-subcomponents/Content";
 import { handleResize } from "../../services/main";
-import { sidebarRoutes } from "../../browserconfig";
+import { sidebarRoutes } from "../../services/browserconfig";
 import "../../styles/css/main.css";
 
 const Main = ({ logout }) => {
@@ -27,18 +27,43 @@ const Main = ({ logout }) => {
 
   return (
     <>
-      <div
-        id={"main-app"}
-        className={`is-flex is-flex-direction-row ${justifyContent}`}
-      >
-        <section
-          style={{ borderRight: "1px solid" }}
-          className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
+      <Router>
+        <div
+          id={"main-app"}
+          className={`is-flex is-flex-direction-row ${justifyContent}`}
         >
-          <LeftSidebarMenu logout={logout} paddingLeft={paddingLeft} />
-        </section>
-        <Content />
-      </div>
+          <section
+            style={{ borderRight: "1px solid" }}
+            className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
+          >
+            <Switch>
+              {sidebarRoutes.map((route, index) => (
+                <Route key={index} path={route.path} exact={route.exact}>
+                  <LeftSidebarMenu
+                    logout={logout}
+                    paddingLeft={paddingLeft}
+                    active={route.active}
+
+                    // path={route.path}
+                  />
+                </Route>
+              ))}
+            </Switch>
+          </section>
+          <Switch>
+            {sidebarRoutes.map((route, index) => (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                children={route.main}
+                subroutes={route.routes}
+              />
+            ))}
+            {/* <Content /> */}
+          </Switch>
+        </div>
+      </Router>
     </>
   );
 };

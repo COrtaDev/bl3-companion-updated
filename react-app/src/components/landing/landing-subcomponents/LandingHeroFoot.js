@@ -28,7 +28,7 @@ const LandingHeroFoot = () => {
                     "https://raw.githubusercontent.com/COrtaDev/COrtaDev.github.io/master/images/COrtaDev-Logo-outlined.png"
                   }
                   alt={"logo"}
-                  crossorigin
+                  // crossorigin
                 />
               </a>
               <div className={"column is-2"}></div>

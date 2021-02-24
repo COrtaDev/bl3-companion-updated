@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCaravan,
@@ -9,38 +10,38 @@ import {
   faPiggyBank,
 } from "@fortawesome/free-solid-svg-icons";
 import "../../../styles/css/leftsidenav.css";
-// import LogoutButton from "../../auth/LogoutButton";
-// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-// Each logical "route" has two components, one for
-// the sidebar and one for the main area. We want to
-// render both of them in different places when the
-// path matches the current URL.
+const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
+  const [homeActive, setHomeActive] = useState("");
+  const [likesActive, setLikesActive] = useState("");
+  const [commentsActive, setCommentsActive] = useState("");
+  const [followsActive, setFollowsActive] = useState("");
+  const [isActive, setIsActive] = useState(active);
 
-// We are going to use this route config in 2
-// spots: once for the sidebar and once in the main
-// content section. All routes are in the same
-// order they would appear in a <Switch>.
-// const routes = [
-//   {
-//     path: "/home",
-//     exact: true,
-//     sidebar: () => <div>home!</div>,
-//     main: () => <h2>Home</h2>
-//   },
-//   {
-//     path: "/bubblegum",
-//     sidebar: () => <div>bubblegum!</div>,
-//     main: () => <h2>Bubblegum</h2>
-//   },
-//   {
-//     path: "/shoelaces",
-//     sidebar: () => <div>shoelaces!</div>,
-//     main: () => <h2>Shoelaces</h2>
-//   }
-// ];
+  useEffect(() => {
+    setIsActive(active);
+    makeActive(isActive);
+  }, [
+    active,
+    isActive,
+    homeActive,
+    likesActive,
+    commentsActive,
+    followsActive,
+  ]);
 
-const LeftSidebarMenu = ({ logout, paddingLeft }) => {
+  function makeActive(isActive) {
+    switch (isActive) {
+      case "home":
+        return setHomeActive("is-active");
+      case "likes":
+        return setLikesActive("is-active");
+      case "comments":
+        return setCommentsActive("is-active");
+      case "follows":
+        return setFollowsActive("is-active");
+    }
+  }
   return (
     <>
       <div
@@ -55,55 +56,55 @@ const LeftSidebarMenu = ({ logout, paddingLeft }) => {
           </ul>
           <ul className={"menu-list is-size-4 pr-2"}>
             <li className={"level mb-0"}>
-              <a
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large is-active"
-                }
-                href={"/home"}
+              <Link
+                to={"/home"}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${homeActive}`}
               >
                 <FontAwesomeIcon icon={faCaravan} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
                   Home
                 </p>
-              </a>
+              </Link>
             </li>
             <li className={"level mb-0"}>
-              <a
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large"
-                }
+              <Link
+                to={"/likes"}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${likesActive}`}
               >
                 <FontAwesomeIcon icon={faBomb} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
                   Likes
                 </p>
-              </a>
+              </Link>
             </li>
             <li className={"level mb-0"}>
-              <a
+              {/* <a
                 id={"sidenav"}
                 className={
                   "level-left is-flex has-text-link button is-rounded is-large"
                 }
+              > */}
+              <Link
+                to={"/comments"}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${commentsActive}`}
               >
                 <FontAwesomeIcon icon={faCommentDollar} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
                   Comments
                 </p>
-              </a>
+              </Link>
+              {/* </a> */}
             </li>
             <li className={"level mb-0"}>
-              <a
-                id={"sidenav"}
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large"
-                }
+              <Link
+                to={"/follows"}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${followsActive}`}
               >
                 <FontAwesomeIcon icon={faUserSecret} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
                   Follows
                 </p>
-              </a>
+              </Link>
             </li>
             <li className={"level mb-0"}>
               <a
