@@ -33,7 +33,7 @@ const Main = ({ logout, setAuthenticated }) => {
           className={`is-flex is-flex-direction-row ${justifyContent}`}
         >
           <section
-            style={{ borderRight: "1px solid" }}
+            id={"left-sidenav-menu"}
             className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
           >
             <Switch>

@@ -14,7 +14,14 @@ const Content = ({
   subfeeds,
   setAuthenticated,
 }) => {
-  // console.log(subroutes);
+  const [activeTab, setActiveTab] = useState("following");
+
+  function toggleFeed() {
+    activeTab === "following"
+      ? setActiveTab("followers")
+      : setActiveTab("following");
+  }
+
   return (
     <main className={"is-flex is-flex-direction-row is-justify-content-center"}>
       <section
@@ -23,16 +30,21 @@ const Content = ({
         <Header title={headerTitle} subheaderType={subheader} />
         <SubHeader
           subheaderType={subheader}
-          subroutes={subroutes}
-          setAuthenticated={setAuthenticated}
+          activeTab={activeTab}
+          makeActive={toggleFeed}
         />
         <Feed
           feed={feed}
           subfeeds={subfeeds}
+          activeTab={activeTab}
           setAuthenticated={setAuthenticated}
         />
       </section>
-      <section style={{ borderLeft: "1px solid" }} className={"is-flex"}>
+      <section
+        id={"right-sidenav-menu"}
+        // style={{ borderLeft: "1px solid" }}
+        className={"is-flex"}
+      >
         <RightSidebarMenu />
       </section>
     </main>

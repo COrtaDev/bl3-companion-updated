@@ -1,8 +1,9 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+// import { useLocation } from "react-router-dom";
 
-const Feed = ({ feed, subfeeds }) => {
-  let location = useLocation();
+const Feed = ({ feed, activeTab }) => {
+  console.log(activeTab);
+  // let location = useLocation();
   // console.log(location.pathname);
   // TODO, depending on what is passed here we will need to render a different
   //*version of the feed.

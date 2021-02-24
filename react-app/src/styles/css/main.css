@@ -1,5 +1,30 @@
-/* @media screen and (max-width: 1065) {
-  div#main-app {
-    justify-content: flex-start;
-  }
-} */
+section#left-sidenav-menu {
+  border-right: 1px solid rgba(102, 2, 0, 0.5);
+}
+section#right-sidenav-menu {
+  border-left: 1px solid rgba(102, 2, 0, 0.5);
+}
+section#main-header {
+  min-width: 600px;
+  border-bottom: 1px solid rgba(102, 2, 0, 0.5);
+}
+nav#main-header {
+  min-height: 53px;
+}
+section#subheader-with-tabs {
+  min-width: 600px;
+}
+section#subheader-without-tabs {
+  min-width: 600px;
+  border-bottom: 1px solid rgba(102, 2, 0, 0.5);
+}
+.tabs.is-boxed li.is-active a {
+  background-color: #ee9628 !important;
+  font-weight: 600 !important;
+  font-kerning: auto !important;
+  color: #363636 !important;
+  border-color: #ee95287c !important;
+}
+ul#follow-tabs {
+  border-bottom: 1px solid #ee95287c;
+}
