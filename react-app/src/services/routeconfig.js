@@ -103,6 +103,19 @@ export const sidebarRoutes = [
       },
     ],
   },
+  {
+    path: "/profile", //!this will need to be a param most likely...
+    exact: true,
+    active: "profile",
+    main: () => (
+      <Content
+        headerTitle={"Profile"}
+        subheader={"This is you user profile"}
+        feed={"getAllLootDropsForThisUser!!!"}
+      />
+    ),
+  },
+  { active: "profile" },
 ];
 const followsRoutes = [
   {
