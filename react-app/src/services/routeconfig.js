@@ -97,7 +97,7 @@ export const sidebarRoutes = [
         component: Following,
       },
       {
-        path: "//follwers",
+        path: "/follwers",
         exact: true,
         component: Followers,
       },

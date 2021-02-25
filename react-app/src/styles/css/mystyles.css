@@ -3337,7 +3337,7 @@ button.dropdown-item {
     display: flex; }
 
 .modal-background {
-  background-color: rgba(245, 245, 245, 0.86); }
+  background-color: rgba(102, 2, 0, 0.2); }
 
 .modal-content,
 .modal-card {
