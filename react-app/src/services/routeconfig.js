@@ -4,6 +4,7 @@ import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Content from "../components/main/main-subcomponents/Content";
+import ProfileSubheader from "../components/profile/ProfileSubheader";
 
 //TODO: We need to build the username into the profile path:
 //! This could result in bugs if the user tries to navigate to another users profile...
@@ -97,7 +98,7 @@ export const sidebarRoutes = [
     main: () => (
       <Content
         headerTitle={"Profile"}
-        subheader={"This is you user profile"}
+        subheader={<ProfileSubheader />}
         feed={"getAllLootDropsForThisUser!!!"}
       />
     ),

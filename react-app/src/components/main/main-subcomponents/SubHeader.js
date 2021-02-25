@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import FollowTabs from "../../follows/follows-subcomponents/FollowTabs";
 import "../../../styles/css/subheader.css";
 
-const SubHeader = ({ subheaderType, subroutes, activeTab, makeActive }) => {
-  if (subheaderType === "makeTabs") {
+const SubHeader = ({ subheader, subroutes, activeTab, makeActive }) => {
+  if (subheader === "makeTabs") {
     return (
       <>
         <section id={"subheader-with-tabs"} className={"section p-0"}>
@@ -19,7 +19,7 @@ const SubHeader = ({ subheaderType, subroutes, activeTab, makeActive }) => {
     return (
       <>
         <section id={"subheader-without-tabs"} className={"section"}>
-          <h1>{subheaderType}</h1>
+          {subheader}
           <h1>this is the subheader area!</h1>
           <h2>put a media card in here or something...</h2>
         </section>

@@ -27,9 +27,9 @@ const Content = ({
       <section
         className={"is-flex is-flex-direction-column is-align-items-center"}
       >
-        <Header title={headerTitle} subheaderType={subheader} />
+        <Header title={headerTitle} subheader={subheader} />
         <SubHeader
-          subheaderType={subheader}
+          subheader={subheader}
           activeTab={activeTab}
           makeActive={toggleFeed}
         />
