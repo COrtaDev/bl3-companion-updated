@@ -1,15 +1,6 @@
 import React from "react";
-// import { useLocation } from "react-router-dom";
 
 const Feed = ({ feed, activeTab }) => {
-  console.log(feed);
-  console.log(activeTab);
-
-  // let location = useLocation();
-  // console.log(location.pathname);
-  // TODO, depending on what is passed here we will need to render a different
-  //*version of the feed.
-  // console.log(subfeeds);
   if (feed === "getFollowsOrFollowing") {
     if (activeTab === "following") {
       return (

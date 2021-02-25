@@ -40,11 +40,7 @@ const Content = ({
           setAuthenticated={setAuthenticated}
         />
       </section>
-      <section
-        id={"right-sidenav-menu"}
-        // style={{ borderLeft: "1px solid" }}
-        className={"is-flex"}
-      >
+      <section id={"right-sidenav-menu"} className={"is-flex"}>
         <RightSidebarMenu />
       </section>
     </main>

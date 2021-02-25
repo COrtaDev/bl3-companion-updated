@@ -1,23 +1,15 @@
 import React from "react";
-//* This is our centralized route config...
-// A route config is just data. React is great at mapping
-// data into components, and <Route> is a component.
-// Our route config is just an array of logical "routes"
-// with `path` and `component` props, ordered the same
-// way you'd do inside a `<Switch>`.
-import ProtectedRoute from "../components/auth/ProtectedRoute";
-import LogoutButton from "../components/auth/LogoutButton";
+import { Redirect } from "react-router-dom";
 import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Content from "../components/main/main-subcomponents/Content";
-import Tutorial from "../components/tutorial/Tutorial";
 
 export const mainRoutes = [
   {
     path: "/",
     exact: true,
-    component: Tutorial,
+    component: () => <Redirect to="/home" />,
   },
   {
     path: "/home",
@@ -36,6 +28,10 @@ export const mainRoutes = [
   },
   {
     path: "/follows",
+    component: Main,
+  },
+  {
+    path: "/profile",
     component: Main,
   },
 ];
@@ -79,7 +75,6 @@ export const sidebarRoutes = [
   },
   {
     path: "/follows",
-    // exact: true,
     active: "follows",
     main: () => (
       <Content
@@ -90,19 +85,19 @@ export const sidebarRoutes = [
         subroutes={followsRoutes}
       />
     ),
-    routes: [
-      {
-        path: "/following",
-        exact: true,
-        component: Following,
-      },
-      {
-        path: "/follwers",
-        exact: true,
-        component: Followers,
-      },
-    ],
   },
+  {
+    path: "/profile", //!this will need to be a param most likely...
+    active: "profile",
+    main: () => (
+      <Content
+        headerTitle={"Profile"}
+        subheader={"This is you user profile"}
+        feed={"getAllLootDropsForThisUser!!!"}
+      />
+    ),
+  },
+
 ];
 const followsRoutes = [
   {

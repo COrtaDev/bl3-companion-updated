@@ -19,10 +19,13 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
   const [likesActive, setLikesActive] = useState("");
   const [commentsActive, setCommentsActive] = useState("");
   const [followsActive, setFollowsActive] = useState("");
+  const [profileActive, setProfileActive] = useState("");
+  const [tutorialActive, setTutorialActive] = useState("");
   const [isActive, setIsActive] = useState(active);
   const [modalState, setModalState] = useState("");
 
   useEffect(() => {
+    if (modalState) return;
     setIsActive(active);
     makeActive(isActive);
   }, [
@@ -32,6 +35,9 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
     likesActive,
     commentsActive,
     followsActive,
+    profileActive,
+    tutorialActive,
+    modalState,
   ]);
 
   function makeActive(isActive) {
@@ -44,12 +50,36 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
         return setCommentsActive("is-active");
       case "follows":
         return setFollowsActive("is-active");
+      case "profile":
+        return setProfileActive("is-active");
+      case "tutorial":
+        return setTutorialActive("is-active");
+      case "none":
+        setHomeActive("");
+        setLikesActive("");
+        setCommentsActive("");
+        setFollowsActive("");
+        setProfileActive("");
+        return;
     }
   }
-  // function showTutorial() {}
+
+  function closeTutorial(e) {
+    e.stopPropagation();
+    setModalState("");
+    setTutorialActive("");
+  }
+
+  function showTutorial(e) {
+    e.stopPropagation();
+    makeActive("none");
+    makeActive("tutorial");
+    setModalState("is-active");
+  }
+
   return (
     <>
-      <Tutorial modalState={modalState} onHide={() => setModalState("")} />
+      <Tutorial modalState={modalState} onClose={closeTutorial} />
       <div
         style={{ height: "100%" }}
         className={`is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between ${paddingLeft}`}
@@ -106,24 +136,20 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
               </Link>
             </li>
             <li className={"level mb-0"}>
-              <a
-                id={"sidenav"}
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large"
-                }
+              <Link
+                to={"/profile"}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${profileActive}`}
               >
                 <FontAwesomeIcon icon={faPiggyBank} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
                   Profile
                 </p>
-              </a>
+              </Link>
             </li>
             <li className={"level mb-0"}>
               <a
-                onClick={() => setModalState("is-active")}
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large"
-                }
+                onClick={showTutorial}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${tutorialActive}`}
               >
                 <FontAwesomeIcon icon={faCrosshairs} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
