@@ -157,13 +157,15 @@ $link-focus-border: $Gold;
 
 // Update some of Bulma's component variables
 $body-font-size: 1.2rem !default;
+// $modal-background-background-color: rgba(246, 239, 20, 0.225);
+$modal-background-background-color: rgba(102, 2, 0, 0.2);
+
 // $navbar-height: 5rem;
 // $button-hover-color: findDarkColor($color);
 // $body-background-color: $beige-lighter;
 // $control-border-width: 2px;
 // $input-border-color: transparent;
 // $input-shadow: none;
-
 @import "../../../node_modules/bulma/bulma.sass";
 // @import "../../../node_modules/bulma/sass/base/_all.sass";
 // @import "../../../node_modules/bulma/sass/elements/_all.sass";

@@ -3,11 +3,8 @@ import React from "react";
 const Header = ({ title }) => {
   return (
     <>
-      <section
-        style={{ minWidth: "600px", borderBottom: "1px solid" }}
-        className={"section px-3 py-0"}
-      >
-        <nav style={{ minHeight: "53px" }} className={"level"}>
+      <section id={"main-header"} className={"section px-3 py-0"}>
+        <nav id={"main-header"} className={"level"}>
           <div className={"level-left"}>
             {/* Todo: this will show the name of the current path we are on */}
             {/* <h1>This current header name!</h1> */}

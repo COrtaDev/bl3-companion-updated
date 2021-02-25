@@ -1,5 +1,58 @@
-/* @media screen and (max-width: 1065) {
-  div#main-app {
-    justify-content: flex-start;
-  }
-} */
+section#left-sidenav-menu {
+  border-right: 1px solid rgba(102, 2, 0, 0.5);
+}
+section#right-sidenav-menu {
+  border-left: 1px solid rgba(102, 2, 0, 0.5);
+}
+section#main-header {
+  min-width: 600px;
+  border-bottom: 1px solid rgba(102, 2, 0, 0.5);
+}
+nav#main-header {
+  min-height: 53px;
+}
+section#subheader-with-tabs {
+  min-width: 600px;
+}
+section#subheader-without-tabs {
+  min-width: 600px;
+  border-bottom: 1px solid rgba(102, 2, 0, 0.5);
+}
+.tabs.is-boxed li.is-active a {
+  background-color: #ee9628 !important;
+  font-weight: 600 !important;
+  font-kerning: auto !important;
+  color: #363636 !important;
+  border-color: #ee95287c !important;
+}
+ul#follow-tabs {
+  border-bottom: 1px solid #ee95287c;
+}
+button#modal-close-button.is-large.modal-close {
+  right: 50px;
+  top: 40px;
+  height: 60px;
+  max-height: 60px;
+  max-width: 60px;
+  min-height: 60px;
+  min-width: 60px;
+  width: 60px;
+  /* height: 2rem !important;
+  max-height: 2rem ; */
+  /* height: 200%; */
+}
+button#modal-close-button::after {
+  height: 150%;
+  width: 0.6rem;
+  background-color: rgb(246, 238, 20);
+  /* border: 1px solid rgb(102, 2, 0); */
+}
+button#modal-close-button::before {
+  height: 0.6rem;
+  width: 150%;
+  background-color: rgb(246, 238, 20);
+  /* border: 1px solid rgb(102, 2, 0); */
+}
+div#tutorial-modal-content img{
+
+}

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
+const FollowTabs = ({ activeTab, makeActive }) => {
   // const [active, setActive] = useState(null);
   const [followingState, setFollowingState] = useState("");
   const [followersState, setFollowersState] = useState("");
 
   useEffect(() => {
-    console.log(activeTab);
     if (activeTab === "following") {
       setFollowingState("is-active disabledTab");
       setFollowersState("");
@@ -18,7 +17,7 @@ const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
 
   return (
     <div className={"tabs fulltabs is-boxed is-medium"}>
-      <ul>
+      <ul id={"follow-tabs"}>
         <li className={followingState}>
           <a onClick={() => makeActive()}>
             <span>Following</span>
@@ -34,4 +33,4 @@ const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
   );
 };
 
-export default Follows;
+export default FollowTabs;

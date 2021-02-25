@@ -9,7 +9,10 @@ import {
   faCommentDollar,
   faPiggyBank,
 } from "@fortawesome/free-solid-svg-icons";
+import Tutorial from "../../tutorial/Tutorial";
 import "../../../styles/css/leftsidenav.css";
+
+//TODO:I see a lot of things I could map here using an array. For future reference...
 
 const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
   const [homeActive, setHomeActive] = useState("");
@@ -17,6 +20,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
   const [commentsActive, setCommentsActive] = useState("");
   const [followsActive, setFollowsActive] = useState("");
   const [isActive, setIsActive] = useState(active);
+  const [modalState, setModalState] = useState("");
 
   useEffect(() => {
     setIsActive(active);
@@ -42,8 +46,10 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
         return setFollowsActive("is-active");
     }
   }
+  // function showTutorial() {}
   return (
     <>
+      <Tutorial modalState={modalState} onHide={() => setModalState("")} />
       <div
         style={{ height: "100%" }}
         className={`is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between ${paddingLeft}`}
@@ -78,12 +84,6 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
               </Link>
             </li>
             <li className={"level mb-0"}>
-              {/* <a
-                id={"sidenav"}
-                className={
-                  "level-left is-flex has-text-link button is-rounded is-large"
-                }
-              > */}
               <Link
                 to={"/comments"}
                 className={`level-left is-flex has-text-link button is-rounded is-large ${commentsActive}`}
@@ -93,7 +93,6 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
                   Comments
                 </p>
               </Link>
-              {/* </a> */}
             </li>
             <li className={"level mb-0"}>
               <Link
@@ -121,6 +120,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             </li>
             <li className={"level mb-0"}>
               <a
+                onClick={() => setModalState("is-active")}
                 className={
                   "level-left is-flex has-text-link button is-rounded is-large"
                 }

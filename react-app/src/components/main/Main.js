@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import Content from "./main-subcomponents/Content";
 import { handleResize } from "../../services/main";
-import { sidebarRoutes } from "../../services/browserconfig";
+import { sidebarRoutes } from "../../services/routeconfig";
 import "../../styles/css/main.css";
 
-const Main = ({ logout }) => {
+const Main = ({ logout, setAuthenticated }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -33,7 +33,7 @@ const Main = ({ logout }) => {
           className={`is-flex is-flex-direction-row ${justifyContent}`}
         >
           <section
-            style={{ borderRight: "1px solid" }}
+            id={"left-sidenav-menu"}
             className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
           >
             <Switch>
@@ -43,8 +43,6 @@ const Main = ({ logout }) => {
                     logout={logout}
                     paddingLeft={paddingLeft}
                     active={route.active}
-
-                    // path={route.path}
                   />
                 </Route>
               ))}
@@ -53,14 +51,14 @@ const Main = ({ logout }) => {
           <Switch>
             {sidebarRoutes.map((route, index) => (
               <Route
+                {...route.routes}
                 key={index}
                 path={route.path}
                 exact={route.exact}
                 children={route.main}
-                subroutes={route.routes}
+                setAuthenticated={setAuthenticated}
               />
             ))}
-            {/* <Content /> */}
           </Switch>
         </div>
       </Router>

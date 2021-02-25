@@ -1,25 +1,16 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Follows from "../../follows/Follows";
+import React, { useEffect, useState } from "react";
+import FollowTabs from "../../follows/follows-subcomponents/FollowTabs";
+import "../../../styles/css/subheader.css";
 
-const SubHeader = ({ subheaderType, subroutes }) => {
-  const [activeTab, setActiveTab] = useState("login");
-
-  function toggleFeed() {
-    activeTab === "following"
-      ? setActiveTab("following")
-      : setActiveTab("folowers");
-  }
-
+const SubHeader = ({ subheaderType, subroutes, activeTab, makeActive }) => {
   if (subheaderType === "makeTabs") {
     return (
       <>
-        <section style={{ minWidth: "600px" }} className={"section p-0"}>
-          {/* <h1>We gotta {subheaderType}!!!</h1> */}
-          <Follows
+        <section id={"subheader-with-tabs"} className={"section p-0"}>
+          <FollowTabs
             subroutes={subroutes}
             activeTab={activeTab}
-            makeActive={toggleFeed}
+            makeActive={makeActive}
           />
         </section>
       </>
@@ -27,7 +18,7 @@ const SubHeader = ({ subheaderType, subroutes }) => {
   } else {
     return (
       <>
-        <section style={{ minWidth: "600px" }} className={"section"}>
+        <section id={"subheader-without-tabs"} className={"section"}>
           <h1>{subheaderType}</h1>
           <h1>this is the subheader area!</h1>
           <h2>put a media card in here or something...</h2>
