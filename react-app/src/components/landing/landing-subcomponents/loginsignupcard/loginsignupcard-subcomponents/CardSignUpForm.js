@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { signUp } from '../../../../../services/auth';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faLock } from '@fortawesome/free-solid-svg-icons';
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { signUp } from "../../../../../services/auth";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faEnvelope, faLock } from "@fortawesome/free-solid-svg-icons";
 
 const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
   const [errors, setErrors] = useState([]);
@@ -47,8 +47,8 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
     setRepeatPassword("");
   };
   if (authenticated) {
-    return <Redirect to="/" />;
-  };
+    return <Redirect to="/home" />;
+  }
 
   return (
     <form onSubmit={onSignUp}>
@@ -116,20 +116,21 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
       </div>
       <div className={"field is-grouped"}>
         <div className={"control"}>
-          <button
-            className={"button is-primary"}
-            type={"submit"}
-          >Sign Up</button>
+          <button className={"button is-primary"} type={"submit"}>
+            Sign Up
+          </button>
         </div>
         <div className={"control"}>
           <button
             className={"button is-link has-text-black"}
             onClick={resetForm}
-          >Reset</button>
+          >
+            Reset
+          </button>
         </div>
       </div>
     </form>
   );
-}
+};
 
 export default CardSignUpForm;
