@@ -5,12 +5,12 @@ import { handleResize } from "../../services/main";
 import { sidebarRoutes } from "../../services/routeconfig";
 import "../../styles/css/main.css";
 
-const Main = ({ logout, setAuthenticated }) => {
+const Main = ({ logout, setAuthenticated, user }) => {
   //*This component renders a secondary router that switches between routes as selected by the user
   //*when they click on them in the left sidenav panel. The routes are defined in "sidebarRoutes.js"
   //*located in "../../services/routeconfig.js". From there we can redefine the routes as needed without
   //*directly interacting with this component at all. Nifty-Spifty, doncha' know?
-
+  console.log(user);
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -57,7 +57,7 @@ const Main = ({ logout, setAuthenticated }) => {
                 key={index}
                 path={route.path}
                 exact={route.exact}
-                children={route.main}
+                children={<route.main user={user} />}
                 setAuthenticated={setAuthenticated}
               />
             ))}

@@ -2,7 +2,7 @@ import React from "react";
 
 let bgText = (text) => text.replaceAll(" ", "+");
 bgText = "Profile Background Image";
-const imgURL = `https://via.placeholder.com/640x480.png?text=${bgText}`;
+const imgURL = `https://via.placeholder.com/640x480.png/836000?text=${bgText}`;
 //enter text here:
 
 const ProfileSubheader = () => {
@@ -18,14 +18,10 @@ const ProfileSubheader = () => {
           </figure>
         </div>
         <div className={"card-content"}>
-          <div className={"media"}>
-            
-          </div>
+          <div className={"media"}></div>
+          
         </div>
       </div>
-      {/* <h3>
-        Some sort of media card content that matches twitter's profile subheader
-      </h3> */}
     </>
   );
 };

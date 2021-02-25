@@ -12,10 +12,11 @@ const Content = ({
   feed,
   subroutes,
   subfeeds,
+  user,
   setAuthenticated,
 }) => {
   const [activeTab, setActiveTab] = useState("following");
-
+  console.log(user);
   function toggleFeed() {
     activeTab === "following"
       ? setActiveTab("followers")
@@ -30,6 +31,7 @@ const Content = ({
         <Header title={headerTitle} subheader={subheader} />
         <SubHeader
           subheader={subheader}
+          user={user}
           activeTab={activeTab}
           makeActive={toggleFeed}
         />
