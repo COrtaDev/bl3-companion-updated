@@ -5,6 +5,11 @@ import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Content from "../components/main/main-subcomponents/Content";
 
+//TODO: We need to build the username into the profile path:
+//! This could result in bugs if the user tries to navigate to another users profile...
+//?We need to be careful and test it after the fact...
+//*We are going to leave it as a simple /profile route for the time being...
+
 export const mainRoutes = [
   {
     path: "/",
@@ -97,7 +102,6 @@ export const sidebarRoutes = [
       />
     ),
   },
-
 ];
 const followsRoutes = [
   {
