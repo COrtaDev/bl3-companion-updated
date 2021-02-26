@@ -39,7 +39,7 @@ function App() {
     return null;
   }
 
-  const ProtectedRoutes = (route) => {
+  function ProtectedRoutes(route) {
     return (
       <ProtectedRoute
         path={route.path}
@@ -49,13 +49,13 @@ function App() {
           <route.component
             {...props}
             user={user}
+            main={route.main}
             logout={<LogoutButton setAuthenticated={setAuthenticated} />}
-            setAuthenticated={setAuthenticated}
           />
         )}
       />
     );
-  };
+  }
 
   return (
     <BrowserRouter>
@@ -66,8 +66,8 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        {mainRoutes.map((route, index) => (
-          <ProtectedRoutes key={index} {...route} />
+        {mainRoutes.map((route, i) => (
+          <ProtectedRoutes key={i} {...route} />
         ))}
       </Switch>
     </BrowserRouter>

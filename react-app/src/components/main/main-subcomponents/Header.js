@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ title }) => {
+const Header = ({ title, user }) => {
   return (
     <>
       <section id={"main-header"} className={"section px-3 py-0"}>

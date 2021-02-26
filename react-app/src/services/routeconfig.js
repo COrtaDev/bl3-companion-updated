@@ -4,7 +4,10 @@ import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
 import Content from "../components/main/main-subcomponents/Content";
-import ProfileSubheader from "../components/profile/ProfileSubheader";
+import ProfileSubHeader from "../components/profile/ProfileSubHeader";
+import Header from "../components/main/main-subcomponents/Header";
+import Feed from "../components/main/main-subcomponents/Feed";
+import SubHeader from "../components/main/main-subcomponents/SubHeader";
 
 //TODO: We need to build the username into the profile path:
 //! This could result in bugs if the user tries to navigate to another users profile...
@@ -21,6 +24,30 @@ export const mainRoutes = [
     path: "/home",
     exact: true,
     component: Main,
+    main: [
+      {
+        path: "/home",
+        exact: true,
+        active: "home",
+        component: Content,
+        content: [
+          {
+            path: "/home",
+            exact: true,
+            title: "Home",
+            header: {
+              component: Header,
+              title: "Home",
+            },
+            subheader: {
+              action: "Home",
+              component: SubHeader,
+            },
+            feed: { action: "getLootDrops", component: Feed },
+          },
+        ],
+      },
+    ],
   },
   {
     path: "/comments",
@@ -38,7 +65,36 @@ export const mainRoutes = [
   },
   {
     path: "/profile",
+    exact: true,
     component: Main,
+    main: [
+      {
+        path: "/profile",
+        active: "profile",
+        component: Content,
+        content: [
+          {
+            path: "/profile",
+            title: "Profile",
+            header: {
+              component: Header,
+              title: "Profile",
+            },
+            subheader: {
+              action: "Profile",
+              component: SubHeader,
+              subheadercontent: [
+                {
+                  path: "/profile",
+                  component: ProfileSubHeader,
+                },
+              ],
+            },
+            feed: { action: "getAllLootDropsForThisUser!!!", component: Feed },
+          },
+        ],
+      },
+    ],
   },
 ];
 
@@ -98,7 +154,7 @@ export const sidebarRoutes = [
     main: () => (
       <Content
         headerTitle={"Profile"}
-        subheader={<ProfileSubheader />}
+        subheader={<ProfileSubHeader />}
         feed={"getAllLootDropsForThisUser!!!"}
       />
     ),
