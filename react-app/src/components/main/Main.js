@@ -44,18 +44,18 @@ const Main = ({ logout, user, main }) => {
   }
 
   return (
-    <>
-      <Router>
-        <div
-          id={"main-app"}
-          className={`is-flex is-flex-direction-row ${justifyContent}`}
+    <Router>
+      <div
+        id={"main-app"}
+        className={`is-flex is-flex-direction-row ${justifyContent}`}
+      >
+        <section
+          id={"left-sidenav-menu"}
+          className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
         >
-          <section
-            id={"left-sidenav-menu"}
-            className={`hero is-fullheight is-justify-content-space-between ${paddingLeft}`}
-          >
-            <Switch>
-              {sidebarRoutes.map((route, i) => (
+          <Switch>
+            <>
+              {main.map((route, i) => (
                 <Route key={i} path={route.path} exact={route.exact}>
                   <LeftSidebarMenu
                     logout={logout}
@@ -64,16 +64,18 @@ const Main = ({ logout, user, main }) => {
                   />
                 </Route>
               ))}
-            </Switch>
-          </section>
-          <Switch>
+            </>
+          </Switch>
+        </section>
+        <Switch>
+          <>
             {main.map((route, i) => (
               <MainRoutes key={i} {...route} />
             ))}
-          </Switch>
-        </div>
-      </Router>
-    </>
+          </>
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

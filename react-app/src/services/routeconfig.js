@@ -1,5 +1,7 @@
 import React from "react";
+
 import { Redirect } from "react-router-dom";
+
 import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";
@@ -8,6 +10,7 @@ import ProfileSubHeader from "../components/profile/ProfileSubHeader";
 import Header from "../components/main/main-subcomponents/Header";
 import Feed from "../components/main/main-subcomponents/Feed";
 import SubHeader from "../components/main/main-subcomponents/SubHeader";
+import HomeSubheader from "../components/home/HomeSubheader";
 
 //TODO: We need to build the username into the profile path:
 //! This could result in bugs if the user tries to navigate to another users profile...
@@ -42,6 +45,13 @@ export const mainRoutes = [
             subheader: {
               action: "Home",
               component: SubHeader,
+              subheadercontent: [
+                {
+                  path: "/home",
+                  exact: true,
+                  component: HomeSubheader,
+                },
+              ],
             },
             feed: { action: "getLootDrops", component: Feed },
           },
@@ -53,6 +63,37 @@ export const mainRoutes = [
     path: "/comments",
     exact: true,
     component: Main,
+    main: [
+      {
+        path: "/comments",
+        exact: true,
+        active: "comments",
+        component: Content,
+        content: [
+          {
+            path: "/hocommentsme",
+            exact: true,
+            title: "Comments",
+            header: {
+              component: Header,
+              title: "Comments",
+            },
+            subheader: {
+              action: "Comments",
+              component: SubHeader,
+              subheadercontent: [
+                {
+                  path: "/comments",
+                  exact: true,
+                  component: HomeSubheader,
+                },
+              ],
+            },
+            feed: { action: "getLootDrops", component: Feed },
+          },
+        ],
+      },
+    ],
   },
   {
     path: "/likes",

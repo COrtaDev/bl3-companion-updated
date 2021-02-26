@@ -14,22 +14,15 @@ const Content = ({ title, subheader, feed, user, active, content }) => {
       : setActiveTab("following");
   }
   function HeaderRoutes(route) {
-    // console.log(props)
+    const { header, subheader, feed } = route;
     return (
       <Route
         path={route.path}
         exact={route.exact}
-        // title={route.title}
         render={(props) => (
-          <section
-            className={"is-flex is-flex-direction-column is-align-items-center"}
-          >
-            <route.header.component
-              {...props}
-              title={route.title}
-              user={user}
-            />
-            <route.subheader.component
+          <>
+            <header.component {...props} title={route.title} user={user} />
+            <subheader.component
               {...props}
               active={active}
               user={user}
@@ -37,14 +30,13 @@ const Content = ({ title, subheader, feed, user, active, content }) => {
               makeActive={toggleFeed}
               action={route.subheader.action}
               subheadercontent={route.subheader.subheadercontent}
-              // text={route.subheader.text}
             />
-            <route.feed.component
+            <feed.component
               {...props}
               action={route.feed.action}
               activeTab={activeTab}
             />
-          </section>
+          </>
         )}
       />
     );
@@ -52,17 +44,27 @@ const Content = ({ title, subheader, feed, user, active, content }) => {
   return (
     <Router>
       <Switch>
-      <main
-        className={"is-flex is-flex-direction-row is-justify-content-center"}
-      >
-          {content.map((route, i) => (
-            <HeaderRoutes key={i} {...route} />
-          ))}
-        <section id={"right-sidenav-menu"} className={"is-flex"}>
-          <RightSidebarMenu />
-        </section>
-      </main>
-        </Switch>
+        <>
+          <main
+            className={
+              "is-flex is-flex-direction-row is-justify-content-center"
+            }
+          >
+            <section
+              className={
+                "is-flex is-flex-direction-column is-align-items-center"
+              }
+            >
+              {content.map((route, i) => (
+                <HeaderRoutes key={i} {...route} />
+              ))}
+            </section>
+          </main>
+        </>
+      </Switch>
+      <section id={"right-sidenav-menu"} className={"is-flex"}>
+        <RightSidebarMenu />
+      </section>
     </Router>
   );
 };

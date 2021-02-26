@@ -22,11 +22,13 @@ const SubHeader = ({ subheadercontent, action, user }) => {
   return (
     <Router>
       <Switch>
-        <section id={"subheader-without-tabs"} className={"section p-0"}>
-          {subheadercontent.map((route, i) => (
-            <SubHeaderRoutes key={i} {...route} />
-          ))}
-        </section>
+        <>
+          <section id={"subheader-without-tabs"} className={"section p-0"}>
+            {subheadercontent.map((route, i) => (
+              <SubHeaderRoutes key={i} {...route} />
+            ))}
+          </section>
+        </>
       </Switch>
     </Router>
   );
