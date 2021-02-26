@@ -1,49 +1,71 @@
-import React, { useEffect, useState } from "react";
-import { Redirect, useLocation } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Header from "./Header";
 import SubHeader from "./SubHeader";
 import Feed from "./Feed";
 import RightSidebarMenu from "./RightSidebarMenu";
-import Follows from "../../follows/Follows";
 
-const Content = ({
-  headerTitle,
-  subheader,
-  feed,
-  subroutes,
-  subfeeds,
-  setAuthenticated,
-}) => {
+const Content = ({ title, subheader, feed, user, active, content }) => {
   const [activeTab, setActiveTab] = useState("following");
-
+  // console.log(content);
   function toggleFeed() {
     activeTab === "following"
       ? setActiveTab("followers")
       : setActiveTab("following");
   }
-
+  function HeaderRoutes(route) {
+    const { header, subheader, feed } = route;
+    return (
+      <Route
+        path={route.path}
+        exact={route.exact}
+        render={(props) => (
+          <>
+            <header.component {...props} title={route.title} user={user} />
+            <subheader.component
+              {...props}
+              active={active}
+              user={user}
+              activeTab={activeTab}
+              makeActive={toggleFeed}
+              action={route.subheader.action}
+              subheadercontent={route.subheader.subheadercontent}
+            />
+            <feed.component
+              {...props}
+              action={route.feed.action}
+              activeTab={activeTab}
+            />
+          </>
+        )}
+      />
+    );
+  }
   return (
-    <main className={"is-flex is-flex-direction-row is-justify-content-center"}>
-      <section
-        className={"is-flex is-flex-direction-column is-align-items-center"}
-      >
-        <Header title={headerTitle} subheaderType={subheader} />
-        <SubHeader
-          subheaderType={subheader}
-          activeTab={activeTab}
-          makeActive={toggleFeed}
-        />
-        <Feed
-          feed={feed}
-          subfeeds={subfeeds}
-          activeTab={activeTab}
-          setAuthenticated={setAuthenticated}
-        />
-      </section>
+    <Router>
+      <Switch>
+        <>
+          <main
+            className={
+              "is-flex is-flex-direction-row is-justify-content-center"
+            }
+          >
+            <section
+              className={
+                "is-flex is-flex-direction-column is-align-items-center"
+              }
+            >
+              {content.map((route, i) => (
+                <HeaderRoutes key={i} {...route} />
+              ))}
+            </section>
+          </main>
+        </>
+      </Switch>
       <section id={"right-sidenav-menu"} className={"is-flex"}>
         <RightSidebarMenu />
       </section>
-    </main>
+    </Router>
   );
 };
 

@@ -9,12 +9,10 @@ const testerText = ["test1", "test2", "test3"];
 const Tutorial = ({ modalState, onClose }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [leftHidden, setLeftHidden] = useState("is-hidden");
-  // const [leftHidden, setLeftHidden] = useState("is-invisible");
   const [leftClickable, setLeftClickable] = useState("");
   const [rightHidden, setRightHidden] = useState("");
   const [rightClickable, setRightClickable] = useState("is-clickable");
-  // const [atBeginning, setAtBeginning] = useState(true);
-  // const [atEnd, setAtEnd] = useState(false);
+
   useEffect(() => {
     //you are at the beginning
     if (currentSlide) {
@@ -24,6 +22,7 @@ const Tutorial = ({ modalState, onClose }) => {
       setLeftClickable("");
       setLeftHidden("is-invisible");
     }
+
     //you are at the end
     if (currentSlide >= testerText.length - 1) {
       setRightClickable("");
@@ -33,14 +32,7 @@ const Tutorial = ({ modalState, onClose }) => {
       setRightHidden("");
     }
     if (!modalState) setCurrentSlide(0);
-  }, [
-    currentSlide,
-    leftHidden,
-    rightHidden,
-    // atBeginning,
-    // atEnd,
-    rightClickable,
-  ]);
+  }, [currentSlide, leftHidden, rightHidden, rightClickable]);
 
   //TODO We will recieve the user data from the parent component
   //*there should be a boolean in the JSON that indicates whether or not we
@@ -66,6 +58,13 @@ const Tutorial = ({ modalState, onClose }) => {
   function next() {
     setCurrentSlide(currentSlide + 1);
   }
+
+  //!There is strange behavior when setting the icon to be hidden. I think it may have to do
+  //!with default action within the browser. It attemps to select the next closest tangible web
+  //!asset. This results in some random DOM object being highlighted without the user explicitly
+  //!doing so. I think this may be confusing to users and at least looks buggy and unprofessional,
+  //!May need some testing and troubleshooting.
+
   return (
     <div className={`modal ${modalState}`}>
       <div className={"modal-background"} onClick={onClose}></div>
@@ -75,7 +74,6 @@ const Tutorial = ({ modalState, onClose }) => {
         }
       >
         <span id={"tutorial-back-arrow"} className={`icon`}>
-          {/* <span id={"tutorial-back-arrow"} className={`icon mr-4 is-hidden`}> */}
           <FontAwesomeIcon
             className={` ${leftClickable} ${leftHidden} `}
             icon={faAngleLeft}
