@@ -3,8 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { handleResize } from "../../services/main";
 
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
-import Content from "../content/Content";
-import ProfileSubHeader from "../profile/ProfileSubHeader";
+import CenterContent from "../content/Content";
+// import Content from "../content/Content";
+// import ProfileSubHeader from "../profile/ProfileSubHeader";
 import HomeSubheader from "../home/HomeSubheader";
 //TODO: Define and import the other subheaders here!
 
@@ -15,11 +16,11 @@ const routes = [
     path: "/home",
     exact: true,
     active: "home",
-    main: () => (
-      <Content
+    center: () => (
+      <CenterContent
         title={"Home"}
-        subheader={<HomeSubheader />}
-        feed={"getLootDrops"}
+        // subheader={<HomeSubheader />}
+        // feed={"getLootDrops"}
       />
     ),
   },
@@ -27,11 +28,11 @@ const routes = [
     path: "/likes",
     // exact: true,
     active: "likes",
-    main: () => (
-      <Content
+    center: () => (
+      <CenterContent
         title={"Likes"}
-        subheader={"SOOO many LIKES!!!"}
-        feed={"getLikes"}
+        // subheader={"SOOO many LIKES!!!"}
+        // feed={"getLikes"}
       />
     ),
   },
@@ -39,22 +40,22 @@ const routes = [
     path: "/comments",
     exact: true,
     active: "comments",
-    main: () => (
-      <Content
+    center: () => (
+      <CenterContent
         title={"Commets"}
-        subheader={"Look at all these COMMENTS!!!"}
-        feed={"getComments"}
+        // subheader={"Look at all these COMMENTS!!!"}
+        // feed={"getComments"}
       />
     ),
   },
   {
     path: "/follows",
     active: "follows",
-    main: () => (
-      <Content
+    center: () => (
+      <CenterContent
         title={"Follows"}
-        subheader={"makeTabs"}
-        feed={"getFollowsOrFollowing"}
+        // subheader={"makeTabs"}
+        // feed={"getFollowsOrFollowing"}
         // subfeeds={subFeeds}
         // subroutes={followsRoutes}
       />
@@ -63,11 +64,11 @@ const routes = [
   {
     path: "/profile", //!this will need to be a param most likely...
     active: "profile",
-    main: () => (
-      <Content
+    center: () => (
+      <CenterContent
         title={"Profile"}
-        subheader={<ProfileSubHeader />}
-        feed={"getAllLootDropsForThisUser!!!"}
+        // subheader={<ProfileSubHeader />}
+        // feed={"getAllLootDropsForThisUser!!!"}
       />
     ),
   },
@@ -121,7 +122,7 @@ const Main = ({ logout, user }) => {
                 key={i}
                 path={route.path}
                 exact={route.exact}
-                children={<route.main user={user} />}
+                children={<route.center user={user} />}
               />
             ))}
           </>

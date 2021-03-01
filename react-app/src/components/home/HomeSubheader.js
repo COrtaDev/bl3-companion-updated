@@ -1,7 +1,7 @@
 import React from "react";
 const avatarURL = "https://via.placeholder.com/128.png";
 
-const HomeSubheader = () => {
+const HomeSubHeader = () => {
   //TODO: this will be the media card and/or content that gets rendered on the "/home" route.
   return (
     <>
@@ -44,4 +44,4 @@ const HomeSubheader = () => {
   );
 };
 
-export default HomeSubheader;
+export default HomeSubHeader;

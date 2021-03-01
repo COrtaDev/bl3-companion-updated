@@ -1,9 +1,9 @@
 import React from "react";
 
 let bgText = (text) => text.replaceAll(" ", "+");
+//enter text here:
 bgText = "Profile Background Image";
 const imgURL = `https://via.placeholder.com/640x480.png/836000?text=${bgText}`;
-//enter text here:
 
 const ProfileSubHeader = ({ user }) => {
   //TODO: this  component will render the user info much like we see it on twitter.

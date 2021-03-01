@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Header from "./content-subcomponents/Header";
+import SubHeader from "./content-subcomponents/SubHeader";
+import Feed from "./content-subcomponents/Feed";
 import RightSidebarMenu from "../main/main-subcomponents/RightSidebarMenu";
 import Profile from "../profile/Profile";
 import Home from "../home/Home";
@@ -13,55 +16,33 @@ const routes = [
     path: "/home",
     exact: true,
     active: "home",
-    content: () => (
-      <Content title={"Home"} subheader={<Home />} feed={"getHomeFeed"} />
-    ),
+    center: () => <CenterContent title={"Home"} subheader={<Home />} />,
   },
   {
     path: "/likes",
     exact: true,
     active: "likes",
-    content: () => (
-      <Content title={"Likes"} subheader={<Likes />} feed={"getLikesFeed"} />
-    ),
+    center: () => <CenterContent title={"Likes"} subheader={<Likes />} />,
   },
   {
     path: "/comments",
     exact: true,
     active: "comments",
-    content: () => (
-      <Content
-        title={"Comments"}
-        subheader={<Comments />}
-        feed={"getCommentsFeed"}
-      />
-    ),
+    center: () => <CenterContent title={"Comments"} subheader={<Comments />} />,
   },
   {
     path: "/follows",
     active: "follows",
-    content: () => (
-      <Content
-        title={"Follows"}
-        subheader={<Follows />}
-        feed={"getFollowsFeed"}
-      />
-    ),
+    center: () => <CenterContent title={"Follows"} subheader={<Follows />} />,
   },
   {
     path: "/profile", //!this will need to be a param most likely...
     active: "profile",
-    content: () => (
-      <Content
-        title={"Profile"}
-        subheader={<Profile />}
-        feed={"getProfileFeed"}
-      />
-    ),
+    center: () => <CenterContent title={"Profile"} subheader={<Profile />} />,
   },
 ];
 
-const Content = ({ title, user }) => {
+const Content = ({ title, subheader, feed, user, active, content }) => {
   const [activeTab, setActiveTab] = useState("following");
 
   function toggleFeed() {
@@ -89,9 +70,12 @@ const Content = ({ title, user }) => {
                   key={i}
                   path={route.path}
                   exact={route.exact}
-                  children={<route.content user={user} />}
+                  children={<route.center user={user} />}
                 />
               ))}
+              {/* <Header title={title} />
+              <SubHeader subheader={subheader} user={user} />
+              <Feed /> */}
             </section>
           </main>
         </>
