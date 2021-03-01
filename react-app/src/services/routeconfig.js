@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Redirect } from "react-router-dom";
-
+// Just defining these where they are needed would have solved like 6 hours worth of bullshit.
 import Main from "../components/main/Main";
 import Following from "../components/follows/Following";
 import Followers from "../components/follows/Followers";

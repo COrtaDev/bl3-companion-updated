@@ -1,14 +1,48 @@
-import React, { useState, useEffect, useReducer } from "react";
+import React, { useState, useEffect } from "react";
 import { generatePath } from "react-router";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { authenticate } from "./services/auth";
-import { mainRoutes } from "./services/routeconfig";
+// import { mainRoutes } from "./services/routeconfig";
 
+import Main from "./components/main/Main";
 import LogoutButton from "./components/auth/LogoutButton";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
 
 import "../src/styles/css/mystyles.css";
+
+const routes = [
+  {
+    path: "/",
+    exact: true,
+    component: () => <Redirect to="/home" />,
+  },
+  {
+    path: "/home",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/comments",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/likes",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/follows",
+    exact: true,
+    component: Main,
+  },
+  {
+    path: "/profile",
+    exact: true,
+    component: Main,
+  },
+];
 
 function App() {
   const [authenticated, setAuthenticated] = useState(false);
@@ -27,12 +61,12 @@ function App() {
       }
       setLoaded(true);
     })();
-    if (user) {
-      let path = generatePath("/:username", {
-        username: user.userName,
-      });
-      setUserPath(path);
-    }
+    // if (user) {
+    //   let path = generatePath("/:username", {
+    //     username: user.userName,
+    //   });
+    //   setUserPath(path);
+    // }
   }, [loaded, user, userPath]);
 
   if (!loaded) {
@@ -66,7 +100,7 @@ function App() {
             setAuthenticated={setAuthenticated}
           />
         </Route>
-        {mainRoutes.map((route, i) => (
+        {routes.map((route, i) => (
           <ProtectedRoutes key={i} {...route} />
         ))}
       </Switch>
