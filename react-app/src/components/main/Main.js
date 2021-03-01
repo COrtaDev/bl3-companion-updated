@@ -3,9 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { handleResize } from "../../services/main";
 
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
-import Content from "./main-subcomponents/Content";
+import Content from "../content/Content";
 import ProfileSubHeader from "../profile/ProfileSubHeader";
+import HomeSubheader from "../home/HomeSubheader";
 //TODO: Define and import the other subheaders here!
+
 import "../../styles/css/main.css";
 
 const routes = [
@@ -15,8 +17,8 @@ const routes = [
     active: "home",
     main: () => (
       <Content
-        headerTitle={"Home"}
-        subheader={"Home Subheader Here!!!"}
+        title={"Home"}
+        subheader={<HomeSubheader />}
         feed={"getLootDrops"}
       />
     ),
@@ -27,7 +29,7 @@ const routes = [
     active: "likes",
     main: () => (
       <Content
-        headerTitle={"Likes"}
+        title={"Likes"}
         subheader={"SOOO many LIKES!!!"}
         feed={"getLikes"}
       />
@@ -39,7 +41,7 @@ const routes = [
     active: "comments",
     main: () => (
       <Content
-        headerTitle={"Commets"}
+        title={"Commets"}
         subheader={"Look at all these COMMENTS!!!"}
         feed={"getComments"}
       />
@@ -50,7 +52,7 @@ const routes = [
     active: "follows",
     main: () => (
       <Content
-        headerTitle={"Follows"}
+        title={"Follows"}
         subheader={"makeTabs"}
         feed={"getFollowsOrFollowing"}
         // subfeeds={subFeeds}
@@ -63,7 +65,7 @@ const routes = [
     active: "profile",
     main: () => (
       <Content
-        headerTitle={"Profile"}
+        title={"Profile"}
         subheader={<ProfileSubHeader />}
         feed={"getAllLootDropsForThisUser!!!"}
       />
@@ -71,7 +73,7 @@ const routes = [
   },
 ];
 
-const Main = ({ logout, user, main }) => {
+const Main = ({ logout, user }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -87,19 +89,6 @@ const Main = ({ logout, user, main }) => {
       );
     });
   }, [justifyContent, paddingLeft]);
-
-  function MainRoutes(route) {
-    return (
-      <Route
-        path={route.path}
-        exact={route.exact}
-        active={route.active}
-        render={(props) => (
-          <route.component {...props} user={user} content={route.content} />
-        )}
-      />
-    );
-  }
 
   return (
     <Router>
@@ -128,7 +117,12 @@ const Main = ({ logout, user, main }) => {
         <Switch>
           <>
             {routes.map((route, i) => (
-              <MainRoutes key={i} {...route} />
+              <Route
+                key={i}
+                path={route.path}
+                exact={route.exact}
+                children={<route.main user={user} />}
+              />
             ))}
           </>
         </Switch>

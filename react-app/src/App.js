@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { generatePath } from "react-router";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { authenticate } from "./services/auth";
-// import { mainRoutes } from "./services/routeconfig";
 
 import Main from "./components/main/Main";
 import LogoutButton from "./components/auth/LogoutButton";
@@ -48,10 +47,10 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [user, setUser] = useState(null);
-  const [userPath, setUserPath] = useState("");
+  // const [userPath, setUserPath] = useState("");
 
   useEffect(() => {
-    if (userPath) return;
+    if (loaded) return;
     (async () => {
       const user = await authenticate();
 
@@ -67,7 +66,7 @@ function App() {
     //   });
     //   setUserPath(path);
     // }
-  }, [loaded, user, userPath]);
+  }, [loaded, user]);
 
   if (!loaded) {
     return null;
