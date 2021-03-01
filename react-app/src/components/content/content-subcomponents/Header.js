@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFireAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Header = ({ title, user }) => {
   return (
@@ -11,8 +13,8 @@ const Header = ({ title, user }) => {
             <h1>{title}</h1>
           </div>
           <div className={"level-right"}>
-            {/* on twitter, this is for showing "top tweets..." */}
-            <h1>something here...</h1>
+            <FontAwesomeIcon icon={faFireAlt} />
+            <h1>TopDrops</h1>
           </div>
         </nav>
       </section>

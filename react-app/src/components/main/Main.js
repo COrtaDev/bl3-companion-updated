@@ -1,19 +1,80 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import { handleResize } from "../../services/main";
-// import { sidebarRoutes } from "../../services/routeconfig";
-import { sidebarRoutes } from "../../services/siderouteconfig";
-import "../../styles/css/main.css";
-// import Content from "./main-subcomponents/Content";
 
-const Main = ({ logout, user, main }) => {
-  //*This component renders a secondary router that switches between routes as selected by the user
-  //*when they click on them in the left sidenav panel. The routes are defined in "sidebarRoutes.js"
-  //*located in "../../services/routeconfig.js". From there we can redefine the routes as needed without
-  //*directly interacting with this component at all. Nifty-Spifty, doncha' know?
-  // console.log(user);
-  console.log(main);
+import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
+import CenterContent from "../content/Content";
+// import Content from "../content/Content";
+// import ProfileSubHeader from "../profile/ProfileSubHeader";
+import HomeSubheader from "../home/HomeSubheader";
+//TODO: Define and import the other subheaders here!
+
+import "../../styles/css/main.css";
+
+const routes = [
+  {
+    path: "/home",
+    exact: true,
+    active: "home",
+    center: () => (
+      <CenterContent
+        title={"Home"}
+        // subheader={<HomeSubheader />}
+        // feed={"getLootDrops"}
+      />
+    ),
+  },
+  {
+    path: "/likes",
+    // exact: true,
+    active: "likes",
+    center: () => (
+      <CenterContent
+        title={"Likes"}
+        // subheader={"SOOO many LIKES!!!"}
+        // feed={"getLikes"}
+      />
+    ),
+  },
+  {
+    path: "/comments",
+    exact: true,
+    active: "comments",
+    center: () => (
+      <CenterContent
+        title={"Commets"}
+        // subheader={"Look at all these COMMENTS!!!"}
+        // feed={"getComments"}
+      />
+    ),
+  },
+  {
+    path: "/follows",
+    active: "follows",
+    center: () => (
+      <CenterContent
+        title={"Follows"}
+        // subheader={"makeTabs"}
+        // feed={"getFollowsOrFollowing"}
+        // subfeeds={subFeeds}
+        // subroutes={followsRoutes}
+      />
+    ),
+  },
+  {
+    path: "/profile", //!this will need to be a param most likely...
+    active: "profile",
+    center: () => (
+      <CenterContent
+        title={"Profile"}
+        // subheader={<ProfileSubHeader />}
+        // feed={"getAllLootDropsForThisUser!!!"}
+      />
+    ),
+  },
+];
+
+const Main = ({ logout, user }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -30,19 +91,6 @@ const Main = ({ logout, user, main }) => {
     });
   }, [justifyContent, paddingLeft]);
 
-  function MainRoutes(route) {
-    return (
-      <Route
-        path={route.path}
-        exact={route.exact}
-        active={route.active}
-        render={(props) => (
-          <route.component {...props} user={user} content={route.content} />
-        )}
-      />
-    );
-  }
-
   return (
     <Router>
       <div
@@ -55,7 +103,7 @@ const Main = ({ logout, user, main }) => {
         >
           <Switch>
             <>
-              {main.map((route, i) => (
+              {routes.map((route, i) => (
                 <Route key={i} path={route.path} exact={route.exact}>
                   <LeftSidebarMenu
                     logout={logout}
@@ -69,8 +117,13 @@ const Main = ({ logout, user, main }) => {
         </section>
         <Switch>
           <>
-            {main.map((route, i) => (
-              <MainRoutes key={i} {...route} />
+            {routes.map((route, i) => (
+              <Route
+                key={i}
+                path={route.path}
+                exact={route.exact}
+                children={<route.center user={user} />}
+              />
             ))}
           </>
         </Switch>
