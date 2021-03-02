@@ -75,7 +75,9 @@ function App() {
             {...props}
             user={user}
             main={route.main}
-            logout={<LogoutButton setAuthenticated={setAuthenticated} />}
+            logout={
+              <LogoutButton user={user} setAuthenticated={setAuthenticated} />
+            }
           />
         )}
       />

@@ -1,0 +1,35 @@
+.animatedCard {
+  /* background-color: thistle !important; */
+  border: 1px solid rgba(246, 239, 20, 0.548);
+}
+.animatedCard-enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+.animatedCard-enter-active {
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+.animatedCard-exit {
+  opacity: 1;
+}
+.animatedCard-exit-active {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
+}
+
+button#loot-drop-button.button.is-medium.is-rounded.ml-6 {
+  transition: background-color 0.5s;
+}
+button#loot-drop-button.button.is-medium.is-rounded.ml-6.is-fullwidth {
+  background-color: rgb(238, 150, 40);
+  border-color: none;
+  color: #363636;
+}
+button#loot-drop-button.button.is-medium.is-rounded.ml-6.is-fullwidth:hover {
+  border-color: unset;
+}
+/* button#loot-drop-card-button.button.card-footer-item:focus {
+  background-color: rgb(238, 150, 40);
+} */

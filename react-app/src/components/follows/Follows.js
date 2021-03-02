@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const Follows = ({ activeTab, user, makeActive }) => {
-  const [active, setActive] = useState(null);
   const [followingState, setFollowingState] = useState("");
   const [followersState, setFollowersState] = useState("");
 

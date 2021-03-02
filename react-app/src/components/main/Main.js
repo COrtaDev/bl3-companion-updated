@@ -33,8 +33,7 @@ const Main = ({ logout, user }) => {
       center: () => <CenterContent title={"Follows"} user={user} />,
     },
     {
-      path: "/profile", //!this will need to be a param most likely...
-      exact: true,
+      path: "/profile",
       active: "profile",
       center: () => <CenterContent title={"Profile"} user={user} />,
     },

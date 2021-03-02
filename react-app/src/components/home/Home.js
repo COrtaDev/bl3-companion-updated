@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
+// import { TransitionGroup, CSSTransition } from "react-transition-group";
+import LootDropForm from "./home-subcomponents/LootDropForm";
+import "../../styles/css/lootdropcard.css";
 
 const avatarURL = "https://via.placeholder.com/128.png";
 
-const Home = () => {
-  //TODO: this will be the media card and/or content that gets rendered on the "/home" route.
+const Home = ({ user }) => {
+  const [showButton, setShowButton] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+  const [fullwidth, setFullwidth] = useState("");
+
+  function growButton(e) {
+    if (!fullwidth) {
+      setFullwidth("is-fullwidth");
+    } else {
+      setFullwidth("");
+    }
+  }
+
   return (
     <>
-      <section className={"section pt-3 pl-3"}>
+      <section className={"section pt-3 pl-3 "}>
         <article className={"media"}>
           <figure className={"media-left"}>
             <p className={"image is-64x64"}>
@@ -15,28 +29,35 @@ const Home = () => {
           </figure>
           <div className={"media-content"}>
             <div className={"content"}>
-              <h3>Hello this is the home area...</h3>
-              <div className={"card"}>
-                <div className={"card-content"}>
-                  <div className={"field has-addons has-addons-centered"}>
-                    <div className={"control is-expanded"}>
-                      <select name={"item"}>
-                        <option value={"item-01"}>Item 1</option>
-                        <option value={"item-02"}>Item 2</option>
-                        <option value={"item-03"}>Item 3</option>
-                        <option value={"item-04"}>Item 4</option>
-                        <option value={"item-05"}>Item 5</option>
-                        <option value={"item-06"}>Item 6</option>
-                      </select>
-                      <div className={"control"}>
-                        <button type={"submit"} className={"button"}>
-                          Choose Item
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+              <h2>Got Loot, {user.userName}?</h2>
+              {showButton && (
+                <div
+                  className={
+                    "is-flex is-justify-content-flex-end ml-6 mr-5 pl-6 pr-5"
+                  }
+                >
+                  <button
+                    id={"loot-drop-button"}
+                    className={`button is-medium is-rounded ml-6 ${fullwidth}`}
+                    onClick={() => {
+                      setShowButton(false);
+                      setShowForm(true);
+                    }}
+                    onMouseOver={growButton}
+                    onMouseLeave={growButton}
+                  >
+                    Make LootDrop
+                  </button>
                 </div>
-              </div>
+              )}
+              {showForm && (
+                <LootDropForm
+                  hideForm={() => {
+                    setShowButton(true);
+                    setShowForm(false);
+                  }}
+                />
+              )}
             </div>
           </div>
         </article>
