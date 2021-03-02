@@ -30,6 +30,21 @@ button#loot-drop-button.button.is-medium.is-rounded.ml-6.is-fullwidth {
 button#loot-drop-button.button.is-medium.is-rounded.ml-6.is-fullwidth:hover {
   border-color: unset;
 }
-/* button#loot-drop-card-button.button.card-footer-item:focus {
-  background-color: rgb(238, 150, 40);
+
+button#item-dropdown-button {
+  justify-content: space-between;
+}
+
+button#loot-drop-card-button {
+  /* border: none; */
+}
+/* div#loot-drop-card {
+  border-radius: 1.3rem;
 } */
+
+div#item-dropdown {
+  width: 100%;
+}
+div#dropdown-menu.dropdown-menu {
+  min-width: 100%;
+}
