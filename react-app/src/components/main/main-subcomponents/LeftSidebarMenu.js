@@ -61,6 +61,8 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
         setFollowsActive("");
         setProfileActive("");
         return;
+      default:
+        return setHomeActive("is-active");
     }
   }
 
@@ -87,7 +89,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
         <div className={"menu pl-4"}>
           <ul className={"menu-list is-size-4"}>
             <li>
-              <a>Logo</a>
+              <a href={"/#"}>Logo</a>
             </li>
           </ul>
           <ul className={"menu-list is-size-4 pr-2"}>
@@ -148,6 +150,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             </li>
             <li className={"level mb-0"}>
               <a
+                href={"/#"}
                 onClick={showTutorial}
                 className={`level-left is-flex has-text-link button is-rounded is-large ${tutorialActive}`}
               >

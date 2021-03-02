@@ -22,6 +22,7 @@ const RightSidebarMenu = () => {
       <aside id={"right-sidenavbar"} className={"menu "}>
         <div id={"iframe-container"} className={"iframe-container ml-2 mt-2"}>
           <iframe
+          title={"discord"}
             id={"discord-iframe"}
             className={"full-iframe"}
             src="https://discord.com/widget?id=454684422390808577&amp;theme=dark&amp;username=Corta.dev"
