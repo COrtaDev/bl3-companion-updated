@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const Follows = ({ activeTab, makeActive }) => {
-  // const [active, setActive] = useState(null);
+const Follows = ({ activeTab, user, makeActive }) => {
+  const [active, setActive] = useState(null);
   const [followingState, setFollowingState] = useState("");
   const [followersState, setFollowersState] = useState("");
 
   useEffect(() => {
-    console.log(activeTab);
     if (activeTab === "following") {
       setFollowingState("is-active disabledTab");
       setFollowersState("");

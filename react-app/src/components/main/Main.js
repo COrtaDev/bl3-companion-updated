@@ -6,44 +6,40 @@ import CenterContent from "./main-subcomponents/CenterContent";
 
 import "../../styles/css/main.css";
 
-const routes = [
-  {
-    path: "/home",
-    exact: true,
-    active: "home",
-    center: () => <CenterContent title={"Home"} />,
-  },
-  {
-    path: "/likes",
-    exact: true,
-    active: "likes",
-    center: () => <CenterContent title={"Likes"} />,
-  },
-  {
-    path: "/comments",
-    exact: true,
-    active: "comments",
-    center: () => <CenterContent title={"Commets"} />,
-  },
-  {
-    path: "/follows",
-    exact: true,
-    active: "follows",
-    center: () => <CenterContent title={"Follows"} />,
-  },
-  {
-    path: "/profile", //!this will need to be a param most likely...
-    exact: true,
-    active: "profile",
-    center: () => <CenterContent title={"Profile"} />,
-  },
-];
-
 const Main = ({ logout, user }) => {
-  /*
-  //*We need to render main with it's own route config because the components
-  //*within CenterContent depend on the user clicking on the LeftSidebarMenu.
-  */
+  const routes = [
+    {
+      path: "/home",
+      exact: true,
+      active: "home",
+      center: () => <CenterContent title={"Home"} user={user} />,
+    },
+    {
+      path: "/likes",
+      exact: true,
+      active: "likes",
+      center: () => <CenterContent title={"Likes"} user={user} />,
+    },
+    {
+      path: "/comments",
+      exact: true,
+      active: "comments",
+      center: () => <CenterContent title={"Commets"} user={user} />,
+    },
+    {
+      path: "/follows",
+      exact: true,
+      active: "follows",
+      center: () => <CenterContent title={"Follows"} user={user} />,
+    },
+    {
+      path: "/profile", //!this will need to be a param most likely...
+      exact: true,
+      active: "profile",
+      center: () => <CenterContent title={"Profile"} user={user} />,
+    },
+  ];
+
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -91,7 +87,7 @@ const Main = ({ logout, user }) => {
                 key={i}
                 path={route.path}
                 exact={route.exact}
-                children={<route.center user={user} />}
+                children={<route.center />}
               />
             ))}
           </>
