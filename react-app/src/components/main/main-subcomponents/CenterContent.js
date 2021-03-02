@@ -1,75 +1,49 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import RightSidebarMenu from "../main-subcomponents/RightSidebarMenu";
+import Content from "../../content/Content";
 
-import RightSidebarMenu from "../main/main-subcomponents/RightSidebarMenu";
-import Profile from "../profile/Profile";
-import Home from "../home/Home";
-import Likes from "../likes/Likes";
-import Comments from "../comments/Comments";
-import Follows from "../follows/Follows";
-
-const routes = [
-  {
-    path: "/home",
-    exact: true,
-    active: "home",
-    content: () => (
-      <Content title={"Home"} subheader={<Home />} feed={"getHomeFeed"} />
-    ),
-  },
-  {
-    path: "/likes",
-    exact: true,
-    active: "likes",
-    content: () => (
-      <Content title={"Likes"} subheader={<Likes />} feed={"getLikesFeed"} />
-    ),
-  },
-  {
-    path: "/comments",
-    exact: true,
-    active: "comments",
-    content: () => (
-      <Content
-        title={"Comments"}
-        subheader={<Comments />}
-        feed={"getCommentsFeed"}
-      />
-    ),
-  },
-  {
-    path: "/follows",
-    active: "follows",
-    content: () => (
-      <Content
-        title={"Follows"}
-        subheader={<Follows />}
-        feed={"getFollowsFeed"}
-      />
-    ),
-  },
-  {
-    path: "/profile", //!this will need to be a param most likely...
-    active: "profile",
-    content: () => (
-      <Content
-        title={"Profile"}
-        subheader={<Profile />}
-        feed={"getProfileFeed"}
-      />
-    ),
-  },
-];
-
-const Content = ({ title, user }) => {
-  const [activeTab, setActiveTab] = useState("following");
-
-  function toggleFeed() {
-    activeTab === "following"
-      ? setActiveTab("followers")
-      : setActiveTab("following");
-  }
-
+const CenterContent = ({ user }) => {
+  const routes = [
+    {
+      path: "/home",
+      exact: true,
+      active: "home",
+      content: () => (
+        <Content title={"Home"} user={user} feed={"getHomeFeed"} />
+      ),
+    },
+    {
+      path: "/likes",
+      exact: true,
+      active: "likes",
+      content: () => (
+        <Content title={"Likes"} user={user} feed={"getLikesFeed"} />
+      ),
+    },
+    {
+      path: "/comments",
+      exact: true,
+      active: "comments",
+      content: () => (
+        <Content title={"Comments"} user={user} feed={"getCommentsFeed"} />
+      ),
+    },
+    {
+      path: "/follows",
+      active: "follows",
+      content: () => (
+        <Content title={"Follows"} user={user} feed={"getFollowsFeed"} />
+      ),
+    },
+    {
+      path: "/profile", //!this will need to be a param most likely...
+      active: "profile",
+      content: () => (
+        <Content title={"Profile"} user={user} feed={"getProfileFeed"} />
+      ),
+    },
+  ];
   return (
     <Router>
       <Switch>
@@ -89,7 +63,7 @@ const Content = ({ title, user }) => {
                   key={i}
                   path={route.path}
                   exact={route.exact}
-                  children={<route.content user={user} />}
+                  children={<route.content />}
                 />
               ))}
             </section>
@@ -103,4 +77,4 @@ const Content = ({ title, user }) => {
   );
 };
 
-export default Content;
+export default CenterContent;

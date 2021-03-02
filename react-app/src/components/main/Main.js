@@ -1,80 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { handleResize } from "../../services/main";
-
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
-import CenterContent from "../content/Content";
-// import Content from "../content/Content";
-// import ProfileSubHeader from "../profile/ProfileSubHeader";
-import HomeSubheader from "../home/HomeSubheader";
-//TODO: Define and import the other subheaders here!
+import CenterContent from "./main-subcomponents/CenterContent";
 
 import "../../styles/css/main.css";
 
-const routes = [
-  {
-    path: "/home",
-    exact: true,
-    active: "home",
-    center: () => (
-      <CenterContent
-        title={"Home"}
-        // subheader={<HomeSubheader />}
-        // feed={"getLootDrops"}
-      />
-    ),
-  },
-  {
-    path: "/likes",
-    // exact: true,
-    active: "likes",
-    center: () => (
-      <CenterContent
-        title={"Likes"}
-        // subheader={"SOOO many LIKES!!!"}
-        // feed={"getLikes"}
-      />
-    ),
-  },
-  {
-    path: "/comments",
-    exact: true,
-    active: "comments",
-    center: () => (
-      <CenterContent
-        title={"Commets"}
-        // subheader={"Look at all these COMMENTS!!!"}
-        // feed={"getComments"}
-      />
-    ),
-  },
-  {
-    path: "/follows",
-    active: "follows",
-    center: () => (
-      <CenterContent
-        title={"Follows"}
-        // subheader={"makeTabs"}
-        // feed={"getFollowsOrFollowing"}
-        // subfeeds={subFeeds}
-        // subroutes={followsRoutes}
-      />
-    ),
-  },
-  {
-    path: "/profile", //!this will need to be a param most likely...
-    active: "profile",
-    center: () => (
-      <CenterContent
-        title={"Profile"}
-        // subheader={<ProfileSubHeader />}
-        // feed={"getAllLootDropsForThisUser!!!"}
-      />
-    ),
-  },
-];
-
 const Main = ({ logout, user }) => {
+  const routes = [
+    {
+      path: "/home",
+      exact: true,
+      active: "home",
+      center: () => <CenterContent title={"Home"} user={user} />,
+    },
+    {
+      path: "/likes",
+      exact: true,
+      active: "likes",
+      center: () => <CenterContent title={"Likes"} user={user} />,
+    },
+    {
+      path: "/comments",
+      exact: true,
+      active: "comments",
+      center: () => <CenterContent title={"Commets"} user={user} />,
+    },
+    {
+      path: "/follows",
+      exact: true,
+      active: "follows",
+      center: () => <CenterContent title={"Follows"} user={user} />,
+    },
+    {
+      path: "/profile", //!this will need to be a param most likely...
+      exact: true,
+      active: "profile",
+      center: () => <CenterContent title={"Profile"} user={user} />,
+    },
+  ];
+
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
@@ -122,7 +87,7 @@ const Main = ({ logout, user }) => {
                 key={i}
                 path={route.path}
                 exact={route.exact}
-                children={<route.center user={user} />}
+                children={<route.center />}
               />
             ))}
           </>

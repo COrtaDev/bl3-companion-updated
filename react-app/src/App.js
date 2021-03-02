@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { generatePath } from "react-router";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { authenticate } from "./services/auth";
 
@@ -47,7 +46,6 @@ function App() {
   const [authenticated, setAuthenticated] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [user, setUser] = useState(null);
-  // const [userPath, setUserPath] = useState("");
 
   useEffect(() => {
     if (loaded) return;
@@ -60,12 +58,6 @@ function App() {
       }
       setLoaded(true);
     })();
-    // if (user) {
-    //   let path = generatePath("/:username", {
-    //     username: user.userName,
-    //   });
-    //   setUserPath(path);
-    // }
   }, [loaded, user]);
 
   if (!loaded) {
