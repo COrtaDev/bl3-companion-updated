@@ -22,6 +22,7 @@ const LandingHeroFoot = () => {
                 href={"https://cortadev.github.io/"}
                 target={"_blank"}
                 referrerPolicy={"no-referrer"}
+                rel={"noreferrer"}
               >
                 <img
                   src={
@@ -46,6 +47,7 @@ const LandingHeroFoot = () => {
                   className={"icon"}
                   target={"_blank"}
                   referrerPolicy={"no-referrer"}
+                  rel={"noreferrer"}
                 >
                   <FontAwesomeIcon icon={faGithubAlt} size={"2x"} />
                 </a>
@@ -56,6 +58,7 @@ const LandingHeroFoot = () => {
                   className={"icon"}
                   target={"_blank"}
                   referrerPolicy={"no-referrer"}
+                  rel={"noreferrer"}
                 >
                   <FontAwesomeIcon icon={faLinkedinIn} size={"2x"} />
                 </a>
@@ -66,6 +69,7 @@ const LandingHeroFoot = () => {
                   className={"icon"}
                   target={"_blank"}
                   referrerPolicy={"no-referrer"}
+                  rel={"noreferrer"}
                 >
                   <FontAwesomeIcon icon={faTwitter} size={"2x"} />
                 </a>
@@ -76,6 +80,7 @@ const LandingHeroFoot = () => {
                   className={"icon"}
                   target={"_blank"}
                   referrerPolicy={"no-referrer"}
+                  rel={"noreferrer"}
                 >
                   <FontAwesomeIcon icon={faAngellist} size={"2x"} />
                 </a>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import RightSidebarMenu from "../main-subcomponents/RightSidebarMenu";
 import Content from "../../content/Content";
@@ -37,7 +37,7 @@ const CenterContent = ({ user }) => {
       ),
     },
     {
-      path: "/profile", //!this will need to be a param most likely...
+      path: "/profile",
       active: "profile",
       content: () => (
         <Content title={"Profile"} user={user} feed={"getProfileFeed"} />

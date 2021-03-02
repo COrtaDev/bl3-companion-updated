@@ -18,12 +18,12 @@ const Follows = ({ activeTab, user, makeActive }) => {
     <div className={"tabs fulltabs is-boxed is-medium"}>
       <ul>
         <li className={followingState}>
-          <a onClick={() => makeActive()}>
+          <a href={"/#"} onClick={() => makeActive()}>
             <span>Following</span>
           </a>
         </li>
         <li className={followersState}>
-          <a onClick={() => makeActive()}>
+          <a href={"/#"} onClick={() => makeActive()}>
             <span>Followers</span>
           </a>
         </li>

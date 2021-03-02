@@ -32,7 +32,7 @@ const Tutorial = ({ modalState, onClose }) => {
       setRightHidden("");
     }
     if (!modalState) setCurrentSlide(0);
-  }, [currentSlide, leftHidden, rightHidden, rightClickable]);
+  }, [currentSlide, leftHidden, rightHidden, rightClickable, modalState]);
 
   //TODO We will recieve the user data from the parent component
   //*there should be a boolean in the JSON that indicates whether or not we

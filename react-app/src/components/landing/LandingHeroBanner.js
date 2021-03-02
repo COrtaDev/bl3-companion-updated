@@ -1,5 +1,5 @@
 import React from "react";
-import LandingHeroHead from "./landing-subcomponents/LandingHeroHead";
+// import LandingHeroHead from "./landing-subcomponents/LandingHeroHead";
 import LandingHeroBody from "./landing-subcomponents/LandingHeroBody";
 import LandingHeroFoot from "./landing-subcomponents/LandingHeroFoot";
 import LandingHeroBackground from "./LandingHeroBackground";
