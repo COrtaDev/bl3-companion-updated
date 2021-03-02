@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Follows = ({ subroutes, activeTab, makeActive, setAuthenticated }) => {
+const Follows = ({ activeTab, makeActive }) => {
   // const [active, setActive] = useState(null);
   const [followingState, setFollowingState] = useState("");
   const [followersState, setFollowersState] = useState("");

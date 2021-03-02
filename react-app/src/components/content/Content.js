@@ -3,7 +3,7 @@ import Feed from "./content-subcomponents/Feed";
 import Header from "./content-subcomponents/Header";
 import SubHeader from "./content-subcomponents/SubHeader";
 
-const CenterContent = ({ title, subheader, feed, user }) => {
+const Content = ({ title, subheader, feed, user }) => {
   return (
     <>
       <Header title={title} user={user} />
@@ -13,4 +13,4 @@ const CenterContent = ({ title, subheader, feed, user }) => {
   );
 };
 
-export default CenterContent;
+export default Content;

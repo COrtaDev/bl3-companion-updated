@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import RightSidebarMenu from "../main/main-subcomponents/RightSidebarMenu";
-import Profile from "../profile/Profile";
-import Home from "../home/Home";
-import Likes from "../likes/Likes";
-import Comments from "../comments/Comments";
-import Follows from "../follows/Follows";
+import RightSidebarMenu from "../main-subcomponents/RightSidebarMenu";
+import Content from "../../content/Content";
+import Home from "../../home/Home";
+import Likes from "../../likes/Likes";
+import Comments from "../../comments/Comments";
+import Follows from "../../follows/Follows";
+import Profile from "../../profile/Profile";
 
 const routes = [
   {
@@ -61,7 +61,7 @@ const routes = [
   },
 ];
 
-const Content = ({ title, user }) => {
+const CenterContent = ({ user }) => {
   const [activeTab, setActiveTab] = useState("following");
 
   function toggleFeed() {
@@ -103,4 +103,4 @@ const Content = ({ title, user }) => {
   );
 };
 
-export default Content;
+export default CenterContent;
