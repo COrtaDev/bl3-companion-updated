@@ -1,22 +1,41 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Items from "../form-subcomponents/Items";
+import { getLootInfo } from "../../../services/loot";
 
 const ItemDropDown = () => {
   const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
   const [itemName, setItemName] = useState("");
+  const [imgUrl, setImgUrl] = useState("");
+  const [itemUrl, setItemUrl] = useState("");
 
   const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
 
   const updateItemName = (e) => setItemName(e.target.value);
 
+  const getInfo = async (selectedLoot) => {
+    const urls = await getLootInfo(selectedLoot);
+    console.log(urls);
+    const { imgs, itemUrl } = urls;
+    console.log(imgs);
+    console.log(itemUrl);
+    if (imgs.length > 1) {
+      setItemUrl(itemUrl);
+      return setImgUrl(imgs[imgs.length - 1]);
+    }
+    setImgUrl(imgs[0]);
+    setItemUrl(itemUrl);
+  };
+
   function select(e) {
     setSelectedLoot(e.target.value);
     openMenu(e);
   }
-
+  console.log(imgUrl);
+  console.log(itemUrl);
+  console.log(selectedLoot);
   return (
     <div className={"field has-addons has-addons-centered"}>
       <div className={"control is-expanded"}>
@@ -61,7 +80,11 @@ const ItemDropDown = () => {
         </div>
       </div>
       <div className={"control"}>
-        <button type={"submit"} className={"button"}>
+        <button
+          type={"submit"}
+          className={"button"}
+          onClick={async () => await getInfo(selectedLoot)}
+        >
           Choose Item
         </button>
       </div>
