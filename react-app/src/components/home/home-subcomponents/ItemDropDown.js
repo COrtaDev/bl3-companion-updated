@@ -5,26 +5,18 @@ import Items from "../form-subcomponents/Items";
 import { loot } from "../../../services/loot";
 
 const ItemDropDown = () => {
-  // const [items, setItems] = useState(null);
-  const [filteredItems, setFilteredItems] = useState(null);
+  const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
   const [itemName, setItemName] = useState("");
-
-  useEffect(() => {
-    if (!itemName) {
-      setFilteredItems(null);
-    } else {
-      setFilteredItems(
-        loot.filter((item) =>
-          item.name.toLowerCase().startsWith(itemName.toLowerCase())
-        )
-      );
-    }
-  }, [filteredItems, itemName]);
 
   const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
 
   const updateItemName = (e) => setItemName(e.target.value);
+
+  function select(e) {
+    setSelectedLoot(e.target.value);
+    openMenu(e);
+  }
 
   return (
     <div className={"field has-addons has-addons-centered"}>
@@ -38,7 +30,7 @@ const ItemDropDown = () => {
               aria-controls={"dropdown-menu"}
               onClick={openMenu}
             >
-              <span>Select Item</span>
+              <span>{selectedLoot ? selectedLoot : "Select Loot Item"}</span>
               <span className={"icon is-small"}>
                 <FontAwesomeIcon icon={faAngleDown} aria-hidden={"true"} />
               </span>
@@ -74,11 +66,13 @@ const ItemDropDown = () => {
                 style={{ width: "100%" }}
                 className={"select is-multiple px-5"}
               >
-                <select style={{ width: "100%" }} multiple size="10">
-                  <Items items={filteredItems} />
-                  {/* {loot.map((item) => (
-                    <option value={item.name}>{item.name}</option>
-                  ))} */}
+                <select
+                  style={{ width: "100%" }}
+                  className={"is-hovered"}
+                  multiple
+                  size="10"
+                >
+                  <Items items={itemName} select={select} />
                 </select>
               </div>
             </div>
