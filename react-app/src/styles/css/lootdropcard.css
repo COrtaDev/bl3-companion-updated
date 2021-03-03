@@ -35,16 +35,26 @@ button#item-dropdown-button {
   justify-content: space-between;
 }
 
-button#loot-drop-card-button {
-  /* border: none; */
-}
-/* div#loot-drop-card {
-  border-radius: 1.3rem;
-} */
-
 div#item-dropdown {
   width: 100%;
 }
+
 div#dropdown-menu.dropdown-menu {
   min-width: 100%;
+}
+
+div#dropdown-menu-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+div.select.is-multiple.px-5 {
+  width: 100%;
+}
+
+div.select.is-multiple.px-5 select {
+  width: 100%;
 }

@@ -1,3 +1,4 @@
+
 export const getLootInfo = async () => {
   //TODO: define this API call:
   //!It needs to get the corresponding loot data from the table then we can play with it in the app.
