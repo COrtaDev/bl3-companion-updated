@@ -34,7 +34,7 @@ const LootDropForm = ({ hideForm }) => {
   console.log(itemUrl);
 
   return (
-    <div id={"loot-drop-card"} className={`card is-shadowless animatedCard`}>
+    <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && <LootImage imgUrl={imgUrl} itemUrl={itemUrl} />}
       <div className={"card-content"}>
         {!loot && <ItemDropDown getInfo={getInfo} />}

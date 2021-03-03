@@ -7,7 +7,6 @@ const ItemDropDown = ({ getInfo }) => {
   const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
   const [itemName, setItemName] = useState("");
-  // const [disabled, setDisabled] = useState(true);
 
   const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
 
@@ -16,11 +15,6 @@ const ItemDropDown = ({ getInfo }) => {
   function select(e) {
     setSelectedLoot(e.target.value);
     openMenu(e);
-    // if (disabled) {
-    //   const button = document.getElementById("select-loot-button");
-    //   button.removeAttribute("disabled");
-    //   setDisabled(false);
-    // }
   }
 
   console.log(selectedLoot);
