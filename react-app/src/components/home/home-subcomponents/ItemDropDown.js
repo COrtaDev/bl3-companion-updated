@@ -17,7 +17,7 @@ const ItemDropDown = ({ getInfo }) => {
     openMenu(e);
   }
 
-  console.log(selectedLoot);
+  // console.log(selectedLoot);
   return (
     <div className={"field has-addons has-addons-centered"}>
       <div className={"control is-expanded"}>
@@ -49,11 +49,12 @@ const ItemDropDown = ({ getInfo }) => {
                     placeholder={"Type to filter..."}
                     value={itemName}
                     onChange={updateItemName}
+                    autoComplete={"off"}
                   />
                 </div>
               </div>
               <div className={"select is-multiple px-5"}>
-                <select multiple size="10">
+                <select multiple size={"10"}>
                   <Items items={itemName} select={select} />
                 </select>
               </div>

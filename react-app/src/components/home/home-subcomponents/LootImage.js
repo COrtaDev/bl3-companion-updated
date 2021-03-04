@@ -2,7 +2,7 @@ import React from "react";
 
 const LootImage = ({ imgUrl, itemUrl }) => {
   return (
-    <div className={"card-image p-3"}>
+    <div className={"card-image px-3 pt-3"}>
       <div id={"image-box1"} className={"box p-0"}>
         <div id={"image-box2"} className={"box p-2"}>
           <figure
@@ -13,7 +13,7 @@ const LootImage = ({ imgUrl, itemUrl }) => {
               href={itemUrl}
               target={"_blank"}
               referrerPolicy={"no-referrer"}
-              rel={"noopener"}
+              rel={"noreferrer"}
             >
               <img
                 id={"item-image"}
