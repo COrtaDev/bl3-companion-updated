@@ -18,7 +18,7 @@
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-button#add-details.button {
+button#details.button {
   border-color: transparent;
   background-color: transparent;
 }
@@ -88,8 +88,8 @@ nav#loot-name.level {
 
 table#details-table.table td {
   /* padding: 0.5em 0em 0em 0em !important; */
-  padding-top: 0.6em !important;
+  padding-top: 0.2em !important;
   padding-left: 0em !important;
   padding-right: 0em !important;
-  padding-bottom: unset !important;
+  padding-bottom: 0.2em !important;
 }

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Levels from "../form-subcomponents/levels/Levels";
+import Levels from "./levels/Levels";
+import Mayhem from "./mayhem/Mayhem";
+import Location from "./location/Location";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlusCircle,
@@ -10,6 +12,7 @@ import {
 const AdditionalData = () => {
   const [level, setLevel] = useState(false);
   const [mayhem, setMayhem] = useState(false);
+  const [location, setLocation] = useState(false);
 
   function handleLevel(e) {
     e.target.id === "add"
@@ -24,6 +27,13 @@ const AdditionalData = () => {
       : e.target.id === "select"
       ? setMayhem(e.target.value)
       : setMayhem(false);
+  }
+  function handleLocation(e) {
+    e.target.id === "add"
+      ? setLocation(true)
+      : e.target.id === "select"
+      ? setLocation(e.target.value)
+      : setLocation(false);
   }
 
   return (
@@ -55,8 +65,9 @@ const AdditionalData = () => {
                     <span>{level}</span>
                     <span className={"icon"}>
                       <button
-                        id={"add-details"}
+                        id={"details"}
                         className={"button is-rounded p-0"}
+                        // onClick={handleLevel}
                       >
                         <FontAwesomeIcon
                           id={"delete"}
@@ -77,8 +88,9 @@ const AdditionalData = () => {
                   </span>
                   <span className={"icon"}>
                     <button
-                      id={"add-details"}
+                      id={"details"}
                       className={"button is-rounded p-0"}
+                      // onClick={handleLevel}
                     >
                       <FontAwesomeIcon
                         id={"add"}
@@ -93,16 +105,35 @@ const AdditionalData = () => {
               )}
             </td>
             <td>
+              {mayhem === true && <Mayhem handleMayhem={handleMayhem} />}
+              {mayhem >= 1 && mayhem !== true && (
+                <>
+                  <span className={"icon-text"}>
+                    <span>{mayhem}</span>
+                    <span className={"icon"}>
+                      <button
+                        id={"details"}
+                        className={"button is-rounded p-0"}
+                      >
+                        <FontAwesomeIcon
+                          id={"delete"}
+                          icon={faTimesCircle}
+                          className={"ml-2"}
+                          size={"lg"}
+                          onClick={handleMayhem}
+                        />
+                      </button>
+                    </span>
+                  </span>
+                </>
+              )}
               {!mayhem && (
                 <>
                   <span className={"icon-text"}>
                     <span>Add</span>
                   </span>
                   <span className={"icon"}>
-                    <button
-                      id={"add-details"}
-                      className={"button is-rounded p-0"}
-                    >
+                    <button id={"details"} className={"button is-rounded p-0"}>
                       <FontAwesomeIcon
                         id={"add"}
                         icon={faPlusCircle}
@@ -116,9 +147,48 @@ const AdditionalData = () => {
               )}
             </td>
             <td>
-              <button id={"add-details"} className={"button is-rounded p-0"}>
-                <FontAwesomeIcon icon={faPlusCircle} size={"2x"} />
-              </button>
+              {location === true && (
+                <Location handleLocation={handleLocation} />
+              )}
+              {mayhem >= 1 && mayhem !== true && (
+                <>
+                  <span className={"icon-text"}>
+                    <span>{mayhem}</span>
+                    <span className={"icon"}>
+                      <button
+                        id={"details"}
+                        className={"button is-rounded p-0"}
+                      >
+                        <FontAwesomeIcon
+                          id={"delete"}
+                          icon={faTimesCircle}
+                          className={"ml-2"}
+                          size={"lg"}
+                          onClick={handleLocation}
+                        />
+                      </button>
+                    </span>
+                  </span>
+                </>
+              )}
+              {!location && (
+                <>
+                  <span className={"icon-text"}>
+                    <span>Add</span>
+                  </span>
+                  <span className={"icon"}>
+                    <button id={"details"} className={"button is-rounded p-0"}>
+                      <FontAwesomeIcon
+                        id={"add"}
+                        icon={faPlusCircle}
+                        className={"ml-2"}
+                        size={"lg"}
+                        onClick={handleLocation}
+                      />
+                    </button>
+                  </span>
+                </>
+              )}
             </td>
             <td>
               <button id={"add-details"} className={"button is-rounded p-0"}>
