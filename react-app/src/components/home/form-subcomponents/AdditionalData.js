@@ -35,7 +35,7 @@ const AdditionalData = () => {
       ? setLocation(e.target.value)
       : setLocation(false);
   }
-
+  console.log(location);
   return (
     <>
       <nav className={"level mb-0"}>
@@ -147,13 +147,11 @@ const AdditionalData = () => {
               )}
             </td>
             <td>
-              {location === true && (
-                <Location handleLocation={handleLocation} />
-              )}
-              {mayhem >= 1 && mayhem !== true && (
+              {location && <Location handleLocation={handleLocation} />}
+              {/* {location.length >= 1 && location !== true && (
                 <>
                   <span className={"icon-text"}>
-                    <span>{mayhem}</span>
+                    <span>{location}</span>
                     <span className={"icon"}>
                       <button
                         id={"details"}
@@ -169,8 +167,8 @@ const AdditionalData = () => {
                       </button>
                     </span>
                   </span>
-                </>
-              )}
+                </> */}
+              {/* )} */}
               {!location && (
                 <>
                   <span className={"icon-text"}>
