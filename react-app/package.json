@@ -20,7 +20,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sass": "sass --watch --sourcemap=none src/styles/sass/mystyles.scss:src/styles/css/mystyles.css src/styles/sass/mycardstyles.scss:src/styles/css/mycardstyles.css"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -48,21 +48,16 @@ function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    if (loaded) return;
+    if (loaded && user) return;
     (async () => {
       const user = await authenticate();
-
       if (!user.errors) {
         setAuthenticated(true);
         setUser({ userName: user.username, userId: user.id });
       }
       setLoaded(true);
     })();
-  }, [loaded, user]);
-
-  if (!loaded) {
-    return null;
-  }
+  }, [loaded, user, authenticated]);
 
   function ProtectedRoutes(route) {
     return (
@@ -84,6 +79,9 @@ function App() {
     );
   }
 
+  if (!loaded) {
+    return null;
+  }
   return (
     <BrowserRouter>
       <Switch>

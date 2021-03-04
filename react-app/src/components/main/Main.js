@@ -7,6 +7,22 @@ import CenterContent from "./main-subcomponents/CenterContent";
 import "../../styles/css/main.css";
 
 const Main = ({ logout, user }) => {
+  const [justifyContent, setJustifyContent] = useState(
+    "is-justify-content-center"
+  );
+  const [paddingLeft, setPaddingLeft] = useState("pl-4");
+
+  useEffect(() => {
+    window.addEventListener("resize", (event) => {
+      handleResize(
+        justifyContent,
+        setJustifyContent,
+        paddingLeft,
+        setPaddingLeft
+      );
+    });
+  }, [justifyContent, paddingLeft, user]);
+
   const routes = [
     {
       path: "/home",
@@ -39,22 +55,9 @@ const Main = ({ logout, user }) => {
     },
   ];
 
-  const [justifyContent, setJustifyContent] = useState(
-    "is-justify-content-center"
-  );
-  const [paddingLeft, setPaddingLeft] = useState("pl-4");
-
-  useEffect(() => {
-    window.addEventListener("resize", (event) => {
-      handleResize(
-        justifyContent,
-        setJustifyContent,
-        paddingLeft,
-        setPaddingLeft
-      );
-    });
-  }, [justifyContent, paddingLeft]);
-
+  if (!user) {
+    return null;
+  }
   return (
     <Router>
       <div

@@ -1,23 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
-import Items from "../form-subcomponents/Items";
+import Items from "../form-subcomponents/ItemNames";
 
-const ItemDropDown = ({ getInfo }) => {
-  const [selectedLoot, setSelectedLoot] = useState("");
-  const [active, setActive] = useState("");
-  const [itemName, setItemName] = useState("");
-
-  const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
-
-  const updateItemName = (e) => setItemName(e.target.value);
-
-  function select(e) {
-    setSelectedLoot(e.target.value);
-    openMenu(e);
-  }
-
-  // console.log(selectedLoot);
+const ItemDropDown = ({
+  active,
+  openMenu,
+  getInfo,
+  itemName,
+  updateItemName,
+  selectedLoot,
+  select,
+}) => {
   return (
     <div className={"field has-addons has-addons-centered"}>
       <div className={"control is-expanded"}>
@@ -68,7 +62,6 @@ const ItemDropDown = ({ getInfo }) => {
           type={"submit"}
           className={`button `}
           onClick={async () => await getInfo(selectedLoot)}
-          // disabled
         >
           Choose Item
         </button>
