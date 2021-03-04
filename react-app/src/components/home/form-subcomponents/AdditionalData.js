@@ -1,9 +1,12 @@
 import React, { useState } from "react";
+import ElementTable from "./ElementTable";
 
 const AdditionalData = () => {
   const [itemLevel, setItemLevel] = useState(null);
   const [itemMayhem, setItemMayhem] = useState(null);
-  const [itemElement, setItemElement] = useState(null);
+  //TODO: refactor to use this instead of itemElements && itemElements.length
+  const [currentElement, setCurrentElement] = useState(null);
+  const [itemElements, setItemElements] = useState([]);
   const [hasLevel, setHasLevel] = useState(false);
   const [hasLocation, setHasLocation] = useState(false);
   const [hasMayhem, setHasMayhem] = useState(false);
@@ -53,18 +56,26 @@ const AdditionalData = () => {
     setItemMayhem(e.target.value);
   }
   function handleElement(e) {
-    let element = [];
-    let index = elements.indexOf(
+    setCurrentElement(e.target.value);
+    handleElementList(e);
+  }
+  function handleElementList(e) {
+    let selected = elements.filter(
       (element) => element.element === e.target.value
     );
-    element.push(elements.splice(index, 1));
-    setItemElement(element);
-    setElements(elements);
+    let remainingElements = elements.filter(
+      (element) => element.element !== e.target.value
+    );
+    setItemElements(selected);
+    setElements(remainingElements);
   }
   function handleMultipleElements(e) {
-    hasMultipleElements
-      ? setHasMultipleElements(false)
-      : setHasMultipleElements(true);
+    if (hasMultipleElements) {
+      setHasMultipleElements(false);
+      setCurrentElement(null);
+    } else {
+      setHasMultipleElements(true);
+    }
   }
   function handleHasLevel(e) {
     if (hasLevel) {
@@ -82,9 +93,16 @@ const AdditionalData = () => {
     hasMayhem ? setHasMayhem(false) : setHasMayhem(true);
   }
   function handleHasElement(e) {
+    if (hasElement) {
+      setHasElement(false);
+      //TODO:reset elements
+    } else {
+      setHasElement(true);
+    }
     hasElement ? setHasElement(false) : setHasElement(true);
   }
-  console.log(itemElement);
+  console.log(currentElement);
+  console.log(itemElements);
   console.log(elements);
   return (
     <div className={"columns"}>
@@ -102,7 +120,7 @@ const AdditionalData = () => {
                   <div className={"control"}>
                     <div className={"select is-small"}>
                       <select onChange={handleLevel}>
-                        <option value="">Level?</option>
+                        <option value={""}>Level?</option>
                         {levels.map((level) => (
                           <option key={level} value={level}>
                             {level}
@@ -189,14 +207,14 @@ const AdditionalData = () => {
                 type={"checkbox"}
                 name={"element"}
                 value={"element"}
-                checked={hasElement}
+                checked={hasElement || currentElement}
                 onChange={handleHasElement}
               />
               Element?
             </label>
           </div>
           {/*............[end]===>ELEMENT checkbox............*/}
-          {itemElement && (
+          {currentElement && (
             <>
               {/*............[start]===>MULTIPLE checkbox............*/}
               <div className={"control mr-2 "}>
@@ -217,7 +235,7 @@ const AdditionalData = () => {
           )}
         </div>
 
-        {hasElement && (
+        {(hasElement || currentElement) && (
           <>
             {/*.........[start]===>ELEMENT Dropdown selector.........*/}
             <div className={"field is-horizontal level-item mb-1"}>
@@ -229,7 +247,10 @@ const AdditionalData = () => {
                   <div className={"control"}>
                     <div className={"select is-small"}>
                       <select onChange={handleElement}>
-                        <option value="">Element?</option>
+                        {/* TODO fix the reset!!! */}
+                        <option value={currentElement ? currentElement : ""}>
+                          {currentElement ? `${currentElement}` : "Element?"}
+                        </option>
                         {elements.map((element, i) => (
                           <option
                             key={i}
@@ -251,24 +272,7 @@ const AdditionalData = () => {
         {hasMultipleElements && (
           <>
             {/*...........[start]===>MULTIPLE ELEMENTS table...........*/}
-            <table className={"table is-striped is-hoverable is-size-7"}>
-              <thead>
-                <tr>
-                  <th className={"pb-0"}>No.</th>
-                  <th className={"pb-0"}>Element</th>
-                </tr>
-              </thead>
-              <tbody>
-                {itemElement.map((element, i) => (
-                  <>
-                    <tr key={i}>
-                      <th>{i + 1}</th>
-                      <td>{element.element}</td>
-                    </tr>
-                  </>
-                ))}
-              </tbody>
-            </table>
+            <ElementTable itemElements={itemElements} />
             {/*............[end]===>MULTIPLE ELEMENTS table............*/}
           </>
         )}

@@ -10,7 +10,7 @@ const Items = ({ items, select }) => {
             return item.name.toLowerCase().startsWith(items.toLowerCase());
           })
           .map((item) => (
-            <option key={item.id} value={item.name}>
+            <option key={item.id} value={item.name} onClick={select}>
               {item.name}
             </option>
           ))}
