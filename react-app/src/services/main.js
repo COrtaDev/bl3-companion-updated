@@ -57,4 +57,3 @@ const setIframe = (width, height) => {
   iframe.style.height = height;
   iframe.style.width = width;
 };
-
