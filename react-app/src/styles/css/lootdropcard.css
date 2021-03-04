@@ -35,16 +35,51 @@ button#item-dropdown-button {
   justify-content: space-between;
 }
 
-button#loot-drop-card-button {
-  /* border: none; */
+div#dropdown-menu.dropdown-menu {
+  min-width: 100%;
 }
-/* div#loot-drop-card {
-  border-radius: 1.3rem;
-} */
+
+div#dropdown-menu-background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+div#image-box1.box {
+  border: 1px solid rgba(102, 2, 0, 0.692);
+  background-color: rgba(102, 2, 0, 0.575);
+  box-shadow: 0px 0px 1em -.4em rgba(246, 239, 20, 0.411);
+}
+div#image-box2.box.p-2 {
+  /* border: 1px solid rgba(102, 2, 0, 0.692); */
+  background-color: transparent !important;
+  box-shadow: inset 0px 0px 0.7em -4px rgba(246, 239, 20, 0.705);
+}
 
 div#item-dropdown {
   width: 100%;
 }
-div#dropdown-menu.dropdown-menu {
-  min-width: 100%;
+
+div#loot-drop-card {
+  box-shadow: 0px 0px 1.3em -10px rgba(246, 239, 20, 0.404);
 }
+
+div.select.is-multiple.px-5 {
+  width: 100%;
+}
+
+div.select.is-multiple.px-5 select {
+  width: 100%;
+}
+
+figure#image-box {
+  overflow: hidden;
+  border-radius: inherit;
+}
+/*
+img#item-image {
+  border-radius: 6px;
+  border-top-left-radius: 6px;
+} */

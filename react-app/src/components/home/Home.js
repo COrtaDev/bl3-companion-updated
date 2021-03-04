@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import { TransitionGroup, CSSTransition } from "react-transition-group";
 import LootDropForm from "./home-subcomponents/LootDropForm";
 import "../../styles/css/lootdropcard.css";
 
@@ -17,14 +16,22 @@ const Home = ({ user }) => {
       setFullwidth("");
     }
   }
-
+  if (!user) {
+    return null;
+  }
   return (
     <>
       <section className={"section pt-3 pl-3 "}>
         <article className={"media"}>
           <figure className={"media-left"}>
             <p className={"image is-64x64"}>
-              <img className={"is-rounded"} src={avatarURL} alt={avatarURL} />
+              <img
+                className={"is-rounded"}
+                src={avatarURL}
+                alt={avatarURL}
+                crossOrigin={true.toString()}
+                crossorigin
+              />
             </p>
           </figure>
           <div className={"media-content"}>

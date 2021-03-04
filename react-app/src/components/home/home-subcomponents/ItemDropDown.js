@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import Items from "../form-subcomponents/Items";
-import { loot } from "../../../services/loot";
 
-const ItemDropDown = () => {
+const ItemDropDown = ({ getInfo }) => {
   const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
   const [itemName, setItemName] = useState("");
@@ -18,6 +17,7 @@ const ItemDropDown = () => {
     openMenu(e);
   }
 
+  // console.log(selectedLoot);
   return (
     <div className={"field has-addons has-addons-centered"}>
       <div className={"control is-expanded"}>
@@ -37,17 +37,7 @@ const ItemDropDown = () => {
             </button>
           </div>
           <div id={"dropdown-menu"} className={"dropdown-menu"} role={"menu"}>
-            <div
-              style={{
-                width: "100%",
-                height: "100%",
-                position: "fixed",
-                top: 0,
-                left: 0,
-              }}
-              id={"dropdown-menu-background"}
-              onClick={openMenu}
-            ></div>
+            <div id={"dropdown-menu-background"} onClick={openMenu}></div>
             <div className={"dropdown-content"}>
               <div className={"field px-4 pt-3"}>
                 <label className={"label"}>Filter by name:</label>
@@ -59,19 +49,12 @@ const ItemDropDown = () => {
                     placeholder={"Type to filter..."}
                     value={itemName}
                     onChange={updateItemName}
+                    autoComplete={"off"}
                   />
                 </div>
               </div>
-              <div
-                style={{ width: "100%" }}
-                className={"select is-multiple px-5"}
-              >
-                <select
-                  style={{ width: "100%" }}
-                  className={"is-hovered"}
-                  multiple
-                  size="10"
-                >
+              <div className={"select is-multiple px-5"}>
+                <select multiple size={"10"}>
                   <Items items={itemName} select={select} />
                 </select>
               </div>
@@ -80,7 +63,13 @@ const ItemDropDown = () => {
         </div>
       </div>
       <div className={"control"}>
-        <button type={"submit"} className={"button"}>
+        <button
+          id={"select-loot-button"}
+          type={"submit"}
+          className={`button `}
+          onClick={async () => await getInfo(selectedLoot)}
+          // disabled
+        >
           Choose Item
         </button>
       </div>
