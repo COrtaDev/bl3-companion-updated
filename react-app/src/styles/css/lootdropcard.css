@@ -18,7 +18,10 @@
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
 }
-
+button#add-details.button {
+  border-color: transparent;
+  background-color: transparent;
+}
 button#loot-drop-button.button.is-medium.is-rounded.ml-6 {
   transition: background-color 0.5s;
 }
@@ -50,7 +53,7 @@ div#dropdown-menu-background {
 div#image-box1.box {
   border: 1px solid rgba(102, 2, 0, 0.692);
   background-color: rgba(102, 2, 0, 0.575);
-  box-shadow: 0px 0px 1em -.4em rgba(246, 239, 20, 0.411);
+  box-shadow: 0px 0px 1em -0.4em rgba(246, 239, 20, 0.411);
 }
 div#image-box2.box.p-2 {
   /* border: 1px solid rgba(102, 2, 0, 0.692); */
@@ -78,8 +81,15 @@ figure#image-box {
   overflow: hidden;
   border-radius: inherit;
 }
-/*
-img#item-image {
-  border-radius: 6px;
-  border-top-left-radius: 6px;
-} */
+
+nav#loot-name.level {
+  border-bottom: 1px solid rgba(246, 239, 20, 0.705);
+}
+
+table#details-table.table td {
+  /* padding: 0.5em 0em 0em 0em !important; */
+  padding-top: 0.6em !important;
+  padding-left: 0em !important;
+  padding-right: 0em !important;
+  padding-bottom: unset !important;
+}

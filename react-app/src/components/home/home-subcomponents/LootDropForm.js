@@ -9,12 +9,15 @@ const LootDropForm = ({ hideForm }) => {
   const [itemUrl, setItemUrl] = useState("");
   const [loot, setLoot] = useState(false);
   const [contentPadding, setContentPadding] = useState("");
+  const [itemName, setItemName] = useState("");
+  const [selectedLoot, setSelectedLoot] = useState("");
+  const [active, setActive] = useState("");
 
   useEffect(() => {
     if (loot) return;
     if (imgUrl && itemUrl) {
       setLoot(true);
-      setContentPadding("py-3");
+      setContentPadding("pb-3 pt-1 px-3");
     }
   }, [loot, itemUrl, imgUrl]);
 
@@ -32,14 +35,39 @@ const LootDropForm = ({ hideForm }) => {
       setItemUrl(itemUrl);
     }
   };
-
-  //TODO: I may want to send the item name to one of the forms... not sure but get ready just incase...
-  
+  const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
+  const updateItemName = (e) => setItemName(e.target.value);
+  function select(e) {
+    setSelectedLoot(e.target.value);
+    openMenu(e);
+  }
+  console.log(selectedLoot);
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
-      {loot && <LootImage imgUrl={imgUrl} itemUrl={itemUrl} />}
+      {loot && (
+        <>
+          <LootImage imgUrl={imgUrl} itemUrl={itemUrl} />
+          <nav id={"loot-name"} className={"level mb-0"}>
+            <p className={"level-item has-text-centered"}>
+              <span className={"mb-0 is-size-3 has-text-weight-semibold"}>
+                {selectedLoot}
+              </span>
+            </p>
+          </nav>
+        </>
+      )}
       <div className={`card-content ${contentPadding}`}>
-        {!loot && <ItemDropDown getInfo={getInfo} />}
+        {!loot && (
+          <ItemDropDown
+            active={active}
+            openMenu={openMenu}
+            getInfo={getInfo}
+            itemName={itemName}
+            updateItemName={updateItemName}
+            selectedLoot={selectedLoot}
+            select={select}
+          />
+        )}
         {loot && <AdditionalData />}
       </div>
 
