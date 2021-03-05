@@ -148,27 +148,6 @@ const AdditionalData = () => {
             </td>
             <td>
               {location && <Location handleLocation={handleLocation} />}
-              {/* {location.length >= 1 && location !== true && (
-                <>
-                  <span className={"icon-text"}>
-                    <span>{location}</span>
-                    <span className={"icon"}>
-                      <button
-                        id={"details"}
-                        className={"button is-rounded p-0"}
-                      >
-                        <FontAwesomeIcon
-                          id={"delete"}
-                          icon={faTimesCircle}
-                          className={"ml-2"}
-                          size={"lg"}
-                          onClick={handleLocation}
-                        />
-                      </button>
-                    </span>
-                  </span>
-                </> */}
-              {/* )} */}
               {!location && (
                 <>
                   <span className={"icon-text"}>

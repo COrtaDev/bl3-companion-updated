@@ -10,7 +10,12 @@ const CenterContent = ({ user }) => {
       exact: true,
       active: "home",
       content: () => (
-        <Content title={"Home"} user={user} feed={"getHomeFeed"} />
+        <Content
+          title={"Home"}
+          user={user}
+          showTutorial={false}
+          feed={"getHomeFeed"}
+        />
       ),
     },
     {
@@ -18,7 +23,12 @@ const CenterContent = ({ user }) => {
       exact: true,
       active: "likes",
       content: () => (
-        <Content title={"Likes"} user={user} feed={"getLikesFeed"} />
+        <Content
+          title={"Likes"}
+          user={user}
+          showTutorial={false}
+          feed={"getLikesFeed"}
+        />
       ),
     },
     {
@@ -26,21 +36,43 @@ const CenterContent = ({ user }) => {
       exact: true,
       active: "comments",
       content: () => (
-        <Content title={"Comments"} user={user} feed={"getCommentsFeed"} />
+        <Content
+          title={"Comments"}
+          user={user}
+          showTutorial={false}
+          feed={"getCommentsFeed"}
+        />
       ),
     },
     {
       path: "/follows",
       active: "follows",
       content: () => (
-        <Content title={"Follows"} user={user} feed={"getFollowsFeed"} />
+        <Content
+          title={"Follows"}
+          user={user}
+          showTutorial={false}
+          feed={"getFollowsFeed"}
+        />
       ),
     },
     {
       path: "/profile",
       active: "profile",
       content: () => (
-        <Content title={"Profile"} user={user} feed={"getProfileFeed"} />
+        <Content
+          title={"Profile"}
+          user={user}
+          showTutorial={false}
+          feed={"getProfileFeed"}
+        />
+      ),
+    },
+    {
+      path: "/tutorial",
+      active: "tutorial",
+      content: () => (
+        <Content title={"Tutorial"} user={user} showTutorial={true} />
       ),
     },
   ];
@@ -70,9 +102,6 @@ const CenterContent = ({ user }) => {
           </main>
         </>
       </Switch>
-      <section id={"right-sidenav-menu"} className={"is-flex"}>
-        <RightSidebarMenu />
-      </section>
     </Router>
   );
 };

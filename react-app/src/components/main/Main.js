@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { handleResize } from "../../services/main";
+import RightSidebarMenu from "./main-subcomponents/RightSidebarMenu";
 import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import CenterContent from "./main-subcomponents/CenterContent";
 
 import "../../styles/css/main.css";
+import Tutorial from "../tutorial/Tutorial";
 
 const Main = ({ logout, user }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
   const [paddingLeft, setPaddingLeft] = useState("pl-4");
+  const [modalState, setModalState] = useState("");
 
   useEffect(() => {
     window.addEventListener("resize", (event) => {
@@ -53,6 +56,11 @@ const Main = ({ logout, user }) => {
       active: "profile",
       center: () => <CenterContent title={"Profile"} user={user} />,
     },
+    {
+      path: "/tutorial",
+      active: "tutorial",
+      center: () => <CenterContent title={"Tutorial"} user={user} />,
+    },
   ];
 
   if (!user) {
@@ -94,6 +102,9 @@ const Main = ({ logout, user }) => {
             ))}
           </>
         </Switch>
+        <section id={"right-sidenav-menu"} className={"is-flex"}>
+          <RightSidebarMenu />
+        </section>
       </div>
     </Router>
   );
