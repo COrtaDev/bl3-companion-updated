@@ -8,6 +8,7 @@ import {
   faCheckCircle,
   faTimesCircle,
 } from "@fortawesome/free-solid-svg-icons";
+import Elements from "./elements/Elements";
 
 const AdditionalData = () => {
   const [level, setLevel] = useState(false);
@@ -16,6 +17,8 @@ const AdditionalData = () => {
   const [mayhemShows, setMayhemShows] = useState("");
   const [location, setLocation] = useState(false);
   const [locationShows, setLocationShows] = useState("");
+  const [elements, setElements] = useState(false);
+  const [elementsShows, setElementsShows] = useState("");
 
   useEffect(() => {
     if (level === true) {
@@ -28,13 +31,13 @@ const AdditionalData = () => {
   }, [level, levelShows]);
 
   function handleLevel(e) {
-    console.log(e.target);
     e.target.id === "add"
       ? setLevel(true)
       : e.target.id === "select"
       ? setLevel(e.target.value)
       : setLevel(false);
   }
+
   useEffect(() => {
     if (mayhem === true) {
       setMayhemShows("dropdown");
@@ -52,6 +55,7 @@ const AdditionalData = () => {
       ? setMayhem(e.target.value)
       : setMayhem(false);
   }
+
   useEffect(() => {
     if (location === true) {
       setLocationShows("dropdown");
@@ -70,6 +74,29 @@ const AdditionalData = () => {
       : setLocation(false);
   }
 
+  useEffect(() => {
+    if (elements === true) {
+      setElementsShows("dropdown");
+    } else if (elements.length >= 1 && elements !== true) {
+      setElementsShows("selected");
+    } else {
+      setElementsShows("");
+    }
+  }, [elements, elementsShows]);
+
+  function handleElements(e) {
+    console.log(e.target.id);
+    e.target.id === "add"
+      ? setElements(true)
+      : e.target.id === "select"
+      ? pushElement(e.target.value)
+      : setElements(false);
+  }
+  function pushElement(element) {
+    let elements = [];
+    elements.push(element);
+    setElements(elements);
+  }
   const AddButton = ({ handleClick }) => {
     return (
       <button
@@ -99,10 +126,26 @@ const AdditionalData = () => {
       </button>
     );
   };
-
-  console.log(location);
-  console.log(level);
-  console.log(mayhem);
+  const ElementTag = ({ element, handleClick }) => {
+    if (!element) return null;
+    console.log(element);
+    const Tag = ({ element }) => {
+      let split = element.split(" ");
+      return (
+        <span style={{ color: split[1] }} className={"tag"}>
+          {split[0]}
+          <button className={"delete"} onClick={handleClick}></button>
+        </span>
+      );
+    };
+    return (
+      <>
+        {element.map((element, i) => (
+          <Tag key={i} element={element} />
+        ))}
+      </>
+    );
+  };
 
   return (
     <>
@@ -153,9 +196,24 @@ const AdditionalData = () => {
               {!locationShows && <AddButton handleClick={handleLocation} />}
             </td>
             <td>
-              <button id={"add-details"} className={"button is-rounded p-0"}>
-                <FontAwesomeIcon icon={faPlusCircle} size={"2x"} />
-              </button>
+              {elementsShows === "dropdown" && (
+                <Elements handleClick={handleElements} />
+              )}
+              {elementsShows === "selected" && (
+                <>
+                  <Elements
+                    currentElements={elements}
+                    handleClick={handleElements}
+                  />
+                  <span>
+                    <ElementTag
+                      element={elements}
+                      handleClick={handleElements}
+                    />
+                  </span>
+                </>
+              )}
+              {!elementsShows && <AddButton handleClick={handleElements} />}
             </td>
           </tr>
         </tbody>
