@@ -15,6 +15,7 @@ const AdditionalData = () => {
   const [mayhem, setMayhem] = useState(false);
   const [mayhemShows, setMayhemShows] = useState("");
   const [location, setLocation] = useState(false);
+  const [locationShows, setLocationShows] = useState("");
 
   useEffect(() => {
     if (level === true) {
@@ -51,6 +52,15 @@ const AdditionalData = () => {
       ? setMayhem(e.target.value)
       : setMayhem(false);
   }
+  useEffect(() => {
+    if (location === true) {
+      setLocationShows("dropdown");
+    } else if (location.length >= 1 && location !== true) {
+      setLocationShows("selected");
+    } else {
+      setLocationShows("");
+    }
+  }, [location, locationShows]);
 
   function handleLocation(e) {
     e.target.id === "add"
@@ -59,6 +69,7 @@ const AdditionalData = () => {
       ? setLocation(e.target.value)
       : setLocation(false);
   }
+
   const AddButton = ({ handleClick }) => {
     return (
       <button
@@ -71,6 +82,7 @@ const AdditionalData = () => {
       </button>
     );
   };
+
   const Detail = ({ detail, handleClick }) => {
     return (
       <button
@@ -87,9 +99,11 @@ const AdditionalData = () => {
       </button>
     );
   };
+
   console.log(location);
   console.log(level);
   console.log(mayhem);
+
   return (
     <>
       <nav className={"level mb-0"}>
@@ -130,48 +144,13 @@ const AdditionalData = () => {
               {!mayhemShows && <AddButton handleClick={handleMayhem} />}
             </td>
             <td>
-              {location === true && (
+              {locationShows === "dropdown" && (
                 <Location handleLocation={handleLocation} />
               )}
-              {location.length >= 1 && location !== true && (
-                <>
-                  <span className={"icon-text"}>
-                    <span>{location}</span>
-                    <span className={"icon"}>
-                      <button
-                        id={"details"}
-                        className={"button is-rounded p-0"}
-                      >
-                        <FontAwesomeIcon
-                          id={"delete"}
-                          icon={faTimesCircle}
-                          className={"ml-2"}
-                          size={"lg"}
-                          onClick={handleLocation}
-                        />
-                      </button>
-                    </span>
-                  </span>
-                </>
+              {locationShows === "selected" && (
+                <Detail detail={location} handleClick={handleLocation} />
               )}
-              {!location && (
-                <>
-                  <span className={"icon-text"}>
-                    <span>Add</span>
-                  </span>
-                  <span className={"icon"}>
-                    <button id={"details"} className={"button is-rounded p-0"}>
-                      <FontAwesomeIcon
-                        id={"add"}
-                        icon={faPlusCircle}
-                        className={"ml-2"}
-                        size={"lg"}
-                        onClick={handleLocation}
-                      />
-                    </button>
-                  </span>
-                </>
-              )}
+              {!locationShows && <AddButton handleClick={handleLocation} />}
             </td>
             <td>
               <button id={"add-details"} className={"button is-rounded p-0"}>
