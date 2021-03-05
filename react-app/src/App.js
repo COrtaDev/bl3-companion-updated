@@ -6,6 +6,7 @@ import Main from "./components/main/Main";
 import LogoutButton from "./components/auth/LogoutButton";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 import LandingHeroBanner from "./components/landing/LandingHeroBanner";
+import Tutorial from "./components/tutorial/Tutorial";
 
 import "../src/styles/css/mystyles.css";
 
@@ -39,6 +40,11 @@ const routes = [
     path: "/profile",
     exact: true,
     component: Main,
+  },
+  {
+    path: "/tutorial",
+    exact: true,
+    component: Tutorial,
   },
 ];
 
@@ -82,6 +88,7 @@ function App() {
   if (!loaded) {
     return null;
   }
+
   return (
     <BrowserRouter>
       <Switch>

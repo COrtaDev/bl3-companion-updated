@@ -1,6 +1,7 @@
 import React from "react";
 
 const Location = ({ handleLocation }) => {
+
   const Planet = ({ name, locations }) => {
     return (
       <optgroup label={name}>
@@ -40,6 +41,7 @@ const Location = ({ handleLocation }) => {
     </div>
   );
 };
+
 const locations = [
   {
     name: "Pandora",
