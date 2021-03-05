@@ -1,6 +1,6 @@
 import React from "react";
 
-const Levels = ({handleLevel}) => {
+const LevelSelector = ({handleLevel}) => {
   const levels = [];
   let level = 1;
   while (level < 66) {
@@ -30,4 +30,4 @@ const Levels = ({handleLevel}) => {
     </div>
   );
 };
-export default Levels;
+export default LevelSelector;
