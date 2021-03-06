@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getLootInfo } from "../../../services/loot";
+import { getLootInfo, saveLootDrop } from "../../../services/loot";
 import AdditionalData from "../form-subcomponents/AdditionalData";
 import ItemDropDown from "./ItemDropDown";
 import LootImage from "./LootImage";
@@ -70,7 +70,24 @@ const LootDropForm = ({ hideForm }) => {
     hideForm();
     setReset(false);
   };
-  console.log(loot);
+
+  const saveLoot = (e, user, itemName, level, mayhem, location, elements) => {
+    e.preventDefault();
+    e.stopPropagation()(async () => {
+      const res = await saveLootDrop(
+        user,
+        itemName,
+        level,
+        mayhem,
+        location,
+        elements
+      );
+      if (res.ok) {
+        setReset(true);
+      }
+    })();
+  };
+
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
@@ -97,7 +114,7 @@ const LootDropForm = ({ hideForm }) => {
             select={select}
           />
         )}
-        {loot && <AdditionalData />}
+        {loot && <AdditionalData saveLoot={saveLoot}/>}
       </div>
 
       {loot && (
@@ -105,6 +122,7 @@ const LootDropForm = ({ hideForm }) => {
           <button
             id={"loot-drop-card-button"}
             className={"button card-footer-item"}
+            onClick={saveLoot}
           >
             Save
           </button>
@@ -114,6 +132,17 @@ const LootDropForm = ({ hideForm }) => {
             onClick={deleteLoot}
           >
             Delete
+          </button>
+        </footer>
+      )}
+      {!loot && (
+        <footer className={"card-footer"}>
+          <button
+            id={"loot-drop-card-button"}
+            className={"button card-footer-item"}
+            onClick={deleteLoot}
+          >
+            Cancel
           </button>
         </footer>
       )}
