@@ -22,9 +22,7 @@ const Elements = ({}) => {
       ? setElements(true)
       : e.target.id === "select"
       ? pushElement(e.target.value)
-      : // : e.target.id === "more"
-        // ? setElementsShows("more")
-        setElements(false);
+      : setElements(false);
   }
 
   function pushElement(element) {
@@ -56,24 +54,7 @@ const Elements = ({}) => {
           ))}
         </div>
       )}
-      {/* {elementsShows === "more" && (
-        <ElementDropdown
-          handleClick={handleElements}
-          currentElements={elements}
-        />
-      )} */}
       {!elementsShows && <AddButton handleClick={handleElements} />}
-      {/* {elements.length > 0 && elementsShows !== false && (
-        <div className={"content"}>
-          {elements.map((element, i) => (
-            <ElementTag
-              key={i}
-              element={element}
-              handleClick={handleElements}
-            />
-          ))}
-        </div>
-      )} */}
     </>
   );
 };

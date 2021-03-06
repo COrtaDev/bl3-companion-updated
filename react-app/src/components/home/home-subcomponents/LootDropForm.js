@@ -12,14 +12,28 @@ const LootDropForm = ({ hideForm }) => {
   const [itemName, setItemName] = useState("");
   const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
+  const [reset, setReset] = useState(false);
 
   useEffect(() => {
+    if (reset) {
+      handleReset();
+      return;
+    }
     if (loot) return;
     if (imgUrl && itemUrl) {
       setLoot(true);
       setContentPadding("pb-3 pt-1 px-3");
     }
-  }, [loot, itemUrl, imgUrl]);
+  }, [
+    imgUrl,
+    itemUrl,
+    loot,
+    contentPadding,
+    itemName,
+    selectedLoot,
+    active,
+    reset,
+  ]);
 
   const getInfo = async (selectedLoot) => {
     if (!selectedLoot) {
@@ -36,12 +50,27 @@ const LootDropForm = ({ hideForm }) => {
     }
   };
   const openMenu = (e) => (!active ? setActive("is-active") : setActive(""));
+
   const updateItemName = (e) => setItemName(e.target.value);
-  function select(e) {
+
+  const select = (e) => {
     setSelectedLoot(e.target.value);
     openMenu(e);
-  }
+  };
 
+  const deleteLoot = (e) => setReset(true);
+  const handleReset = () => {
+    setImgUrl("");
+    setItemUrl("");
+    setLoot(false);
+    setContentPadding("");
+    setItemName("");
+    setSelectedLoot("");
+    setActive("");
+    hideForm();
+    setReset(false);
+  };
+  console.log(loot);
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
@@ -71,26 +100,23 @@ const LootDropForm = ({ hideForm }) => {
         {loot && <AdditionalData />}
       </div>
 
-      <footer className={"card-footer"}>
-        <button
-          id={"loot-drop-card-button"}
-          className={"button card-footer-item"}
-        >
-          Save
-        </button>
-        <button
-          id={"loot-drop-card-button"}
-          className={"button card-footer-item"}
-        >
-          Edit
-        </button>
-        <button
-          id={"loot-drop-card-button"}
-          className={"button card-footer-item"}
-        >
-          Delete
-        </button>
-      </footer>
+      {loot && (
+        <footer className={"card-footer"}>
+          <button
+            id={"loot-drop-card-button"}
+            className={"button card-footer-item"}
+          >
+            Save
+          </button>
+          <button
+            id={"loot-drop-card-button"}
+            className={"button card-footer-item"}
+            onClick={deleteLoot}
+          >
+            Delete
+          </button>
+        </footer>
+      )}
     </div>
   );
   // }
