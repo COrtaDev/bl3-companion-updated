@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import AddButton from "../AddButton";
-// import Detail from "../Detail";
 import LevelDropdown from "./LevelDropdown";
+import AddButton from "../AddButton";
+import LevelTag from "../LevelTag";
 
 const Levels = ({}) => {
   const [level, setLevel] = useState(false);
@@ -23,14 +23,7 @@ const Levels = ({}) => {
       ? setLevel(e.target.value)
       : setLevel(false);
   }
-  const LevelTag = ({ level, handleClick }) => {
-    return (
-      <span className={"tag is-medium is-primary"}>
-        {level}
-        <button className={"delete"} onClick={handleClick}></button>
-      </span>
-    );
-  };
+
   return (
     <>
       {levelShows === "dropdown" && <LevelDropdown handleLevel={handleLevel} />}
