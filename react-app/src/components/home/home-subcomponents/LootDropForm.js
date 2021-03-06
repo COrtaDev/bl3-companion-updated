@@ -41,7 +41,7 @@ const LootDropForm = ({ hideForm }) => {
     setSelectedLoot(e.target.value);
     openMenu(e);
   }
-  console.log(selectedLoot);
+
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (

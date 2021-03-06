@@ -75,27 +75,45 @@ const AdditionalData = () => {
   }
 
   useEffect(() => {
-    if (elements === true) {
+    // debugger;
+    console.log(elements);
+    if (elements.length > 0 && elementsShows === "selected") {
+      console.log(elementsShows);
+      setElementsShows("more");
+      return;
+    } else if (elements === true) {
       setElementsShows("dropdown");
-    } else if (elements.length >= 1 && elements !== true) {
+      return;
+    } else if (elements.length > 0 && elementsShows === "more") {
+      console.log(elements);
       setElementsShows("selected");
+      return;
     } else {
       setElementsShows("");
+      return;
     }
   }, [elements, elementsShows]);
 
   function handleElements(e) {
-    console.log(e.target.id);
     e.target.id === "add"
       ? setElements(true)
       : e.target.id === "select"
       ? pushElement(e.target.value)
+      : e.target.id === "more"
+      ? setElementsShows("more")
       : setElements(false);
   }
   function pushElement(element) {
-    let elements = [];
-    elements.push(element);
-    setElements(elements);
+    // debugger;
+    if (elements === true) {
+      let newElement = [];
+      newElement.push(element);
+      setElements(newElement);
+    } else {
+      elements.push(element);
+      setElements(elements);
+    }
+    setElementsShows("selected");
   }
   const AddButton = ({ handleClick }) => {
     return (
@@ -109,7 +127,18 @@ const AdditionalData = () => {
       </button>
     );
   };
-
+  const MoreButton = ({ handleClick }) => {
+    return (
+      <button
+        id={"more"}
+        className={"button is-fullwidth p-0"}
+        onClick={handleClick}
+      >
+        More
+        <FontAwesomeIcon id={"more"} icon={faPlusCircle} className={"ml-1"} />
+      </button>
+    );
+  };
   const Detail = ({ detail, handleClick }) => {
     return (
       <button
@@ -128,25 +157,16 @@ const AdditionalData = () => {
   };
   const ElementTag = ({ element, handleClick }) => {
     if (!element) return null;
-    console.log(element);
-    const Tag = ({ element }) => {
-      let split = element.split(" ");
-      return (
-        <span style={{ color: split[1] }} className={"tag"}>
-          {split[0]}
-          <button className={"delete"} onClick={handleClick}></button>
-        </span>
-      );
-    };
+    let split = element.split(" ");
     return (
-      <>
-        {element.map((element, i) => (
-          <Tag key={i} element={element} />
-        ))}
-      </>
+      <span style={{ color: split[1] }} className={"tag"}>
+        {split[0]}
+        <button className={"delete"} onClick={handleClick}></button>
+      </span>
     );
   };
-
+  console.log(elements);
+  console.log(elementsShows);
   return (
     <>
       <nav className={"level mb-0"}>
@@ -197,23 +217,32 @@ const AdditionalData = () => {
             </td>
             <td>
               {elementsShows === "dropdown" && (
-                <Elements handleClick={handleElements} />
+                <Elements
+                  handleClick={handleElements}
+                  currentElements={elements}
+                />
               )}
               {elementsShows === "selected" && (
-                <>
-                  <Elements
-                    currentElements={elements}
-                    handleClick={handleElements}
-                  />
-                  <span>
-                    <ElementTag
-                      element={elements}
-                      handleClick={handleElements}
-                    />
-                  </span>
-                </>
+                <MoreButton handleClick={handleElements} />
+              )}
+              {elementsShows === "more" && (
+                <Elements
+                  handleClick={handleElements}
+                  currentElements={elements}
+                />
               )}
               {!elementsShows && <AddButton handleClick={handleElements} />}
+              {elements.length > 0 && elementsShows !== false && (
+                <div className={"content"}>
+                  {elements.map((element, i) => (
+                    <ElementTag
+                      key={i}
+                      element={element}
+                      handleClick={handleElements}
+                    />
+                  ))}
+                </div>
+              )}
             </td>
           </tr>
         </tbody>
