@@ -2,24 +2,18 @@ import React, { useState, useEffect } from "react";
 import AddButton from "../AddButton";
 import ElementDropdown from "./ElementDropdown";
 import ElementTag from "./ElementTag";
-import MoreButton from "./MoreButton";
+// import MoreButton from "./MoreButton";
 
 const Elements = ({}) => {
   const [elements, setElements] = useState(false);
   const [elementsShows, setElementsShows] = useState("");
   useEffect(() => {
-    if (elements.length > 0 && elementsShows === "selected") {
-      setElementsShows("more");
-      return;
-    } else if (elements === true) {
+    if (elements === true) {
       setElementsShows("dropdown");
-      return;
-    } else if (elements.length > 0 && elementsShows === "more") {
+    } else if (elements.length >= 1 && elementsShows !== true) {
       setElementsShows("selected");
-      return;
     } else {
       setElementsShows("");
-      return;
     }
   }, [elements, elementsShows]);
 
@@ -28,9 +22,9 @@ const Elements = ({}) => {
       ? setElements(true)
       : e.target.id === "select"
       ? pushElement(e.target.value)
-      : e.target.id === "more"
-      ? setElementsShows("more")
-      : setElements(false);
+      : // : e.target.id === "more"
+        // ? setElementsShows("more")
+        setElements(false);
   }
 
   function pushElement(element) {
@@ -42,7 +36,6 @@ const Elements = ({}) => {
       elements.push(element);
       setElements(elements);
     }
-    setElementsShows("selected");
   }
   return (
     <>
@@ -53,16 +46,6 @@ const Elements = ({}) => {
         />
       )}
       {elementsShows === "selected" && (
-        <MoreButton handleClick={handleElements} />
-      )}
-      {elementsShows === "more" && (
-        <ElementDropdown
-          handleClick={handleElements}
-          currentElements={elements}
-        />
-      )}
-      {!elementsShows && <AddButton handleClick={handleElements} />}
-      {elements.length > 0 && elementsShows !== false && (
         <div className={"content"}>
           {elements.map((element, i) => (
             <ElementTag
@@ -73,6 +56,24 @@ const Elements = ({}) => {
           ))}
         </div>
       )}
+      {/* {elementsShows === "more" && (
+        <ElementDropdown
+          handleClick={handleElements}
+          currentElements={elements}
+        />
+      )} */}
+      {!elementsShows && <AddButton handleClick={handleElements} />}
+      {/* {elements.length > 0 && elementsShows !== false && (
+        <div className={"content"}>
+          {elements.map((element, i) => (
+            <ElementTag
+              key={i}
+              element={element}
+              handleClick={handleElements}
+            />
+          ))}
+        </div>
+      )} */}
     </>
   );
 };

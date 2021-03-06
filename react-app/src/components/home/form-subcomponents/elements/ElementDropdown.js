@@ -1,16 +1,15 @@
 import React from "react";
-import { elements } from "./elements";
+import { allElements } from "./elements-subcomponents/elements";
 
 const ElementDropdown = ({ currentElements, handleClick }) => {
   if (currentElements && currentElements !== true) {
-    console.log(currentElements);
-    let remainingElements = elements.filter((element) => {
+    let remainingElements = allElements.filter((element) => {
       for (let i = 0; i < currentElements.length; i++) {
         let filter = currentElements[i].split(" ");
         return element.element !== filter[0];
       }
     });
-    elements = remainingElements;
+    allElements = remainingElements;
   }
   const Element = ({ element, color }) => {
     return (
@@ -27,7 +26,7 @@ const ElementDropdown = ({ currentElements, handleClick }) => {
             <div className={"select"}>
               <select id={"select"} onChange={handleClick}>
                 <option value={""}>Element?</option>
-                {elements.map((element, i) => (
+                {allElements.map((element, i) => (
                   <Element
                     key={i}
                     element={element.element}

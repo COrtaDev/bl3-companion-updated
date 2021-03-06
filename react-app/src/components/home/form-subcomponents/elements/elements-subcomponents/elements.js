@@ -1,4 +1,4 @@
-export let elements = [
+export let allElements = [
   {
     element: "Non-elemental",
     color: "#FFFFFF",
