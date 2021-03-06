@@ -3,7 +3,7 @@ import LevelTag from "../LevelTag";
 import MayhemDropdown from "./MayhemDropdown";
 import AddButton from "../AddButton";
 
-const Mayhem = () => {
+const Mayhem = ({}) => {
   const [mayhem, setMayhem] = useState(false);
   const [mayhemShows, setMayhemShows] = useState("");
 

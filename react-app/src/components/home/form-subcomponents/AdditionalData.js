@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Levels from "./levels/Levels";
 import Mayhem from "./mayhem/Mayhem";
-import Location from "./location/Location";
+import Locations from "./location/Locations";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlusCircle,
@@ -11,81 +11,20 @@ import {
 import Elements from "./elements/Elements";
 
 const AdditionalData = () => {
-  //   const [level, setLevel] = useState(false);
-  //   const [levelShows, setLevelShows] = useState("");
-  // const [mayhem, setMayhem] = useState(false);
-  // const [mayhemShows, setMayhemShows] = useState("");
-  const [location, setLocation] = useState(false);
-  const [locationShows, setLocationShows] = useState("");
   const [elements, setElements] = useState(false);
   const [elementsShows, setElementsShows] = useState("");
 
-  // useEffect(() => {
-  //   if (level === true) {
-  //     setLevelShows("dropdown");
-  //   } else if (level >= 1 && level !== true) {
-  //     setLevelShows("selected");
-  //   } else {
-  //     setLevelShows("");
-  //   }
-  // }, [level, levelShows]);
-
-  // function handleLevel(e) {
-  //   e.target.id === "add"
-  //     ? setLevel(true)
-  //     : e.target.id === "select"
-  //     ? setLevel(e.target.value)
-  //     : setLevel(false);
-  // }
-
-  // useEffect(() => {
-  //   if (mayhem === true) {
-  //     setMayhemShows("dropdown");
-  //   } else if (mayhem >= 1 && mayhem !== true) {
-  //     setMayhemShows("selected");
-  //   } else {
-  //     setMayhemShows("");
-  //   }
-  // }, [mayhem, mayhemShows]);
-
-  // function handleMayhem(e) {
-  //   e.target.id === "add"
-  //     ? setMayhem(true)
-  //     : e.target.id === "select"
-  //     ? setMayhem(e.target.value)
-  //     : setMayhem(false);
-  // }
-
   useEffect(() => {
-    if (location === true) {
-      setLocationShows("dropdown");
-    } else if (location.length >= 1 && location !== true) {
-      setLocationShows("selected");
-    } else {
-      setLocationShows("");
-    }
-  }, [location, locationShows]);
 
-  function handleLocation(e) {
-    e.target.id === "add"
-      ? setLocation(true)
-      : e.target.id === "select"
-      ? setLocation(e.target.value)
-      : setLocation(false);
-  }
-
-  useEffect(() => {
-    // debugger;
-    console.log(elements);
     if (elements.length > 0 && elementsShows === "selected") {
-      console.log(elementsShows);
+    
       setElementsShows("more");
       return;
     } else if (elements === true) {
       setElementsShows("dropdown");
       return;
     } else if (elements.length > 0 && elementsShows === "more") {
-      console.log(elements);
+
       setElementsShows("selected");
       return;
     } else {
@@ -104,7 +43,6 @@ const AdditionalData = () => {
       : setElements(false);
   }
   function pushElement(element) {
-    // debugger;
     if (elements === true) {
       let newElement = [];
       newElement.push(element);
@@ -115,18 +53,7 @@ const AdditionalData = () => {
     }
     setElementsShows("selected");
   }
-  // const AddButton = ({ handleClick }) => {
-  //   return (
-  //     <button
-  //       id={"add"}
-  //       className={"button is-fullwidth p-0"}
-  //       onClick={handleClick}
-  //     >
-  //       Add
-  //       <FontAwesomeIcon id={"add"} icon={faPlusCircle} className={"ml-1"} />
-  //     </button>
-  //   );
-  // };
+
   const MoreButton = ({ handleClick }) => {
     return (
       <button
@@ -139,22 +66,7 @@ const AdditionalData = () => {
       </button>
     );
   };
-  // const Detail = ({ detail, handleClick }) => {
-  //   return (
-  //     <button
-  //       id={"details"}
-  //       className={"button is-fullwidth p-0"}
-  //       onClick={handleClick}
-  //     >
-  //       {detail}
-  //       <FontAwesomeIcon
-  //         id={"delete"}
-  //         icon={faTimesCircle}
-  //         className={"ml-3"}
-  //       />
-  //     </button>
-  //   );
-  // };
+
   const ElementTag = ({ element, handleClick }) => {
     if (!element) return null;
     let split = element.split(" ");
@@ -165,8 +77,7 @@ const AdditionalData = () => {
       </span>
     );
   };
-  console.log(elements);
-  console.log(elementsShows);
+
   return (
     <>
       <nav className={"level mb-0"}>
@@ -190,32 +101,12 @@ const AdditionalData = () => {
           <tr>
             <td>
               <Levels />
-              {/* {levelShows === "dropdown" && (
-                <Levels handleLevel={handleLevel} />
-              )}
-              {levelShows === "selected" && (
-                <Detail detail={level} handleClick={handleLevel} />
-              )}
-              {!levelShows && <AddButton handleClick={handleLevel} />} */}
             </td>
             <td>
               <Mayhem />
-              {/* {mayhemShows === "dropdown" && (
-                <Mayhem handleMayhem={handleMayhem} />
-              )}
-              {mayhemShows === "selected" && (
-                <Detail detail={mayhem} handleClick={handleMayhem} />
-              )}
-              {!mayhemShows && <AddButton handleClick={handleMayhem} />} */}
             </td>
             <td>
-              {/* {locationShows === "dropdown" && (
-                <Location handleLocation={handleLocation} />
-              )}
-              {locationShows === "selected" && (
-                <Detail detail={location} handleClick={handleLocation} />
-              )}
-              {!locationShows && <AddButton handleClick={handleLocation} />} */}
+              <Locations />
             </td>
             <td>
               {/* {elementsShows === "dropdown" && (
