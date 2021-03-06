@@ -1,71 +1,80 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import AddButton from "../AddButton";
+import ElementDropdown from "./ElementDropdown";
+import ElementTag from "./ElementTag";
+import MoreButton from "./MoreButton";
 
-const Elements = ({ currentElements, handleClick }) => {
-  let elements = [
-    {
-      element: "Non-elemental",
-      color: "#FFFFFF",
-    },
-    {
-      element: "Incendiary",
-      color: "#d88600",
-    },
-    {
-      element: "Shock",
-      color: "#00A3D8",
-    },
-    {
-      element: "Corrosive",
-      color: "#7ecb40",
-    },
-    {
-      element: "Cryo",
-      color: "#78CAD2",
-    },
-    {
-      element: "Radiation",
-      color: "#dddd00",
-    },
-  ];
+const Elements = ({}) => {
+  const [elements, setElements] = useState(false);
+  const [elementsShows, setElementsShows] = useState("");
+  useEffect(() => {
+    if (elements.length > 0 && elementsShows === "selected") {
+      setElementsShows("more");
+      return;
+    } else if (elements === true) {
+      setElementsShows("dropdown");
+      return;
+    } else if (elements.length > 0 && elementsShows === "more") {
+      setElementsShows("selected");
+      return;
+    } else {
+      setElementsShows("");
+      return;
+    }
+  }, [elements, elementsShows]);
 
-  if (currentElements && currentElements !== true) {
-    console.log(currentElements);
-    let remainingElements = elements.filter((element) => {
-      for (let i = 0; i < currentElements.length; i++) {
-        let filter = currentElements[i].split(" ");
-        return element.element !== filter[0];
-      }
-    });
-    elements = remainingElements;
+  function handleElements(e) {
+    e.target.id === "add"
+      ? setElements(true)
+      : e.target.id === "select"
+      ? pushElement(e.target.value)
+      : e.target.id === "more"
+      ? setElementsShows("more")
+      : setElements(false);
   }
-  const Element = ({ element, color }) => {
-    return (
-      <option style={{ color: color }} value={element + " " + color}>
-        {element}
-      </option>
-    );
-  };
+
+  function pushElement(element) {
+    if (elements === true) {
+      let newElement = [];
+      newElement.push(element);
+      setElements(newElement);
+    } else {
+      elements.push(element);
+      setElements(elements);
+    }
+    setElementsShows("selected");
+  }
   return (
-    <div className={"field is-horizontal level-item "}>
-      <div className={"field-body"}>
-        <div className={"field"}>
-          <div className={"control"}>
-            <div className={"select"}>
-              <select id={"select"} onChange={handleClick}>
-                <option value={""}>Element?</option>
-                {elements.map((element, i) => (
-                  <Element
-                    key={i}
-                    element={element.element}
-                    color={element.color}
-                  />
-                ))}
-              </select>
-            </div>
-          </div>
+    <>
+      {elementsShows === "dropdown" && (
+        <ElementDropdown
+          handleClick={handleElements}
+          currentElements={elements}
+        />
+      )}
+      {elementsShows === "selected" && (
+        <MoreButton handleClick={handleElements} />
+      )}
+      {elementsShows === "more" && (
+        <ElementDropdown
+          handleClick={handleElements}
+          currentElements={elements}
+        />
+      )}
+      {!elementsShows && <AddButton handleClick={handleElements} />}
+      {elements.length > 0 && elementsShows !== false && (
+        <div className={"content"}>
+          {elements.map((element, i) => (
+            <ElementTag
+              key={i}
+              element={element}
+              handleClick={handleElements}
+            />
+          ))}
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
+
 export default Elements;
