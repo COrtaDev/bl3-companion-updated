@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import LevelSelector from "./levels/LevelSelector";
+import Levels from "./levels/Levels";
 import Mayhem from "./mayhem/Mayhem";
 import Location from "./location/Location";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -189,34 +189,35 @@ const AdditionalData = () => {
         <tbody>
           <tr>
             <td>
-              {levelShows === "dropdown" && (
-                <LevelSelector handleLevel={handleLevel} />
+              <Levels />
+              {/* {levelShows === "dropdown" && (
+                <Levels handleLevel={handleLevel} />
               )}
               {levelShows === "selected" && (
                 <Detail detail={level} handleClick={handleLevel} />
               )}
-              {!levelShows && <AddButton handleClick={handleLevel} />}
+              {!levelShows && <AddButton handleClick={handleLevel} />} */}
             </td>
             <td>
-              {mayhemShows === "dropdown" && (
+              {/* {mayhemShows === "dropdown" && (
                 <Mayhem handleMayhem={handleMayhem} />
               )}
               {mayhemShows === "selected" && (
                 <Detail detail={mayhem} handleClick={handleMayhem} />
               )}
-              {!mayhemShows && <AddButton handleClick={handleMayhem} />}
+              {!mayhemShows && <AddButton handleClick={handleMayhem} />} */}
             </td>
             <td>
-              {locationShows === "dropdown" && (
+              {/* {locationShows === "dropdown" && (
                 <Location handleLocation={handleLocation} />
               )}
               {locationShows === "selected" && (
                 <Detail detail={location} handleClick={handleLocation} />
               )}
-              {!locationShows && <AddButton handleClick={handleLocation} />}
+              {!locationShows && <AddButton handleClick={handleLocation} />} */}
             </td>
             <td>
-              {elementsShows === "dropdown" && (
+              {/* {elementsShows === "dropdown" && (
                 <Elements
                   handleClick={handleElements}
                   currentElements={elements}
@@ -242,7 +243,7 @@ const AdditionalData = () => {
                     />
                   ))}
                 </div>
-              )}
+              )} */}
             </td>
           </tr>
         </tbody>
