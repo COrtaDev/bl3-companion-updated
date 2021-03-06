@@ -1,8 +1,7 @@
 import React from "react";
 
 const Elements = ({ currentElements, handleClick }) => {
-  console.log(currentElements);
-  const elements = [
+  let elements = [
     {
       element: "Non-elemental",
       color: "#FFFFFF",
@@ -29,6 +28,16 @@ const Elements = ({ currentElements, handleClick }) => {
     },
   ];
 
+  if (currentElements && currentElements !== true) {
+    console.log(currentElements);
+    let remainingElements = elements.filter((element) => {
+      for (let i = 0; i < currentElements.length; i++) {
+        let filter = currentElements[i].split(" ");
+        return element.element !== filter[0];
+      }
+    });
+    elements = remainingElements;
+  }
   const Element = ({ element, color }) => {
     return (
       <option style={{ color: color }} value={element + " " + color}>

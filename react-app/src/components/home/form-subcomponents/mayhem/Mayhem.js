@@ -1,26 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import LevelTag from "../LevelTag";
+import MayhemDropdown from "./MayhemDropdown";
+import AddButton from "../AddButton";
 
-const Mayhem = ({ handleMayhem }) => {
-  const mayhem = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const Mayhem = ({}) => {
+  const [mayhem, setMayhem] = useState(false);
+  const [mayhemShows, setMayhemShows] = useState("");
+
+  useEffect(() => {
+    if (mayhem === true) {
+      setMayhemShows("dropdown");
+    } else if (mayhem >= 1 && mayhem !== true) {
+      setMayhemShows("selected");
+    } else {
+      setMayhemShows("");
+    }
+  }, [mayhem, mayhemShows]);
+
+  function handleMayhem(e) {
+    e.target.id === "add"
+      ? setMayhem(true)
+      : e.target.id === "select"
+      ? setMayhem(e.target.value)
+      : setMayhem(false);
+  }
+
   return (
-    <div className={"field is-horizontal level-item "}>
-      <div className={"field-body"}>
-        <div className={"field"}>
-          <div className={"control"}>
-            <div className={"select"}>
-              <select id={"select"} onChange={handleMayhem}>
-                <option value={""}>Level?</option>
-                {mayhem.map((level) => (
-                  <option key={level} value={level}>
-                    {level}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <>
+      {mayhemShows === "dropdown" && (
+        <MayhemDropdown handleMayhem={handleMayhem} />
+      )}
+      {mayhemShows === "selected" && (
+        <LevelTag level={mayhem} handleClick={handleMayhem} />
+      )}
+      {!mayhemShows && <AddButton handleClick={handleMayhem} />}
+    </>
   );
 };
 
