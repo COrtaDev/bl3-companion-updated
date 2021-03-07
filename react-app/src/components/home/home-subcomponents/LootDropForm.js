@@ -4,7 +4,7 @@ import AdditionalData from "../form-subcomponents/AdditionalData";
 import ItemDropDown from "./ItemDropDown";
 import LootImage from "./LootImage";
 
-const LootDropForm = ({ hideForm }) => {
+const LootDropForm = ({ hideForm, growButton }) => {
   const [imgUrl, setImgUrl] = useState("");
   const [itemUrl, setItemUrl] = useState("");
   const [loot, setLoot] = useState(false);
@@ -68,6 +68,7 @@ const LootDropForm = ({ hideForm }) => {
     setSelectedLoot("");
     setActive("");
     hideForm();
+    growButton();
     setReset(false);
   };
 
@@ -92,7 +93,7 @@ const LootDropForm = ({ hideForm }) => {
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
         <>
-          <LootImage imgUrl={imgUrl} itemUrl={itemUrl} />
+          <LootImage imgUrl={imgUrl} itemUrl={itemUrl} selectedLoot={selectedLoot} />
           <nav id={"loot-name"} className={"level mb-0"}>
             <p className={"level-item has-text-centered"}>
               <span className={"mb-0 is-size-3 has-text-weight-semibold"}>
@@ -114,7 +115,7 @@ const LootDropForm = ({ hideForm }) => {
             select={select}
           />
         )}
-        {loot && <AdditionalData saveLoot={saveLoot}/>}
+        {loot && <AdditionalData saveLoot={saveLoot} />}
       </div>
 
       {loot && (

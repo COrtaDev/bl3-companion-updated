@@ -59,6 +59,7 @@ const Home = ({ user }) => {
               )}
               {showForm && (
                 <LootDropForm
+                  growButton={growButton}
                   hideForm={() => {
                     setShowButton(true);
                     setShowForm(false);
