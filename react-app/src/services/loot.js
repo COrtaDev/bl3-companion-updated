@@ -1,8 +1,6 @@
 import wiki from "wikijs";
 
 export const getLootInfo = async (itemName) => {
-  //TODO: define this API call:
-  //!It needs to get the corresponding loot data from the table then we can play with it in the app.
   let apiEndpoint;
   const fandomWiki = await wiki({
     apiUrl: "https://Borderlands.wikia.com/api.php",
@@ -36,8 +34,33 @@ function updateItemName(itemName) {
 const apiEndpoints = {
   Epicenter: "Epicenter_(grenade_mod)",
   Techspert: "Techspert_(class_mod)",
+  "Embrace the Pain": "Embrace_the_Pain_(assault_rifle)",
 };
-
+export const saveLootDrop = async (
+  user,
+  itemName,
+  level,
+  mayhem,
+  location,
+  elements
+) => {
+  //define function call to API here:
+  const response = await fetch("/api/loot/new", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      user,
+      itemName,
+      level,
+      mayhem,
+      location,
+      elements,
+    }),
+  });
+  return await response.json();
+};
 export const loot = [
   {
     id: 1,

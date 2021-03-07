@@ -6,14 +6,14 @@ import LeftSidebarMenu from "./main-subcomponents/LeftSidebarMenu";
 import CenterContent from "./main-subcomponents/CenterContent";
 
 import "../../styles/css/main.css";
-import Tutorial from "../tutorial/Tutorial";
+
 
 const Main = ({ logout, user }) => {
   const [justifyContent, setJustifyContent] = useState(
     "is-justify-content-center"
   );
   const [paddingLeft, setPaddingLeft] = useState("pl-4");
-  const [modalState, setModalState] = useState("");
+
 
   useEffect(() => {
     window.addEventListener("resize", (event) => {

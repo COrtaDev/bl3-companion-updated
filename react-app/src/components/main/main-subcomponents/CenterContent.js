@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import RightSidebarMenu from "../main-subcomponents/RightSidebarMenu";
 import Content from "../../content/Content";
 
 const CenterContent = ({ user }) => {
