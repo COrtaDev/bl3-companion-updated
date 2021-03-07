@@ -35,6 +35,8 @@ const apiEndpoints = {
   Epicenter: "Epicenter_(grenade_mod)",
   Techspert: "Techspert_(class_mod)",
   "Embrace the Pain": "Embrace_the_Pain_(assault_rifle)",
+  Hornet: "Hornet_(Borderlands_3)",
+  "Gatling Gun": "Gatling_Gun_(Borderlands_3)",
 };
 export const saveLootDrop = async (
   user,

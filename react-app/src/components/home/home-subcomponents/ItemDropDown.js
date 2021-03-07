@@ -12,6 +12,7 @@ const ItemDropDown = ({
   selectedLoot,
   select,
 }) => {
+  console.log(selectedLoot);
   return (
     <div className={"field has-addons has-addons-centered"}>
       <div className={"control is-expanded"}>

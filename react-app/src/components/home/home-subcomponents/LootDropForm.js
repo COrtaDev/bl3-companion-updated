@@ -36,6 +36,7 @@ const LootDropForm = ({ hideForm, growButton }) => {
   ]);
 
   const getInfo = async (selectedLoot) => {
+    console.log(selectedLoot);
     if (!selectedLoot) {
       return window.alert("Select Loot!");
     } else {
@@ -88,12 +89,18 @@ const LootDropForm = ({ hideForm, growButton }) => {
       }
     })();
   };
-
+  console.log(selectedLoot);
+  console.log(imgUrl);
+  console.log(itemUrl);
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
         <>
-          <LootImage imgUrl={imgUrl} itemUrl={itemUrl} selectedLoot={selectedLoot} />
+          <LootImage
+            imgUrl={imgUrl}
+            itemUrl={itemUrl}
+            selectedLoot={selectedLoot}
+          />
           <nav id={"loot-name"} className={"level mb-0"}>
             <p className={"level-item has-text-centered"}>
               <span className={"mb-0 is-size-3 has-text-weight-semibold"}>
