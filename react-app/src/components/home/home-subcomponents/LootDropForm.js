@@ -36,12 +36,12 @@ const LootDropForm = ({ hideForm, growButton }) => {
   ]);
 
   const getInfo = async (selectedLoot) => {
-    console.log(selectedLoot);
     if (!selectedLoot) {
       return window.alert("Select Loot!");
     } else {
       const urls = await getLootInfo(selectedLoot);
       const { imgs, itemUrl } = urls;
+      console.log(imgs);
       if (imgs.length > 1) {
         setItemUrl(itemUrl);
         return setImgUrl(imgs[imgs.length - 1]);
