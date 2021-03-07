@@ -4,7 +4,7 @@ import Mayhem from "./mayhem/Mayhem";
 import Locations from "./location/Locations";
 import Elements from "./elements/Elements";
 
-const AdditionalData = ({ saveLoot }) => {
+const AdditionalData = ({}) => {
   return (
     <>
       <nav className={"level mb-0"}>
