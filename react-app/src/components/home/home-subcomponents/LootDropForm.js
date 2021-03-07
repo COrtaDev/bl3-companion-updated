@@ -89,9 +89,7 @@ const LootDropForm = ({ hideForm, growButton }) => {
       }
     })();
   };
-  console.log(selectedLoot);
-  console.log(imgUrl);
-  console.log(itemUrl);
+
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
