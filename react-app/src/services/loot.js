@@ -35,6 +35,16 @@ const apiEndpoints = {
   Epicenter: "Epicenter_(grenade_mod)",
   Techspert: "Techspert_(class_mod)",
   "Embrace the Pain": "Embrace_the_Pain_(assault_rifle)",
+  Hornet: "Hornet_(Borderlands_3)",
+  "Gatling Gun": "Gatling_Gun_(Borderlands_3)",
+  "Pain is Power": "Pain_is_Power_(assault_rifle)",
+  Sawbar: "Sawbar_(Borderlands_3)",
+  Barrage: "Barrage_(assault_rifle)",
+  Nemesis: "Nemesis_(Borderlands_3)",
+  Boomer: "Boomer_(SMG)",
+  Hellfire: "Hellfire_(Borderlands_3)",
+  Vanquisher: "Vanquisher_(Borderlands_3)",
+  "Sand Hawk": "Sand_Hawk_(Borderlands_3)",
 };
 export const saveLootDrop = async (
   user,

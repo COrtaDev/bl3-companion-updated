@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import AddButton from "../AddButton";
 import ElementDropdown from "./ElementDropdown";
 import ElementTag from "./ElementTag";
-// import MoreButton from "./MoreButton";
 
 const Elements = ({}) => {
   const [elements, setElements] = useState(false);

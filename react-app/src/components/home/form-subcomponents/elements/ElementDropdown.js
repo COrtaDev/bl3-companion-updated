@@ -2,14 +2,15 @@ import React from "react";
 import { allElements } from "./elements-subcomponents/elements";
 
 const ElementDropdown = ({ currentElements, handleClick }) => {
+  let elements = allElements;
   if (currentElements && currentElements !== true) {
-    let remainingElements = allElements.filter((element) => {
+    let remainingElements = elements.filter((element) => {
       for (let i = 0; i < currentElements.length; i++) {
         let filter = currentElements[i].split(" ");
         return element.element !== filter[0];
       }
     });
-    allElements = remainingElements;
+    elements = remainingElements;
   }
   const Element = ({ element, color }) => {
     return (
@@ -26,7 +27,7 @@ const ElementDropdown = ({ currentElements, handleClick }) => {
             <div className={"select"}>
               <select id={"select"} onChange={handleClick}>
                 <option value={""}>Element?</option>
-                {allElements.map((element, i) => (
+                {elements.map((element, i) => (
                   <Element
                     key={i}
                     element={element.element}
@@ -42,30 +43,3 @@ const ElementDropdown = ({ currentElements, handleClick }) => {
   );
 };
 export default ElementDropdown;
-
-// let elements = [
-//   {
-//     element: "Non-elemental",
-//     color: "#FFFFFF",
-//   },
-//   {
-//     element: "Incendiary",
-//     color: "#d88600",
-//   },
-//   {
-//     element: "Shock",
-//     color: "#00A3D8",
-//   },
-//   {
-//     element: "Corrosive",
-//     color: "#7ecb40",
-//   },
-//   {
-//     element: "Cryo",
-//     color: "#78CAD2",
-//   },
-//   {
-//     element: "Radiation",
-//     color: "#dddd00",
-//   },
-// ];

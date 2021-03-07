@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 const Notification = ({ itemUrl, selectedLoot }) => {
   const [textHidden, setTextHidden] = useState("is-hidden");
   const [page, setPage] = useState("");
-  console.log(page);
+
   var textTimeoutID;
 
   useEffect(() => {

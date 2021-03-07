@@ -41,6 +41,7 @@ const LootDropForm = ({ hideForm, growButton }) => {
     } else {
       const urls = await getLootInfo(selectedLoot);
       const { imgs, itemUrl } = urls;
+      console.log(imgs);
       if (imgs.length > 1) {
         setItemUrl(itemUrl);
         return setImgUrl(imgs[imgs.length - 1]);
@@ -93,7 +94,11 @@ const LootDropForm = ({ hideForm, growButton }) => {
     <div id={"loot-drop-card"} className={`card animatedCard`}>
       {loot && (
         <>
-          <LootImage imgUrl={imgUrl} itemUrl={itemUrl} selectedLoot={selectedLoot} />
+          <LootImage
+            imgUrl={imgUrl}
+            itemUrl={itemUrl}
+            selectedLoot={selectedLoot}
+          />
           <nav id={"loot-name"} className={"level mb-0"}>
             <p className={"level-item has-text-centered"}>
               <span className={"mb-0 is-size-3 has-text-weight-semibold"}>
