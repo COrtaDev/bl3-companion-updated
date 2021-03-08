@@ -17,14 +17,12 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
   }, [loginState, signupState, activeTab]);
 
   return (
-    <div className={"tabs fulltabs is-boxed is-medium"}>
-      <ul>
+    <div className={"tabs fulltabs is-boxed is-medium is-size-1-mobile"}>
+      <ul className={"is-size-2-mobile is-size-2-tablet"}>
         <li className={loginState}>
           <a onClick={() => makeActive()} href={"#/"}>
             <span className={"icon is-small"}>
-              {/* <i aria-hidden={true}> */}
               <FontAwesomeIcon aria-hidden={true} icon={faSignInAlt} />
-              {/* </i> */}
             </span>
             <span>Login</span>
           </a>
@@ -32,9 +30,7 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
         <li className={signupState}>
           <a onClick={() => makeActive()} href={"#/"}>
             <span className={"icon is-small"}>
-              {/* <i aria-hidden={true}> */}
               <FontAwesomeIcon aria-hidden={true} icon={faUserPlus} />
-              {/* </i> */}
             </span>
             <span>Sign Up</span>
           </a>
