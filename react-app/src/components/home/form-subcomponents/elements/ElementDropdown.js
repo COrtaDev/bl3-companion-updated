@@ -1,8 +1,8 @@
 import React from "react";
 import { allElements } from "./elements-subcomponents/elements";
 
+let elements = allElements;
 const ElementDropdown = ({ currentElements, handleClick }) => {
-  let elements = allElements;
   if (currentElements && currentElements !== true) {
     let remainingElements = elements.filter((element) => {
       for (let i = 0; i < currentElements.length; i++) {

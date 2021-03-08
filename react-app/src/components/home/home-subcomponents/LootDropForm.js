@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { getLootInfo, saveLootDrop } from "../../../services/loot";
 import AdditionalData from "../form-subcomponents/AdditionalData";
 import ItemDropDown from "./ItemDropDown";
@@ -13,6 +13,28 @@ const LootDropForm = ({ hideForm, growButton }) => {
   const [selectedLoot, setSelectedLoot] = useState("");
   const [active, setActive] = useState("");
   const [reset, setReset] = useState(false);
+
+  const handleReset = useCallback(() => {
+    setImgUrl("");
+    setItemUrl("");
+    setLoot(false);
+    setContentPadding("");
+    setItemName("");
+    setSelectedLoot("");
+    setActive("");
+    hideForm();
+    growButton();
+    setReset(false);
+  }, [
+    imgUrl,
+    itemUrl,
+    loot,
+    contentPadding,
+    itemName,
+    selectedLoot,
+    active,
+    reset,
+  ]);
 
   useEffect(() => {
     if (reset) {
@@ -33,6 +55,7 @@ const LootDropForm = ({ hideForm, growButton }) => {
     selectedLoot,
     active,
     reset,
+    handleReset,
   ]);
 
   const getInfo = async (selectedLoot) => {
@@ -41,7 +64,6 @@ const LootDropForm = ({ hideForm, growButton }) => {
     } else {
       const urls = await getLootInfo(selectedLoot);
       const { imgs, itemUrl } = urls;
-      console.log(imgs);
       if (imgs.length > 1) {
         setItemUrl(itemUrl);
         return setImgUrl(imgs[imgs.length - 1]);
@@ -60,35 +82,24 @@ const LootDropForm = ({ hideForm, growButton }) => {
   };
 
   const deleteLoot = (e) => setReset(true);
-  const handleReset = () => {
-    setImgUrl("");
-    setItemUrl("");
-    setLoot(false);
-    setContentPadding("");
-    setItemName("");
-    setSelectedLoot("");
-    setActive("");
-    hideForm();
-    growButton();
-    setReset(false);
-  };
 
-  const saveLoot = (e, user, itemName, level, mayhem, location, elements) => {
-    e.preventDefault();
-    e.stopPropagation()(async () => {
-      const res = await saveLootDrop(
-        user,
-        itemName,
-        level,
-        mayhem,
-        location,
-        elements
-      );
-      if (res.ok) {
-        setReset(true);
-      }
-    })();
-  };
+  // const saveLoot = (e, user, itemName, level, mayhem, location, elements) => {
+  // e.preventDefault();
+  // e.stopPropagation()(async () => {
+  //   const res = await saveLootDrop(
+  //     user,
+  //     itemName,
+  //     level,
+  //     mayhem,
+  //     location,
+  //     elements
+  //   );
+  //   if (res.ok) {
+  //     setReset(true);
+  //   }
+  // })();
+  // };
+  const saveLoot = () => window.alert("Coming Soon!");
 
   return (
     <div id={"loot-drop-card"} className={`card animatedCard`}>
@@ -120,7 +131,7 @@ const LootDropForm = ({ hideForm, growButton }) => {
             select={select}
           />
         )}
-        {loot && <AdditionalData saveLoot={saveLoot} />}
+        {loot && <AdditionalData />}
       </div>
 
       {loot && (
@@ -154,7 +165,6 @@ const LootDropForm = ({ hideForm, growButton }) => {
       )}
     </div>
   );
-  // }
 };
 
 export default LootDropForm;
