@@ -45,7 +45,7 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
         </p>
         <p className={"control  has-icons-left"}>
           <input
-            className={"input is-size-2-tablet is-size-2-mobile"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"email"}
             placeholder={"Email"}
             value={email}
@@ -53,7 +53,7 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
           />
           <span
             className={
-              "icon is-small is-size-2-tablet is-size-2-mobile is-left"
+              "icon is-small is-size-2-touch is-size-2-mobile is-left"
             }
           >
             <FontAwesomeIcon icon={faEnvelope} />
@@ -63,25 +63,25 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field"}>
         <p className={"control has-icons-left"}>
           <input
-            className={"input is-size-2-tablet is-size-2-mobile"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"password"}
             placeholder={"Password"}
             value={password}
             onChange={updatePassword}
           />
-          <span className={"icon is-small is-size-2-tablet is-size-2-mobile is-left"}>
+          <span className={"icon is-small is-size-2-touch is-size-2-mobile is-left"}>
             <FontAwesomeIcon icon={faLock} />
           </span>
         </p>
       </div>
       <div className={"field is-grouped"}>
         <div className={"control"}>
-          <button className={"button is-primary is-size-2-tablet is-size-2-mobile"} onClick={setDemoUser}>
+          <button className={"button is-primary is-size-2-touch is-size-2-mobile"} onClick={setDemoUser}>
             Login With Demo User
           </button>
         </div>
         <div className={"control"}>
-          <button className={"button is-link has-text-black is-size-2-tablet is-size-2-mobile"} type={"submit"}>
+          <button className={"button is-link has-text-black is-size-2-touch is-size-2-mobile"} type={"submit"}>
             Login
           </button>
         </div>
