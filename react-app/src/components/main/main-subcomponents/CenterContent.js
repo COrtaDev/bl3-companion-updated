@@ -80,6 +80,7 @@ const CenterContent = ({ user }) => {
       <Switch>
         <>
           <main
+            id={"main"}
             className={
               "is-flex is-flex-direction-row is-justify-content-center"
             }

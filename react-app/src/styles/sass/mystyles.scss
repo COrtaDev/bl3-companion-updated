@@ -142,6 +142,7 @@ $link-hover-border: $Gold;
 $link-focus: $Smoke;
 $link-focus-border: $Gold;
 
+$tablet: 812px;
 // $link-active: $Smoke-dark;
 // $link-active-border: $Gold;
 
@@ -151,4 +152,3 @@ $body-font-size: 1.2rem !default;
 $modal-background-background-color: rgba(102, 2, 0, 0.2);
 
 @import "../../../node_modules/bulma/bulma.sass";
-

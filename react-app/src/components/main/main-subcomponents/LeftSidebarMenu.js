@@ -77,11 +77,11 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
               <a href={"/#"}>Logo</a>
             </li>
           </ul>
-          <ul className={"menu-list is-size-4 pr-2"}>
+          <ul className={"menu-list is-size-4  pr-2"}>
             <li className={"level mb-0"}>
               <Link
                 to={"/home"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${homeActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${homeActive} is-size-2-tablet-only`}
               >
                 <FontAwesomeIcon icon={faCaravan} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
@@ -92,7 +92,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             <li className={"level mb-0"}>
               <Link
                 to={"/likes"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${likesActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${likesActive} is-size-2-tablet-only`}
               >
                 <FontAwesomeIcon icon={faBomb} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
@@ -103,7 +103,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             <li className={"level mb-0"}>
               <Link
                 to={"/comments"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${commentsActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${commentsActive} is-size-2-until-widescreen`}
               >
                 <FontAwesomeIcon icon={faCommentDollar} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
@@ -114,7 +114,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             <li className={"level mb-0"}>
               <Link
                 to={"/follows"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${followsActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${followsActive} is-size-2-until-widescreen`}
               >
                 <FontAwesomeIcon icon={faUserSecret} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
@@ -125,7 +125,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             <li className={"level mb-0"}>
               <Link
                 to={"/profile"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${profileActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${profileActive} is-size-2-tablet-only`}
               >
                 <FontAwesomeIcon icon={faPiggyBank} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
@@ -136,7 +136,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
             <li className={"level mb-0"}>
               <Link
                 to={"tutorial"}
-                className={`level-left is-flex has-text-link button is-rounded is-large ${tutorialActive}`}
+                className={`level-left is-flex has-text-link button is-rounded is-large ${tutorialActive} is-size-2-tablet-only`}
               >
                 <FontAwesomeIcon icon={faCrosshairs} opacity="1" />
                 <p id={"sidenav"} className={"ml-3 mr-2"}>
