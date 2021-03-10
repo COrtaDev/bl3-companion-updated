@@ -9,3 +9,26 @@ a.button.is-rounded.is-active {
     display: none;
   }
 }
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+  div#main-app.is-flex {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+  }
+  section#left-sidenav-menu.hero {
+    padding-left: 0em !important;
+  }
+  section#left-sidenav-menu.hero > div {
+    padding-left: 0em !important;
+  }
+  section#left-sidenav-menu.hero ~ ul {
+    font-size: 5rem !important;
+  }
+}
