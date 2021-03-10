@@ -18,7 +18,7 @@ const LoginSignUpCardTabs = ({ activeTab, makeActive }) => {
 
   return (
     <div className={"tabs fulltabs is-boxed is-medium is-size-1-mobile"}>
-      <ul className={"is-size-2-mobile-only is-size-2-tablet-only"}>
+      <ul className={"is-size-2-mobile-only is-size-2-touch"}>
         <li className={loginState}>
           <a onClick={() => makeActive()} href={"#/"}>
             <span className={"icon is-small"}>

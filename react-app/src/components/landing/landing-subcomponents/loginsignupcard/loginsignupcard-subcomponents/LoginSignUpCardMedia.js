@@ -7,7 +7,7 @@ const LoginSignUpCardMedia = ({ activeTab, authenticated, setAuthenticated }) =>
     return (
       <article className={"media"}>
         <div className={"media-content"}>
-          <div className={"content has-text-centered"}>
+          <div className={"content has-text-centered is-size-2-touch"}>
             <h6 >Welcome back traveler!</h6>
             Please login to see your loot drops!<br></br>
             <strong >OR</strong><br></br>

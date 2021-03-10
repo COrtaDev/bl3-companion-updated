@@ -49,7 +49,14 @@ button#modal-close-button::before {
   background-color: rgb(246, 238, 20);
 }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+/* ----------- iPhone X ----------- */
+
+/* Portrait and Landscape */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) { 
   div#main-app.is-flex {
     display: flex !important;
     flex-direction: row !important;
@@ -64,11 +71,4 @@ button#modal-close-button::before {
   section#left-sidenav-menu.hero ~ ul {
     font-size: 5rem !important;
   }
-  /* main#main.is-flex {
-    width: 100% !important;
-  } */
-  /* section#main-header {
-    min-width: 100%;
-    border-bottom: 1px solid rgba(102, 2, 0, 0.5);
-  } */
 }
