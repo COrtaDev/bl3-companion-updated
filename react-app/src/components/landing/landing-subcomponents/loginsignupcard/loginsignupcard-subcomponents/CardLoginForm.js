@@ -37,21 +37,21 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
   }
   return (
     <form onSubmit={onLogin}>
-      <div className={"field"}>
+      <div className={"field "}>
         <p className={"help is-danger"}>
           {errors.map((error) => (
             <div>{error}</div>
           ))}
         </p>
-        <p className={"control has-icons-left"}>
+        <p className={"control  has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch "}
             type={"email"}
             placeholder={"Email"}
             value={email}
             onChange={updateEmail}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch  is-left"}>
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
         </p>
@@ -59,25 +59,31 @@ const CardLoginForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field"}>
         <p className={"control has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch "}
             type={"password"}
             placeholder={"Password"}
             value={password}
             onChange={updatePassword}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch  is-left"}>
             <FontAwesomeIcon icon={faLock} />
           </span>
         </p>
       </div>
       <div className={"field is-grouped"}>
         <div className={"control"}>
-          <button className={"button is-primary"} onClick={setDemoUser}>
+          <button
+            className={"button is-primary is-size-2-touch "}
+            onClick={setDemoUser}
+          >
             Login With Demo User
           </button>
         </div>
         <div className={"control"}>
-          <button className={"button is-link has-text-black"} type={"submit"}>
+          <button
+            className={"button is-link has-text-black is-size-2-touch "}
+            type={"submit"}
+          >
             Login
           </button>
         </div>

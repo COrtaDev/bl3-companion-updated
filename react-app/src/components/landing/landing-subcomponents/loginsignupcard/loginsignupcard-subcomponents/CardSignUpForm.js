@@ -60,13 +60,13 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
         </p>
         <p className={"control has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"text"}
             placeholder={"Enter Username"}
             onChange={updateUsername}
             value={username}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch is-size-2-mobile is-left"}>
             <FontAwesomeIcon icon={faUser} />
           </span>
         </p>
@@ -74,13 +74,13 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field"}>
         <p className={"control has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"email"}
             placeholder={"Email"}
             onChange={updateEmail}
             value={email}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch is-size-2-mobile is-left"}>
             <FontAwesomeIcon icon={faEnvelope} />
           </span>
         </p>
@@ -88,13 +88,13 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field"}>
         <p className={"control has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"password"}
             placeholder={"Password"}
             onChange={updatePassword}
             value={password}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch is-size-2-mobile is-left"}>
             <FontAwesomeIcon icon={faLock} />
           </span>
         </p>
@@ -102,27 +102,27 @@ const CardSignUpForm = ({ authenticated, setAuthenticated }) => {
       <div className={"field"}>
         <p className={"control has-icons-left"}>
           <input
-            className={"input"}
+            className={"input is-size-2-touch is-size-2-mobile"}
             type={"password"}
             placeholder={"Confirm Password"}
             onChange={updateRepeatPassword}
             value={repeatPassword}
             required={true}
           />
-          <span className={"icon is-small is-left"}>
+          <span className={"icon is-small is-size-2-touch is-size-2-mobile is-left"}>
             <FontAwesomeIcon icon={faLock} />
           </span>
         </p>
       </div>
       <div className={"field is-grouped"}>
         <div className={"control"}>
-          <button className={"button is-primary"} type={"submit"}>
+          <button className={"button is-primary is-size-2-touch is-size-2-mobile"} type={"submit"}>
             Sign Up
           </button>
         </div>
         <div className={"control"}>
           <button
-            className={"button is-link has-text-black"}
+            className={"button is-link has-text-black is-size-2-touch is-size-2-mobile"}
             onClick={resetForm}
           >
             Reset

@@ -90,3 +90,42 @@ img#imgRed {
     opacity: 1;
   }
 }
+
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3) {
+  img#imgCenter {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    object-position: 23% 0;
+    z-index: -2;
+    animation: 3s ease-in-out 3s infinite alternate slidein;
+  }
+  img#imgYellow {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    object-position: 23% 0;
+    z-index: -3;
+    animation: 16s ease-in-out infinite alternate hideYellow;
+  }
+  img#imgRed {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    object-position: 23% 0;
+    z-index: -3;
+    animation: 16s ease-in-out infinite alternate hideRed;
+  }
+  /* div#landing-card.card {
+    flex: none !important;
+  } */
+}
