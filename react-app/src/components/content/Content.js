@@ -18,6 +18,7 @@ const Content = ({ title, feed, user, showTutorial }) => {
   return (
     <>
       {showTutorial && <Tutorial />}
+
       <Header title={title} user={user} />
       <SubHeader user={user} activeTab={activeTab} makeActive={toggleFeed} />
       <Feed feed={feed} user={user} activeTab={activeTab} />

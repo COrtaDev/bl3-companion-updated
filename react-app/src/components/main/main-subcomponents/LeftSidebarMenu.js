@@ -71,7 +71,7 @@ const LeftSidebarMenu = ({ logout, paddingLeft, active }) => {
         style={{ height: "100%" }}
         className={`is-flex is-flex-direction-column is-align-content-stretch is-justify-content-space-between ${paddingLeft}`}
       >
-        <div className={"menu pl-4"}>
+        <div className={"menu pl-4 is-align-self-center"}>
           <ul className={"menu-list is-size-4 is-size-2-touch"}>
             <li>
               <a href={"/#"}>Logo</a>

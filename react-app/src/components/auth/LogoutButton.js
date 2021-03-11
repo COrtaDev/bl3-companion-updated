@@ -14,7 +14,7 @@ const LogoutButton = ({ user, setAuthenticated }) => {
 
   return (
     <button
-      className={"button is-success has-text-primary is-fullwidth"}
+      className={"button is-success has-text-primary is-fullwidth "}
       onClick={onLogout}
     >
       Logout {!currentUser ? "" : currentUser.userName}

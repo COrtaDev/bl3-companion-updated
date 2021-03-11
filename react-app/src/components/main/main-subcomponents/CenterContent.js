@@ -87,7 +87,7 @@ const CenterContent = ({ user }) => {
           >
             <section
               className={
-                "is-flex is-flex-direction-column is-align-items-center"
+                "is-flex is-flex-direction-column is-touch is-align-items-center "
               }
             >
               {routes.map((route, i) => (
