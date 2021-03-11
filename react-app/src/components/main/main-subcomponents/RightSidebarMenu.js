@@ -19,7 +19,7 @@ const RightSidebarMenu = () => {
 
   return (
     <>
-      <aside id={"right-sidenavbar"} className={"menu "}>
+      <aside id={"right-sidenavbar"} className={"menu is-hidden-touch"}>
         <div id={"iframe-container"} className={"iframe-container ml-2 mt-2"}>
           <iframe
           title={"discord"}
